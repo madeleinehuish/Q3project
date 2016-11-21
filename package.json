@@ -1,20 +1,35 @@
 {
-  "name": "Q3Project",
-  "version": "1.0.0",
+  "name": "",
+  "version": "0.1.0",
+  "author": "",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/madeleinehuish/Q3project.git"
+    "url": ""
   },
-  "keywords": [],
-  "author": "Madeleine Huish <madeleinehuish@gmail.com>, Rachelle Rathbone <rachellerathbone@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/madeleinehuish/Q3project/issues"
+  "scripts": {
+    "deploy": "rm -rf public; brunch build --production; surge public",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public",
+    "start": "brunch watch --server"
   },
-  "homepage": "https://github.com/madeleinehuish/Q3project#readme"
+  "dependencies": {
+    "normalize.css": "^4.2.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2.7.1",
+    "babel-brunch": "^6.0.6",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "brunch": "^2.8.2",
+    "clean-css-brunch": "^2.0.0",
+    "eslint": "^3.4.0",
+    "eslint-config-ryansobol": "^9.1.1",
+    "javascript-brunch": "^2.0.0",
+    "postcss-brunch": "^2.0.1",
+    "surge": "^0.18.0",
+    "uglify-js-brunch": "^2.0.1"
+  }
 }
