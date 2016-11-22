@@ -30,7 +30,6 @@ const Customer = React.createClass({
             <label>Company (optional)</label>
             <input type="text" name="company" />
             {/* Need to add to form: address, phone (optional) */}
-            {/* CHECKBOX: allow user to choose if they wish to save the information for next time */}
             {/* IF the user does decide to save the information for next time, where will this be saved if they don't have
             an account? Guessing it has something to do with cookies??? Need to talk to Ken about this. */}
             </form>

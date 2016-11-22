@@ -9,7 +9,6 @@ const Payment = React.createClass({
         <div id="payment-method">
           <form>
             {/* Need to create credit card form which will use Stripe API */}
-            {/* Feature creep: make credit card a radio button and add a PayPal radio button. It doesn't have to do anything. */}
           </form>
         </div>
 
