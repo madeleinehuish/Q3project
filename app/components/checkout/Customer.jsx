@@ -37,7 +37,7 @@ const Customer = React.createClass({
           </div>
 
           <div className="return">
-            <p><Link to='../../cart'>Return to Cart</Link></p>
+            <p><Link to='./cart'>Return to Cart</Link></p>
           </div>
       </section>
     )
