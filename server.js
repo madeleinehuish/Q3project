@@ -32,14 +32,14 @@ const path = require('path');
 
 app.use(express.static(path.join('public')));
 
-// CSRF protection
-app.use((req, res, next) => {
-  if (/json/.test(req.get('Accept'))) {
-    return next();
-  }
-
-  res.sendStatus(406);
-});
+// // CSRF protection
+// app.use((req, res, next) => {
+//   if (/json/.test(req.get('Accept'))) {
+//     return next();
+//   }
+//
+//   res.sendStatus(406);
+// });
 
 // const products = require('./routes/products');
 // const users = require('./routes/users');
@@ -51,8 +51,12 @@ app.use((req, res, next) => {
 // app.use(token);
 
 app.use((_req, res) => {
-  res.sendStatus(404);
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+// app.use((_req, res) => {
+//   res.sendStatus(404);
+// });
 
 // eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
