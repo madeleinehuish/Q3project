@@ -99,3 +99,15 @@ div#blurb.twelve.columns > div.six.columns > h3 {
 div#blurb.twelve.columns > div.six.columns > img {
   width: 40%;
 }
+
+/*------ PANEL -------*/
+/*div#panel > div.four.columns > div.hovereffect > a > img.img-responsive,
+div#panel > div.four.columns > div.four.columns > div.hovereffect > a > img.img-responsive {
+  width: 430px;
+  max-height: 379px;
+}*/
+
+div#panel > div.four.columns > a > img {
+  width: 438px;
+  max-height: 379px;
+}

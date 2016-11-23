@@ -23,13 +23,13 @@ const Home = React.createClass({
         <div className="twelve columns">
           <div id="panel">
             <div className="four columns">
-              <Link to='/guides'>Guides</Link>
+              <Link to='/guides'><img src="images/grooming.png" /></Link>
             </div>
             <div className="four columns">
-              <Link to='/products'>Products</Link>
+              <Link to='/products'><img src="images/beard-kit.jpg" /></Link>
             </div>
             <div className="four columns">
-              <Link to='/history'>History</Link>
+              <Link to='/history'><img src="images/history.jpg" /></Link>
             </div>
           </div>
         </div>
