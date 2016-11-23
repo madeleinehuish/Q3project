@@ -89,6 +89,10 @@ div.twelve.columns > a > button {
   font-weight: bolder;
 }
 
+div.twelve.columns > a > button:hover {
+  background-color: #000;
+}
+
 /*------ BLURB -------*/
 div#blurb.row {
   height: 400px;
@@ -191,7 +195,7 @@ footer, .push {
   height: 40px;
 }
 
-footer {
+/*footer {
   margin-top: 53px;
   background-color: #000;
   position: relative;
@@ -204,7 +208,7 @@ footer > div.twelve.columns {
   text-align: center;
   margin-top: 40px;
   font-size: 18px;
-}
+}*/
 
 /*Maddie's CSS, feel free to move this to organize it*/
 
