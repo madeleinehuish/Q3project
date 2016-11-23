@@ -79,6 +79,16 @@ div#hero > h1 {
   font-size: 8em;
 }
 
+div.twelve.columns > a > button {
+  width: 200px;
+  height: 50px;
+  border: 4px solid #a57967;
+  color: #a57967;
+  background-color: #fff;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
 /*------ BLURB -------*/
 div#blurb.row {
   height: 400px;
@@ -166,12 +176,32 @@ div#refined-quote.twelve.columns {
   color: #a57967;
 }
 
-/*------ INSTAGRAM -------*/
-div#instragram.twelve.columns {
+/*------ MAP -------*/
+/*div#map.twelve.columns {
+  height: 300px;
+}*/
+
+div#map.twelve.columns > img {
+  width: 100%;
   height: 400px;
 }
 
 /*--------------- FOOTER --------------*/
-.footer, .push {
-  height: 4em;
+footer, .push {
+  height: 40px;
+}
+
+footer {
+  margin-top: 53px;
+  background-color: #000;
+  position: relative;
+  height: 100px;
+  color: #a57967;
+}
+
+footer > div.twelve.columns {
+  position: absolute;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
 }

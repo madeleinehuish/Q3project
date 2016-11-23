@@ -8,6 +8,9 @@ const Home = React.createClass({
         <div id="hero">
           <h1>Refined</h1>
           {/* <Link to='/products'>Shop</Link> */}
+          <div className="twelve columns">
+            <Link to='/products'><button>SHOP</button></Link>
+          </div>
         </div>
 
         <div id="blurb" className="row">
@@ -53,9 +56,9 @@ const Home = React.createClass({
         </div>
 
         <div className="row">
-          <div id="instagram" className="twelve columns">
+          <div id="map" className="twelve columns">
             {/* <div > */}
-              <h4>Instagram images go here</h4>
+              <img src="images/map.png" />
               {/* State will change when user clicks on heart to like image */}
             {/* </div> */}
           </div>
