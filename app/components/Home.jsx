@@ -10,14 +10,30 @@ const Home = React.createClass({
           {/* <Link to='/products'>Shop</Link> */}
         </div>
 
-        <div className="twelve columns">
-          <div id="panel">
-            <Link to='/products'>Products</Link>
-            <Link to='/guides'>Guides</Link>
-            <Link to='/history'>History</Link>
+        <div id="blurb" className="twelve columns">
+          <div className="six columns">
+            <h3>A large variety of high quality products</h3>
+          </div>
+          <div className="six columns">
+            <img src="images/woodsman-beard-balm.png" />
+            <img src="images/woodsman-beard-oil.png" />
           </div>
         </div>
-        
+
+        <div className="twelve columns">
+          <div id="panel">
+            <div className="four columns">
+              <Link to='/guides'>Guides</Link>
+            </div>
+            <div className="four columns">
+              <Link to='/products'>Products</Link>
+            </div>
+            <div className="four columns">
+              <Link to='/history'>History</Link>
+            </div>
+          </div>
+        </div>
+
         <div id="refined-quote">
         </div>
 

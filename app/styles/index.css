@@ -76,3 +76,26 @@ div#hero > h1 {
   font-family: 'Rye';
   font-size: 8em;
 }
+
+/*------ BLURB -------*/
+div#blurb.twelve.columns {
+  height: 400px;
+  background-color: #000;
+}
+
+div#blurb.twelve.columns > div.six.columns {
+  margin-top: 5%;
+}
+
+div#blurb.twelve.columns > div.six.columns > h3 {
+  color: #a57967;
+  font-size: 30px;
+  line-height: 1.8;
+  width: 70%;
+    margin-left: 155px;
+    margin-top: 65px;
+}
+
+div#blurb.twelve.columns > div.six.columns > img {
+  width: 40%;
+}
