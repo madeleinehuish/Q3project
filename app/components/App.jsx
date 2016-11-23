@@ -15,6 +15,46 @@ import { Miss } from 'react-router';
 import React from 'react';
 
 const App = React.createClass({
+  getInitialState(){
+    return {
+      value: '',
+      inputValue: '',
+      signupFirstName: '',
+      signupLastName: '',
+      signupEmail: '',
+      signupPassword: ''
+
+    };
+  },
+
+  onFormChangeFirstName(event) {
+    this.setState({signupFirstName: event.target.value}, () => {
+      console.log(this.state.signupFirstName);
+    });
+  },
+
+  onFormChangeLastName(event) {
+    this.setState({signupLastName: event.target.value});
+    console.log(this.state.signupLastName);
+  },
+
+  onFormChangeEmail(event) {
+    this.setState({signupEmail: event.target.value}, () => {
+      console.log(this.state.signupEmail);
+    });
+  },
+
+  onFormChangePassword(event) {
+    this.setState({signupPassword: event.target.value}, () => {
+      console.log(this.state.signupPassword);
+    });
+  },
+
+  onSubmit(event) {
+    alert(this.state.signupFirstName + " " + this.state.signupLastName + " " + this.state.signupEmail + " " + this.state.signupPassword);
+    // event.preventDefault();
+  },
+
   render() {
     return (
       <BrowserRouter>
@@ -35,6 +75,24 @@ const App = React.createClass({
           <Match pattern="/signup" exactly render={
             () => <Signup
             { ...this.state }
+            // onFirstNameInput={this.onFirstNameInput}
+            // onLastNameInput={this.onLastNameInput}
+            // onEmailInput={this.onEmailInput}
+            // onPasswordInput={this.onPasswordInput}
+            onSubmit={this.onSubmit}
+            inputValue={this.state.value}
+            onFormChangeFirstName={this.onFormChangeFirstName}
+            onFormChangeLastName={this.onFormChangeLastName}
+            onFormChangeEmail={this.onFormChangeEmail}
+            onFormChangePassword={this.onFormChangePassword}
+            signUpFirstName={this.state.signUpFirstName}
+            signUpLastName={this.state.signUpLastName}
+            signUpEmail={this.state.signUpEmail}
+            signUpPassword={this.state.signUpPassword}
+            // inputValueLastName={this.state.value.lastName}
+            // inputValueEmail={this.state.value.email}
+            // inputValuePassword={this.state.value.password}
+
 
             />
           }/>
