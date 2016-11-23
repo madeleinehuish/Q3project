@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  height: 100%;
   /*font-family: 'Maiden Orange', cursive;*/
   /*font-family: 'Oswald', sans-serif;*/
 }
@@ -14,7 +15,7 @@ ul {
   list-style-type: none;
 }
 
-/*------- NAVIGATION --------*/
+/*-------------- NAVIGATION -------------*/
 header {
   height: 50px;
   /*background-color: #71593a;*/
@@ -26,10 +27,6 @@ header > div.container {
   width: 100%;
   margin: 0;
 }
-
-/*div.twelve.columns {
-  margin-top: 7px;
-}*/
 
 div#logo.six.columns > a {
   margin-left: 25px;
@@ -56,9 +53,14 @@ nav.six.columns > ul > li {
 }
 
 /*-------- HOMEPAGE ---------*/
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
 
-
-/*-------- HERO ---------*/
+/*-------------- HERO --------------*/
 div#hero {
   width: 100%;
   height: 500px;
@@ -78,36 +80,98 @@ div#hero > h1 {
 }
 
 /*------ BLURB -------*/
-div#blurb.twelve.columns {
+div#blurb.row {
   height: 400px;
   background-color: #000;
 }
 
-div#blurb.twelve.columns > div.six.columns {
+div#blurb.row > div.six.columns {
   margin-top: 5%;
 }
 
-div#blurb.twelve.columns > div.six.columns > h3 {
+div#blurb.row > div.six.columns > h3 {
   color: #a57967;
   font-size: 30px;
   line-height: 1.8;
   width: 70%;
-    margin-left: 155px;
-    margin-top: 65px;
+  margin-left: 155px;
+  margin-top: 65px;
 }
 
-div#blurb.twelve.columns > div.six.columns > img {
+div#blurb.row > div.six.columns > img {
   width: 40%;
 }
 
 /*------ PANEL -------*/
-/*div#panel > div.four.columns > div.hovereffect > a > img.img-responsive,
-div#panel > div.four.columns > div.four.columns > div.hovereffect > a > img.img-responsive {
-  width: 430px;
-  max-height: 379px;
-}*/
+div#img-panel.row {
+  width: 96%;
+  height: 372px;
+  display: inline-block;
+}
 
-div#panel > div.four.columns > a > img {
-  width: 438px;
+#guides:hover .overlay, #products:hover .overlay, #history:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+div#guides.four.columns > img.img-responsive, div#products.four.columns > a > img,
+div#history.four.columns > a > img {
+  width: 468px;
+  overflow: hidden;
+  min-height: 379px;
   max-height: 379px;
+  float: left;
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+div#guides-text.overlay > a > h4, div#products-text.overlay > a > h4,
+div#history-text.overlay > a > h4 {
+  position: absolute;
+  color: #fff;
+  font-family: 'Rye';
+  font-size: 60px;
+  width: 437px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+div.overlay {
+  background: rgba(0, 0, 0, .75);
+  text-align: center;
+  opacity: 0;
+  margin: 0;
+  width: 468px;
+  min-height: 379px;
+  max-height: 379px;
+  -webkit-transition: all 1.8s ease-in-out;
+  -moz-transition: all 1.8s ease-in-out;
+  -o-transition: all 1.8s ease-in-out;
+  transition: all 1.8s ease-in-out;
+}
+
+div.overlay:hover {
+  opacity: 1;
+}
+
+/*------ QUOTE -------*/
+div#refined-quote.twelve.columns {
+  height: 400px;
+  background-color: #000;
+  color: #a57967;
+}
+
+/*------ INSTAGRAM -------*/
+div#instragram.twelve.columns {
+  height: 400px;
+}
+
+/*--------------- FOOTER --------------*/
+.footer, .push {
+  height: 4em;
 }
