@@ -374,6 +374,33 @@ exports.seed = function(knex) {
         description: 'Even if you color outside the lines, break the rules, or march to the beat of your own drum, there\'s no reason you can\'t look great while doing it. If your gnarly facial hair gets out of hand, look to Billy Jealousy to keep it in line. Use their Gnarly Sheen Refining Beard Oil so you can keep being epic.',
         keywords: 'beard, oil, natural',
         on_sale: false
+      }, {
+        id: 42,
+        name: 'Woodsman Beard Balm',
+        image: 'https://cdn.shopify.com/s/files/1/0222/2214/products/Woodsman-Beard-Balm-1024_1024x1024.jpg',
+        rating: 5,
+        price: 24,
+        description: 'There are times when fly away whiskers need to be reigned in. And for those who love the popular Woodsman scent but need a little more control in their beard, the Woodsman Beard Balm is the perfect solution. No matter if your chopping wood or climbing your next summit, the Woodsman Beard Balm keeps your wiley hairs to the perfect shape while sealing in moisture for beard health.',
+        keywords: 'beard, balm',
+        on_sale: false
+      }, {
+        id: 43,
+        name: 'Woodsman Beard Oil',
+        image: 'https://cdn.shopify.com/s/files/1/0222/2214/products/Woodsman-Beard-Oil_1024x1024.jpg',
+        rating: 5,
+        price: 20,
+        description: 'The original Woodsman Beard Oil is made of the finest natural ingredients for facial hair that we could find. It has a delightfully woodsy scent to it that will have you looking for your axe, putting on your flannel shirt, and getting ready to do some manly things indeed. Women and men will \'ooh\' and \'ahh\' at the brilliant luster of your beard and mustache. They might just hug you a little longer than you were counting on just to take in the fine woodsy scent of your magnificent and full facial hair.',
+        keywords: 'beard, oil',
+        on_sale: false
+      }, {
+        id: 44,
+        name: 'Essential Beard Grooming Kit',
+        image: 'https://cdn.shopify.com/s/files/1/0222/2214/products/TBB_-_Essential_Beard_Kit_Right_1024x1024.jpg',
+        rating: 5,
+        price: 50,
+        description: 'Whether you\'re looking for a gift for the Bearded Bastard in your life, or trying to jumpstart your own beard game, this is the absolute best place to start. Our Essential Beard Grooming Kit has everything you need to style your beard and keep it growing healthy.',
+        keywords: 'beard, oil, scissors, comb',
+        on_sale: false
       }]);
     })
     .then(() => {
