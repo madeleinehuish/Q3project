@@ -6,15 +6,18 @@ const Home = React.createClass({
     return (
       <section id="home">
         <div id="hero">
-          <Link to='/products'>Shop</Link>
+          <h1>Refined</h1>
+          {/* <Link to='/products'>Shop</Link> */}
         </div>
 
-        <div id="panel">
-          <Link to='/products'>Products</Link>
-          <Link to='/guides'>Guides</Link>
-          <Link to='/history'>History</Link>
+        <div className="twelve columns">
+          <div id="panel">
+            <Link to='/products'>Products</Link>
+            <Link to='/guides'>Guides</Link>
+            <Link to='/history'>History</Link>
+          </div>
         </div>
-
+        
         <div id="refined-quote">
         </div>
 
