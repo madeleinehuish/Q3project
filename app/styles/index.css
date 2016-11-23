@@ -1,3 +1,72 @@
 body {
-  color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Maiden Orange', cursive;*/
+  /*font-family: 'Oswald', sans-serif;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*------- NAVIGATION --------*/
+header {
+  height: 50px;
+  /*background-color: #71593a;*/
+  /*background-color: #b49583;*/
+  background-color: #a57967;
+}
+
+header > div.container {
+  width: 100%;
+  margin: 0;
+}
+
+/*div.twelve.columns {
+  margin-top: 7px;
+}*/
+
+div#logo.six.columns > a {
+  margin-left: 25px;
+}
+
+div#logo.six.columns > a > img {
+  width: 10%;
+  margin-top: 12px;
+}
+
+div#logo.six.columns > a, nav.six.columns > ul > li > a {
+  color: #fff;
+}
+
+nav.six.columns > ul {
+  display: flex;
+  float: right;
+  margin-top: 10px;
+}
+
+nav.six.columns > ul > li {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+/*-------- HOMEPAGE ---------*/
+
+/*-------- HERO ---------*/
+div#hero {
+  width: 100%;
+  height: 500px;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(images/barbershop.jpg) no-repeat bottom center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
