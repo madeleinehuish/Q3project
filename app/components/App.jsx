@@ -22,8 +22,44 @@ const App = React.createClass({
       signupFirstName: '',
       signupLastName: '',
       signupEmail: '',
-      signupPassword: ''
-
+      signupPassword: '',
+      products: [{
+        id: 1,
+        name: 'Kent Beard and Moustache Comb, Fine',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/kent-beard-and-moustache-comb-fine.jpg',
+        rating: 4.5,
+        price: 5.5,
+        description: 'Kent Extra Small Men\'s moustache and beard comb is 73mm fine toothed comb. This specialist comb is perfect for grooming, maintaining and trimming facial hair.',
+        keywords: 'moustache, beard, comb',
+        on_sale: false
+      }, {
+        id: 2,
+        name: 'Firehourse Moustache Wax, Wacky Tacky',
+        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Firehouse-Moustache-Wax-Wacky-Tacky/firehouse-moustache-wax-tacky-new.jpg',
+        rating: 5,
+        price: 14,
+        description: 'This Firehouse Moustache Wax, Wacky Tacky offers the firmest possible hold, so if your facial hair is sparse, thin, or just generally hard to manage, this is the product for you.',
+        keywords: 'moustache, wax',
+        on_sale: false
+      }, {
+        id: 3,
+        name: 'Captain Fawcett\'s Moustache Wax Expedition Strength',
+        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Captain-Fawcett-s-Moustache-Wax-Expedition-Strength/captain-fawcetts-moustache-wax-expedition-strength-new.jpg',
+        rating: 4,
+        price: 17,
+        description: 'Have you ever gone exploring and found that your mustache wax just didn\'t hold up? Maybe it\'s because you weren\'t using Captain Fawcett\'s Expedition Strength wax. This product gives you a very firm hold, which is great for guys who really want to go for that old-fashioned look, handlebars and all.',
+        keywords: 'moustache, wax',
+        on_sale: true
+      }, {
+        id: 4,
+        name: 'Doc Elliott Bread Balm, Rugged',
+        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Doc-Elliott-Beard-Balm-Rugged/doc-elliott-beard-balm-rugged.jpg',
+        rating: 5,
+        price: 18,
+        description: 'Doc Elliott Beard Balm, Rugged brings you a product that meets your need for an all-natural, authentic, great smelling product that offers hold and conditioning. Established in 2012, Doc Elliott values the tradition of men\'s grooming while also remaining innovative and fresh.',
+        keywords: 'beard, wax',
+        on_sale: false
+      }]
     };
   },
 
@@ -57,6 +93,7 @@ const App = React.createClass({
 
   render() {
     return (
+
       <BrowserRouter>
         <main>
           <Header />
