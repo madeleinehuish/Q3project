@@ -9,7 +9,7 @@ const Home = React.createClass({
           <h1>Refined</h1>
           {/* <Link to='/products'>Shop</Link> */}
           <div className="twelve columns">
-            <Link to='/products'><button>SHOP</button></Link>
+            <button><Link to='/products'>SHOP</Link></button>
           </div>
         </div>
 
@@ -28,21 +28,21 @@ const Home = React.createClass({
           <div id="guides" className="four columns">
             <img className="img-responsive" src="images/grooming.png" />
             <div id="guides-text" className="overlay">
-              <Link to='/guides'><h4>Guides</h4></Link>
+              <h4><Link to='/guides'>Guides</Link></h4>
             </div>
           </div>
 
           <div id="products" className="four columns">
-            <Link to='/products'><img className="img-responsive" src="images/beard-kit.jpg" /></Link>
+            <img className="img-responsive" src="images/beard-kit.jpg" />
             <div id="products-text" className="overlay">
-              <Link to='/products'><h4>Products</h4></Link>
+              <h4><Link to='/products'>Products</Link></h4>
             </div>
           </div>
 
           <div id="history" className="four columns">
-            <Link to='/history'><img className="img-responsive" src="images/history.jpg" /></Link>
+            <img className="img-responsive" src="images/history.jpg" />
             <div id="history-text" className="overlay">
-              <Link to='/history'><h4>History</h4></Link>
+              <h4><Link to='/history'>History</Link></h4>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ const Home = React.createClass({
           </div>
         </div>
 
-        <div className="row">
+        <div id="location-map" className="row">
           <div id="map" className="twelve columns">
             {/* <div > */}
               <img src="images/map.png" />

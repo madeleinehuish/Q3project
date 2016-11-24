@@ -32,13 +32,19 @@ div#logo.six.columns > a {
   margin-left: 25px;
 }
 
+
 div#logo.six.columns > a > img {
   width: 10%;
   margin-top: 12px;
+  /*cursor: url('images/logo_black.png'), auto;*/
 }
 
 div#logo.six.columns > a, nav.six.columns > ul > li > a {
   color: #fff;
+}
+
+div#logo.six.columns > a, nav.six.columns > ul > li > a:hover {
+  color: #000;
 }
 
 nav.six.columns > ul {
@@ -53,12 +59,12 @@ nav.six.columns > ul > li {
 }
 
 /*-------- HOMEPAGE ---------*/
-.wrapper {
+/*.wrapper {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto -4em;
-}
+}*/
 
 /*-------------- HERO --------------*/
 div#hero {
@@ -79,17 +85,20 @@ div#hero > h1 {
   font-size: 8em;
 }
 
-div.twelve.columns > a > button {
+div.twelve.columns > button {
   width: 200px;
   height: 50px;
   border: 4px solid #a57967;
-  color: #a57967;
   background-color: #fff;
   font-size: 22px;
   font-weight: bolder;
 }
 
-div.twelve.columns > a > button:hover {
+div.twelve.columns > button > a {
+  color: #a57967;
+}
+
+div.twelve.columns > button:hover {
   background-color: #000;
 }
 
@@ -131,8 +140,8 @@ div#img-panel.row {
   transform: scale(1);
 }
 
-div#guides.four.columns > img.img-responsive, div#products.four.columns > a > img,
-div#history.four.columns > a > img {
+div#guides.four.columns > img.img-responsive, div#products.four.columns > img,
+div#history.four.columns > img {
   width: 468px;
   overflow: hidden;
   min-height: 379px;
@@ -144,16 +153,25 @@ div#history.four.columns > a > img {
   transition: all 0.35s;
 }
 
-div#guides-text.overlay > a > h4, div#products-text.overlay > a > h4,
-div#history-text.overlay > a > h4 {
+div#guides-text.overlay > h4, div#products-text.overlay > h4,
+div#history-text.overlay > h4 {
   position: absolute;
-  color: #fff;
   font-family: 'Rye';
   font-size: 60px;
   width: 437px;
   text-align: center;
   margin-top: 150px;
 }
+
+div#guides-text.overlay > h4 > a, div#products-text.overlay > h4 > a,
+div#history-text.overlay > h4 > a {
+  color: #fff;
+}
+
+/*div#guides-text.overlay > h4 > a:hover, div#products-text.overlay > h4 > a:hover,
+div#history-text.overlay > h4 > a:hover {
+  color: #a57967;
+}*/
 
 div.overlay {
   background: rgba(0, 0, 0, .75);
@@ -181,22 +199,108 @@ div#refined-quote.twelve.columns {
 }
 
 /*------ MAP -------*/
-/*div#map.twelve.columns {
-  height: 300px;
-}*/
+div#location-map.row {
+  height: 400px;
+}
 
 div#map.twelve.columns > img {
   width: 100%;
-  height: 400px;
 }
+
+/*--------------- ACCOUNT PAGES --------------*/
+input[type=text], input[type=password] {
+  width: 280px;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+}
+
+input:focus {
+  border: 3px solid #a57967;
+  background-color: #a57967;
+  color: #fff;
+  font-weight: bolder;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+/*---------- SIGNUP ---------*/
+div#create-account {
+  margin-top: 90px;
+}
+
+div#create-title.twelve.columns, div#create-account.twelve.columns,
+div#create-account-btn.twelve.columns  {
+  text-align: center;
+}
+
+div#create-title.twelve.columns > h1, div#return-to-login > div.row > p {
+  font-size: 22px;
+  font-weight: bolder;
+  letter-spacing: 4px;
+  margin-bottom: 70px;
+}
+
+div#first-name.six.columns, div#email.six.columns {
+  text-align: right;
+}
+
+div#last-name.six.columns, div#password.six.columns {
+  text-align: left;
+}
+
+div#user-name.row {
+  margin-bottom: 25px;
+}
+
+div#email-password.row {
+  height: 90px;
+}
+
+div#create-account {
+  height: 440px;
+}
+
+div#create-account-btn.twelve.columns > a > button#create,
+div#return-to-login > div.row > a > button#return-to-login-btn {
+  width: 250px;
+  height: 50px;
+  border-radius: 0;
+  letter-spacing: 2px;
+  font-size: 18px;
+  background-color: #fff;
+  border: 3px solid #a57967;
+  color: #a57967;
+  font-weight: bolder;
+}
+
+div#create-account-btn.twelve.columns > a > button#create:hover,
+div#return-to-login > div.row > a >button#return-to-login-btn:hover {
+  background-color: #a57967;
+  color: #fff;
+}
+
+div#return-to-login {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  border-top: 1px solid #999;
+  padding-top: 70px;
+  height: 250px;
+}
+
+/*---------- LOGIN ---------*/
 
 /*--------------- FOOTER --------------*/
 footer, .push {
   height: 40px;
 }
 
-/*footer {
-  margin-top: 53px;
+footer {
   background-color: #000;
   position: relative;
   height: 100px;
@@ -208,10 +312,10 @@ footer > div.twelve.columns {
   text-align: center;
   margin-top: 40px;
   font-size: 18px;
-}*/
+}
 
 /*Maddie's CSS, feel free to move this to organize it*/
 
-.button {
+/*.button {
   color: #A57967;
-}
+}*/
