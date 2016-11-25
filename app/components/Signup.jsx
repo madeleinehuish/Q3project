@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import axios from 'axios';
 import React from 'react';
 
 const Signup = React.createClass({
