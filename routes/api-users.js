@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const knex = require('../knex');
+const knex = require('knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
 // eslint-disable-next-line new-cap
@@ -36,6 +36,9 @@ router.get('/api-users', authorize, (req, res, next) => {
     });
 });
 router.post('/api-users', (req, res, next) => {
+  console.log('got through');
+  console.log('req is' + req.body);
+  console.log('res is' + res.body);
   const { email, password } = req.body;
 
   if (!email || !email.trim()) {

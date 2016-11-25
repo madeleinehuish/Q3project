@@ -42,12 +42,12 @@ app.use(express.static(path.join('public')));
 // });
 
 // const products = require('./routes/products');
-// const users = require('./routes/users');
-// const token = require('./routes/token');
+const users = require('./routes/api-users');
+// const token = require('./routes/api-token');
 //
 //
 // app.use(products);
-// app.use(users);
+app.use(users);
 // app.use(token);
 
 app.use((_req, res) => {

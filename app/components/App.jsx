@@ -1,4 +1,9 @@
+import React from 'react';
 import { BrowserRouter } from 'react-router';
+import { Match } from 'react-router';
+import { Miss } from 'react-router';
+import expect, { createSpy, spyOn, isSpy } from 'expect'
+import axios from 'axios';
 import Header from './layouts/Header';
 import Home from './Home';
 import Login from './Login';
@@ -10,9 +15,6 @@ import History from './History';
 import Guides from './Guides';
 import NotFound from './NotFound';
 import Footer from './layouts/Footer';
-import { Match } from 'react-router';
-import { Miss } from 'react-router';
-import React from 'react';
 
 const App = React.createClass({
   getInitialState(){
@@ -65,32 +67,102 @@ const App = React.createClass({
 
   onFormChangeFirstName(event) {
     this.setState({signupFirstName: event.target.value}, () => {
-      console.log(this.state.signupFirstName);
+
     });
   },
 
   onFormChangeLastName(event) {
     this.setState({signupLastName: event.target.value});
-    console.log(this.state.signupLastName);
+
   },
 
   onFormChangeEmail(event) {
     this.setState({signupEmail: event.target.value}, () => {
-      console.log(this.state.signupEmail);
+
     });
   },
 
   onFormChangePassword(event) {
     this.setState({signupPassword: event.target.value}, () => {
-      console.log(this.state.signupPassword);
+
     });
   },
 
   onSubmit(event) {
     alert(this.state.signupFirstName + " " + this.state.signupLastName + " " + this.state.signupEmail + " " + this.state.signupPassword);
-    // event.preventDefault();
-  },
+      // event.preventDefault();
+      const firstName = this.state.signupFirstName;
+      const lastName = this.state.signupLastName;
+      const email = this.state.signupEmail;
+      const password = this.state.signupPassword;
 
+      if (!firstName) {
+        alert('First name must not be blank');
+      }
+      if (!lastName) {
+        alert('Last name must not be blank');
+      }
+      if (!email) {
+        alert('Email must not be blank.');
+      }
+      if (email.indexOf('@') < 0) {
+        alert('Email must be valid.');
+      }
+      // if (!password || password.length < 8) {
+      //   alert('Password must be valid.');
+      // }
+
+      const createUserSettings = {
+        // responseType: 'json',
+        // headers: {
+        //   contentType: 'json'
+        // },
+        contentType: 'application/json',
+        data: JSON.stringify({ firstName, lastName, email, password }),
+        dataType: 'json',
+        type: 'POST',
+        url: '/api-users'
+      };
+
+
+        // axios.post(createUserSettings)
+        axios.post('/api-users', ({ firstName, lastName, email, password }))
+        // axios.post('api-users', {
+        //   headers: {
+        //       'Content-Type': 'application/json',
+        //       'Data-Type': 'json'
+        //   },
+        //   data: ({ firstName, lastName, email, password })
+        //
+        // })
+          .then((response) => {
+            // let newData = JSON.parse(response.config.url.data);
+            // console.log(newData);
+            // console.log(newData.email);
+            // const createTokenSettings = {
+            //   contentType: 'application/json',
+            //   data: JSON.stringify({ newData.email, newData.password }),
+            //   dataType: 'json',
+            //   type: 'POST',
+            //   url: '/api-token'
+            // };
+
+            // axios.post(createTokenSettings)
+            //   .then((user) => {
+            //     sessionStorage.setItem('userId', user.id);
+            //     console.log('got through');
+            //     // window.location.href = '/main.html';
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
+            console.log(response);
+          })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+  },
   render() {
     return (
 
@@ -112,10 +184,7 @@ const App = React.createClass({
           <Match pattern="/signup" exactly render={
             () => <Signup
             { ...this.state }
-            // onFirstNameInput={this.onFirstNameInput}
-            // onLastNameInput={this.onLastNameInput}
-            // onEmailInput={this.onEmailInput}
-            // onPasswordInput={this.onPasswordInput}
+
             onSubmit={this.onSubmit}
             inputValue={this.state.value}
             onFormChangeFirstName={this.onFormChangeFirstName}
@@ -126,10 +195,6 @@ const App = React.createClass({
             signUpLastName={this.state.signUpLastName}
             signUpEmail={this.state.signUpEmail}
             signUpPassword={this.state.signUpPassword}
-            // inputValueLastName={this.state.value.lastName}
-            // inputValueEmail={this.state.value.email}
-            // inputValuePassword={this.state.value.password}
-
 
             />
           }/>
