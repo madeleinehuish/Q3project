@@ -54,11 +54,16 @@ const Home = React.createClass({
           </div>
         </div>
 
-        <div className="row">
-          <div id="refined-quote" className="twelve columns">
-            {/* <div> */}
-            <h4>Quote goes here</h4>
-            {/* </div> */}
+        <div id="shipping-find-us" className="row">
+          <div id="homepage-shipping" className="six columns">
+            <h4>Buy Online: free delivery on all orders over $50</h4>
+            <img src="images/shipping.png"/>
+          </div>
+          <div id="find-us" className="six columns">
+            <img src="images/location.png"/>
+            <h4 className="address">Find Us:</h4>
+            <h4 className="address">111 S Jackson St</h4>
+            <h4 className="address">Seattle, WA 98104</h4>
           </div>
         </div>
 

@@ -203,10 +203,53 @@ div.overlay:hover {
 }
 
 /*------ QUOTE -------*/
-div#refined-quote.twelve.columns {
+div#shipping-find-us.row {
   height: 400px;
   background-color: #000;
   color: #a57967;
+  font-size: 14px;
+  border: 8px solid #a57967;
+}
+
+div#homepage-shipping.six.columns, div#find-us.six.columns {
+  width: 20%;
+  margin-left: 250px;
+  margin-right: 100px;
+  text-align: center;
+}
+
+div#homepage-shipping.six.columns {
+  /*padding-right: 0px;*/
+  /*width: 20%;*/
+  margin-right: 100px;
+  padding-top: 130px;
+}
+
+div#homepage-shipping.six.columns > img, div#find-us.six.columns > img {
+  width: 20%;
+}
+
+div#find-us.six.columns > img {
+  margin-bottom: 20px;
+}
+
+div#find-us.six.columns {
+  /*padding-left: 80px;*/
+  margin-left: 0;
+  /*margin-right: 250px;*/
+  margin-left: 100px;
+  padding-top: 110px;
+}
+
+div#homepage-shipping.six.columns > h4, div#find-us.six.columns > h4 {
+  line-height: 1.8;
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.address {
+  margin: 0;
 }
 
 /*------ MAP -------*/
