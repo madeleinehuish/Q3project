@@ -37,8 +37,11 @@ router.get('/api-users', authorize, (req, res, next) => {
 });
 router.post('/api-users', (req, res, next) => {
   console.log('got through');
-  console.log('req is' + req.body);
-  console.log('res is' + res.body);
+  console.log(typeof req);
+  // console.log(Object.keys(req));
+  console.log(req.body); //this works!!!
+  console.log('req is' + req.config);
+  console.log('res is' + res);
   const { email, password } = req.body;
 
   if (!email || !email.trim()) {
@@ -50,11 +53,25 @@ router.post('/api-users', (req, res, next) => {
       'Password must be at least 8 characters long'
     ));
   }
+  console.log('email is ' + email);
+  console.log('password is' + password);
+  console.log('right before knex');
+  // knex('users')
+  //   .insert(decamelizeKeys(req.body), '*')
+  //   .then((rows) => {
+  //     const user = camelizeKeys(rows[0]);
+  //
+  //     res.send(user);
+  //   })
+  //   .catch((err) => {
+  //     next(err);
+  //   });
   knex('users')
     .select(knex.raw('1=1'))
     .where('email', email)
     .first()
     .then((exists) => {
+      console.log('into knex');
       if (exists) {
         throw boom.create(400, 'Email already exists');
       }
@@ -62,6 +79,7 @@ router.post('/api-users', (req, res, next) => {
       return bcrypt.hash(password, 12);
     })
     .then((hashedPassword) => {
+      console.log('into 2nd then in knex');
       const { firstName, lastName } = req.body;
       const insertUser = { firstName, lastName, email, hashedPassword };
 
@@ -69,6 +87,7 @@ router.post('/api-users', (req, res, next) => {
         .insert(decamelizeKeys(insertUser), '*');
     })
     .then((rows) => {
+      console.log('into 3rd then in knex');
       const user = camelizeKeys(rows[0]);
 
       delete user.hashedPassword;

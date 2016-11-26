@@ -3,9 +3,13 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-console.log('server is working');
+
+// var cors = require('cors')
+
 const express = require('express');
 const app = express();
+
+// app.use(cors());
 
 app.disable('x-powered-by');
 

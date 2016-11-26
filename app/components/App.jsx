@@ -1,4 +1,5 @@
 import React from 'react';
+// import request from 'request';
 import { BrowserRouter } from 'react-router';
 import { Match } from 'react-router';
 import { Miss } from 'react-router';
@@ -99,34 +100,47 @@ const App = React.createClass({
       if (!firstName) {
         alert('First name must not be blank');
       }
-      if (!lastName) {
-        alert('Last name must not be blank');
-      }
-      if (!email) {
-        alert('Email must not be blank.');
-      }
-      if (email.indexOf('@') < 0) {
-        alert('Email must be valid.');
-      }
+      // if (!lastName) {
+      //   alert('Last name must not be blank');
+      // }
+      // if (!email) {
+      //   alert('Email must not be blank.');
+      // }
+      // if (email.indexOf('@') < 0) {
+      //   alert('Email must be valid.');
+      // }
       // if (!password || password.length < 8) {
       //   alert('Password must be valid.');
       // }
 
-      const createUserSettings = {
-        // responseType: 'json',
-        // headers: {
-        //   contentType: 'json'
-        // },
-        contentType: 'application/json',
-        data: JSON.stringify({ firstName, lastName, email, password }),
-        dataType: 'json',
-        type: 'POST',
-        url: '/api-users'
-      };
+      // const createUserSettings = {
+      //   // responseType: 'json',
+      //   // headers: {
+      //   //   contentType: 'json'
+      //   // },
+      //   contentType: 'application/json',
+      //   data: ({ firstName, lastName, email, password }),
+      //   dataType: 'json',
+      //   type: 'POST',
+      //   url: '/api-users'
+      // };
 
 
+
+      // let xhr = new XMLHttpRequest();
+      // xhr.open("POST", '/api-users', true);
+      // xhr.setRequestHeader("Content-type", "application/json");
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState == 4 && xhr.status == 200) {
+      //     var json = JSON.parse(xhr.responseText);
+      //     console.log(json.email + ", " + json.password)
+      //   }
+      // }
+      // let data = JSON.stringify({ firstName, lastName, email, password });
+      // xhr.send(data);
         // axios.post(createUserSettings)
-        axios.post('/api-users', ({ firstName, lastName, email, password }))
+        // axios.post('/api-users', 'firstName')
+        axios.post('/api-users', { firstName, lastName, email, password })
         // axios.post('api-users', {
         //   headers: {
         //       'Content-Type': 'application/json',
@@ -155,8 +169,11 @@ const App = React.createClass({
             //   })
             //   .catch(function (error) {
             //     console.log(error);
+
+
             //   });
             console.log(response);
+            console.log('response came back');
           })
         .catch(function (error) {
           console.log(error);
