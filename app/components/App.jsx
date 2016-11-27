@@ -81,6 +81,60 @@ const App = React.createClass({
         description: 'So many modern men want to express their personalities through their facial hair. The trick is in doing so without looking like a grizzly bear or a man who\'s just escaped the Alaskan wilderness. To have that right balance of self-expression and taste, one needs to have the right tools and products. Whether you\'re at home or on the go, the Billy Jealousy Beard Envy Kit is perfect for keeping your whiskers just the way you want them.',
         keywords: 'beard, kit, wash, brush, conditioner',
         on_sale: true
+      }, {
+        id: 7,
+        name: 'Brooklyn Grooming Classic Beard Balm, Wiliamsburg',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/brooklyn-grooming-classic-beard-balm-williamsburg.jpg',
+        rating: 3.5,
+        price: 26,
+        description: 'Choose only the right product for your facial hair! The Brooklyn Grooming Classic Beard Balm, Williamsburg is the perfect one to moisturize and style your bush. Its non comedogenic property makes it the perfect styling pomade without the dry feeling. Infused with various moisturizing oils like Grape seed, Sesame, Argan, and Jojoba, this formula will surely keep your beard properly moisturized.',
+        keywords: 'beard, balm',
+        on_sale: false
+      }, {
+        id: 8,
+        name: 'Captain Fawcett\'s Moustache Wax, Sandalwood',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/captain-fawcetts-moustache-wax-sandalwood.jpg',
+        rating: 5,
+        price: 16,
+        description: 'Captain Fawcett makes some great grooming products and this sandalwood scented mustache wax is certainly among them. It has a medium hold, which is perfect for most people.',
+        keywords: 'moustache, wax',
+        on_sale: false
+      }, {
+        id: 9,
+        name: 'Cowboy Comb, Black',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/cowboy-comb-black.jpg',
+        rating: 3.5,
+        price: 5.99,
+        description: 'Mustaches are all the rage these days, but for those who actually have one, maintaining them really does require special care. Enter the Cowboy Comb. . . the comb that started a legacy. Shaped like and perfectly contoured for mustaches, it has 27 teeth, is black in color and is perfect for grooming the hair right under your nose.',
+        keywords: 'moustache, comb',
+        on_sale: false
+      }, {
+        id: 10,
+        name: 'Prospector Co. Burroughs Beard Oil',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/prospector-co.-burroughs-beard-oil.jpg',
+        rating: 5,
+        price: 28,
+        description: 'Have you ever heard of beard oil? No, it\'s not something that you harvest by squeezing some unfortunate man\'s facial hair. It is actually a product that you use to help keep the hair on a man\'s face looking and smelling great, and Prospector Co. Burroughs Beard Oil could be just what you need to keep your own face fur in top condition.',
+        keywords: 'beard, oil',
+        on_sale: false
+      }, {
+        id: 11,
+        name: 'Beard Balm',
+        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Beard-Balm/beard-balm.jpg',
+        rating: 4.5,
+        price: 15.99,
+        description: 'Beard Balm is a wonderful product made for our friends with a little of facial scruff. Hand-crafted in Detroit, it contains the best all-natural ingredients, including the oil of grapeseed and coconut and other pure essential oils. These oils give this product a light, fresh scent that you will love to rub into your whiskers and keep near your sniffer all day long. It\'s a natural scent that will keep you coming back each day and will make the ladies take notice.',
+        keywords: 'beard, balm',
+        on_sale: false
+      }, {
+        id: 12,
+        name: 'Beardbrand Beard Oil, Spiced Citrus',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/beardbrand-beard-oil-spiced-citrus.jpg',
+        rating: 3,
+        price: 22,
+        description: 'Made with the finest blend of oils, Beardbrand Beard Oil, Spiced Citrus will leave your beard feeling and smelling amazing. This stuff is the real deal.',
+        keywords: 'beard, oil',
+        on_sale: true
       }]
     };
   },
