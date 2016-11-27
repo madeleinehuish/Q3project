@@ -1,8 +1,5 @@
 import { Link } from 'react-router';
 import React from 'react';
-import Customer from './Customer';
-import Shipping from './Shipping';
-import Payment from './Payment';
 
 const Checkout = React.createClass({
   render() {
@@ -17,9 +14,7 @@ const Checkout = React.createClass({
             </div>
             <div className="checkout-process">
               <h6>Customer, shipping, and Payment to go here</h6>
-              {/* <Customer />
-              <Shipping />
-              <Payment /> */}
+              <Link to="/customer">Customer</Link>
             </div>
           </div>
 

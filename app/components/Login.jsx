@@ -22,7 +22,7 @@ const Login = React.createClass({
           <button><Link to='/'>LOGIN</Link></button> */}
         </div>
 
-        <div id="return-to-lsignup">
+        <div id="return-to-signup">
           <p>New Customer?</p>
           <button><Link to='/signup'>CREATE AN ACCOUNT</Link></button>
         </div>

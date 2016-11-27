@@ -1,21 +1,23 @@
 import React from 'react';
 // import request from 'request';
-import { BrowserRouter } from 'react-router';
-import { Match } from 'react-router';
-import { Miss } from 'react-router';
+import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
 import axios from 'axios';
+
+import Cart from './Cart';
+import Customer from './checkout/Customer';
+import Shipping from './checkout/Shipping';
+import Payment from './checkout/Payment';
+import Footer from './layouts/Footer';
 import Header from './layouts/Header';
+import Guides from './Guides';
+import History from './History';
 import Home from './Home';
 import Login from './Login';
-import Signup from './Signup';
-import ProductsList from './ProductsList';
-import Cart from './Cart';
-import Checkout from './checkout/Checkout';
-import History from './History';
-import Guides from './Guides';
 import NotFound from './NotFound';
-import Footer from './layouts/Footer';
+import ProductsList from './ProductsList';
+import Signup from './Signup';
+import Success from './checkout/Success';
 
 const App = React.createClass({
   getInitialState(){
@@ -138,17 +140,6 @@ const App = React.createClass({
       }]
     };
   },
-
-  // onRender() {
-  //   const productsList = products.map((product, index) => {
-  //     return
-  //       product={product}
-  //       key={index}
-  //   })
-  //
-  //   console.log(productsList);
-  //   return productsList
-  // },
 
   onFormChangeFirstName(event) {
     this.setState({signupFirstName: event.target.value}, () => {
@@ -311,8 +302,26 @@ const App = React.createClass({
             products={this.state.products}
             />
           }/>
-          <Match pattern="/checkout" exactly render={
-            () => <Checkout
+          <Match pattern="/customer-checkout" exactly render={
+            () => <Customer
+            { ...this.state }
+
+            />
+          }/>
+          <Match pattern="/shipping" exactly render={
+            () => <Shipping
+            { ...this.state }
+
+            />
+          }/>
+          <Match pattern="/payment" exactly render={
+            () => <Payment
+            { ...this.state }
+
+            />
+          }/>
+          <Match pattern="/success" exactly render={
+            () => <Success
             { ...this.state }
 
             />

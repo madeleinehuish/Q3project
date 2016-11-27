@@ -24,7 +24,7 @@ const Cart = React.createClass({
 
         <div id="shop-checkout-btn">
           <button><Link to='/products'>CONTINUE SHOPPING</Link></button>
-          <button><Link to='/checkout'>CHECKOUT</Link></button>
+          <button><Link to='/customer-checkout'>CHECKOUT</Link></button>
         </div>
       </section>
     )
