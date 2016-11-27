@@ -13,7 +13,9 @@ const Payment = React.createClass({
         </div>
 
         <div className="checkout-forms">
-          <div className="payment-form">
+          <div id="payment-info-header" className="row"></div>
+          <div id="payment-form" className="row"></div>
+          <div id="payment-navigation" className="row"></div>
             <div id="payment-method">
               <form>
                 {/* Need to create credit card form which will use Stripe API */}
@@ -30,7 +32,6 @@ const Payment = React.createClass({
               <p><Link to='/shipping'>Return to Shipping</Link></p>
               <button><Link to='/success'>Complete Order</Link></button>
             </div>
-          </div>
         </div>
       </section>
     )

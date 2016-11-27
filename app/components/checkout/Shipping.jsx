@@ -12,7 +12,9 @@ const Shipping = React.createClass({
         </div>
 
         <div className="checkout-forms">
-          <div className="shipping-form">
+          <div id="shipping-info-header" className="row"></div>
+          <div id="shipping-form" className="row"></div>
+          <div id="shipping-navigation" className="row"></div>
             {/* The shipping address needs to save from the previous page. If the user has shopped before and saved their
               address on a previous visit, their address should render.*/}
             <div id="shipping-address-confirmation">
@@ -29,7 +31,6 @@ const Shipping = React.createClass({
               <p><Link to='/customer'>Return to Customer Information</Link></p>
               <button><Link to='/payment'>Continue to Payment Method</Link></button>
             </div>
-          </div>
         </div>
       </section>
     )

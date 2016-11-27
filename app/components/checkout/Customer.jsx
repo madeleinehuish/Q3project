@@ -12,9 +12,12 @@ const Customer = React.createClass({
         </div>
 
         <div className="checkout-forms">
-          <div className="customer-form">
             {/* Users do not have to create an account. That is optional. Users can get through the entire
             shopping process without needing to create a password */}
+            <div id="customer-info-header" className="row"></div>
+            <div id="customer-form" className="row"></div>
+            <div id="customer-navigation" className="row"></div>
+
             <div id="customer-email">
               <form>
                 <label>Email</label>
@@ -45,7 +48,6 @@ const Customer = React.createClass({
             <div className="return">
               <p><Link to='./cart'>Return to Cart</Link></p>
             </div>
-          </div>
         </div>
 
 
