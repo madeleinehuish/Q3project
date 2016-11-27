@@ -56,5 +56,9 @@
   },
   "engines": {
     "node": "v6.6.0"
+  },
+  "production": {
+    "client": "pg",
+    "connection": "process.env.DATABASE_URL"
   }
 }
