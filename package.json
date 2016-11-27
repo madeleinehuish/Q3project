@@ -23,6 +23,7 @@
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
     "boom": "^4.2.0",
+    "brunch": "^2.8.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "dotenv": "^2.0.0",
@@ -55,10 +56,6 @@
     "uglify-js-brunch": "^2.0.1"
   },
   "engines": {
-    "node": "v6.6.0"
-  },
-  "production": {
-    "client": "pg",
-    "connection": "process.env.DATABASE_URL"
+    "node": "6.6.0"
   }
 }
