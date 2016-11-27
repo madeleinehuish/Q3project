@@ -16,7 +16,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "nf": "nf start",
     "nodemon": "nodemon server.js",
-    "deploy": "rm -rf public; brunch build --production; surge public"
   },
   "dependencies": {
     "axios": "^0.15.2",
