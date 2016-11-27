@@ -12,7 +12,7 @@ const Header = React.createClass({
         <nav className="six columns">
           <ul>
             <li><Link to='/login'>Login</Link></li>
-            <li><Link to='/products'>Products</Link></li>
+            <li><Link to='/productslist'>Products</Link></li>
             <li><Link to='/guides'>Guides</Link></li>
             <li><Link to='/cart'>Cart</Link></li>
           </ul>

@@ -9,7 +9,7 @@ import Header from './layouts/Header';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
-import Products from './Products';
+import ProductsList from './ProductsList';
 import Cart from './Cart';
 import Checkout from './checkout/Checkout';
 import History from './History';
@@ -26,6 +26,7 @@ const App = React.createClass({
       signupLastName: '',
       signupEmail: '',
       signupPassword: '',
+      cartItems: [],
       products: [{
         id: 1,
         name: 'Kent Beard and Moustache Comb, Fine',
@@ -62,9 +63,38 @@ const App = React.createClass({
         description: 'Doc Elliott Beard Balm, Rugged brings you a product that meets your need for an all-natural, authentic, great smelling product that offers hold and conditioning. Established in 2012, Doc Elliott values the tradition of men\'s grooming while also remaining innovative and fresh.',
         keywords: 'beard, wax',
         on_sale: false
+      }, {
+        id: 5,
+        name: 'Firehouse Moustache Wax, Dark',
+        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Firehouse-Moustache-Wax-Dark/firehouse-moustache-wax-dark-new.jpg',
+        rating: 5,
+        price: 14,
+        description: 'You\'ll find that this Firehouse Moustache Wax, Dark is very easy to apply and that it offers a firm hold that lasts a long time.',
+        keywords: 'moustache, wax',
+        on_sale: false
+      }, {
+        id: 6,
+        name: 'Billy Jealousy Beard Envy Kit',
+        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Billy-Jealousy-Beard-Envy-Kit/billy-jealousy-beard-envy-kit.jpg',
+        rating: 3,
+        price: 25,
+        description: 'So many modern men want to express their personalities through their facial hair. The trick is in doing so without looking like a grizzly bear or a man who\'s just escaped the Alaskan wilderness. To have that right balance of self-expression and taste, one needs to have the right tools and products. Whether you\'re at home or on the go, the Billy Jealousy Beard Envy Kit is perfect for keeping your whiskers just the way you want them.',
+        keywords: 'beard, kit, wash, brush, conditioner',
+        on_sale: true
       }]
     };
   },
+
+  // onRender() {
+  //   const productsList = products.map((product, index) => {
+  //     return
+  //       product={product}
+  //       key={index}
+  //   })
+  //
+  //   console.log(productsList);
+  //   return productsList
+  // },
 
   onFormChangeFirstName(event) {
     this.setState({signupFirstName: event.target.value}, () => {
@@ -180,6 +210,7 @@ const App = React.createClass({
         });
 
   },
+
   render() {
     return (
       <BrowserRouter>
@@ -214,16 +245,16 @@ const App = React.createClass({
 
             />
           }/>
-          <Match pattern="/products" exactly render={
-            () => <Products
+          <Match pattern="/productslist" exactly render={
+            () => <ProductsList
             { ...this.state }
-
+              // onRender={this.onRender}
             />
           }/>
           <Match pattern="/cart" exactly render={
             () => <Cart
             { ...this.state }
-
+            products={this.state.products}
             />
           }/>
           <Match pattern="/checkout" exactly render={

@@ -219,8 +219,6 @@ div#homepage-shipping.six.columns, div#find-us.six.columns {
 }
 
 div#homepage-shipping.six.columns {
-  /*padding-right: 0px;*/
-  /*width: 20%;*/
   margin-right: 100px;
   padding-top: 130px;
 }
@@ -234,9 +232,7 @@ div#find-us.six.columns > img {
 }
 
 div#find-us.six.columns {
-  /*padding-left: 80px;*/
   margin-left: 0;
-  /*margin-right: 250px;*/
   margin-left: 100px;
   padding-top: 110px;
 }
@@ -316,10 +312,6 @@ div#products-to-buy.four.columns > div.product-image > img {
   margin-left: 20px;
 }
 
-/*div#products-to-buy.four.columns > div.product-image > img:hover {
-  border: 1px solid #7a7a7a;
-}*/
-
 div.name-price {
   display: flex;
   width: 320px;
@@ -356,6 +348,43 @@ div#products-to-buy.four.columns > a > button:hover {
   color: #fff;
 }
 
+.bling::before {
+  content:"$";
+}
+
+/*-------------- CHECKOUT -------------*/
+section#checkout > div.row > div.six.columns {
+  padding: 60px 0 0 100px;;
+}
+
+div.customer-flow > h2 {
+  font-family: 'Rye';
+}
+
+div.customer-flow > p {
+  font-size: 14px;
+  word-spacing: 6px;
+}
+
+section#checkout > div.row > div#cart-items.six.columns {
+  background-color: #f5f5f5;
+  /*background-color: #000;*/
+  margin-top: -19px;
+  border-left: 1px solid black;
+  padding: 70px;
+  /*color: #fff;*/
+  width: 45%;
+  float: right;
+}
+
+div.checkout-cart-items {
+  margin-top: 30px;
+}
+
+div.checkout-cart-items > img {
+  width: 15%;
+  border-radius: 2px;
+}
 
 /*--------------- ACCOUNT PAGES --------------*/
 input[type=text], input[type=password] {

@@ -7,19 +7,23 @@ import Payment from './Payment';
 const Checkout = React.createClass({
   render() {
     return (
-      <section id="customer">
-        <div id="checkout">
-          <div className="customer-flow">
-            <h4>Cart > Customer Information > Shipping > Payment </h4>
+      <section id="checkout">
+        <div className="row">
+          <div className="six columns">
+            <div className="customer-flow">
+              <h2>Refined</h2>
+              <p>Cart > Customer Information > Shipping > Payment </p>
+            </div>
+            <div className="checkout-process">
+              <h6>Customer, shipping, and Payment to go here</h6>
+              {/* <Customer />
+              <Shipping />
+              <Payment /> */}
+            </div>
           </div>
-
-          <Customer />
-          <Shipping />
-          <Payment />
-
-          <aside className="checkout-cart">
+          <div id="cart-items" className="six columns">
             <div className="checkout-cart-items">
-              <img />
+              <img src="https://cdn.shopify.com/s/files/1/0222/2214/products/Woodsman-Beard-Oil_1024x1024.jpg"/>
               <p>Name</p>
               <p>Price</p>
             </div>
@@ -30,8 +34,7 @@ const Checkout = React.createClass({
               <p>Shipping: </p>
               <p>Total: </p>
             </div>
-          </aside>
-
+          </div>
         </div>
       </section>
     )
