@@ -6,7 +6,6 @@ const Checkout = React.createClass({
     return (
       <section id="checkout">
         <div className="row">
-
           <div className="six columns">
             <div className="customer-flow">
               <h2>Refined</h2>
