@@ -6,7 +6,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys } = require('humps');
-const postmark = require('postmark');
+// const postmark = require('postmark');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();

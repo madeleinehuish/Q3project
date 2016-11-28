@@ -2,6 +2,7 @@ import React from 'react';
 import Products from './Products';
 
 const ProductsLists = React.createClass({
+
   render() {
     const products = this.props.products.map((product, index) => {
       return <Products

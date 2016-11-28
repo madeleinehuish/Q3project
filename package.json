@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
+    "dotenv": "^2.0.0",
     "eslint": "^3.4.0",
     "eslint-config-ryansobol": "^9.1.1",
     "foreman": "^2.0.0",
