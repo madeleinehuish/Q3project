@@ -5,6 +5,7 @@ import expect, { createSpy, spyOn, isSpy } from 'expect'
 import axios from 'axios';
 
 import Cart from './Cart';
+// import Checkout from './checkout/Checkout';
 import Customer from './checkout/Customer';
 import Shipping from './checkout/Shipping';
 import Payment from './checkout/Payment';

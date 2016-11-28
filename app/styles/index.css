@@ -202,7 +202,7 @@ nav.six.columns > ul > li {
   opacity: 1;
 }
 
-/*------ QUOTE -------*/
+/*------ SHIPPING & ADDRESS -------*/
 #shipping-find-us.row {
   height: 400px;
   background-color: #000;
@@ -363,25 +363,40 @@ nav.six.columns > ul > li {
 
 /*-------------- CHECKOUT -------------*/
 #checkout > div.row > div.six.columns {
-  padding: 60px 0 0 100px;
+  padding: 35px 0 0 80px;
+  width: 100%;
 }
 
 .customer-flow > h2 {
   font-family: 'Rye';
+  margin-bottom: 15px;
 }
 
 .customer-flow > p {
   font-size: 12px;
   word-spacing: 6px;
+  width: 95%;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #d6d6d6;
 }
 
-#checkout > div.row > div#cart-items.six.columns {
+/*-------------- CHECKOUT-CART -------------*/
+#cart-items.six.columns {
+  height: 900px;
+}
+
+#checkout-cart.row > div.five.columns {
+  float: right
+}
+
+#checkout-cart > div.row > div#cart-items.six.columns {
   background-color: #f5f5f5;
   margin-top: -19px;
   border-left: 1px solid #d6d6d6;
-  padding: 70px;
+  padding: 55px;
   width: 45%;
   float: right;
+  width: 100%;
 }
 
 #checkout-cart-items.row {
@@ -391,8 +406,8 @@ nav.six.columns > ul > li {
   margin-bottom: 20px;
 }
 
-.product-thumbnail {
-  width: 4.6em;
+div.two.columns.product-thumbnail {
+  width: 15%;
   height: 4.6em;
   border-radius: 8px;
   background: #fff;
@@ -451,6 +466,15 @@ nav.six.columns > ul > li {
   margin-top: 15px;
 }
 
+.seven.columns.text {
+  margin-left: 15px;
+}
+
+.three.columns.text {
+  margin-left: 9px;
+  text-align: right;
+}
+
 .seven.columns.text > p {
   margin-left: 10px;
 }
@@ -487,7 +511,7 @@ nav.six.columns > ul > li {
 
 p#total-currency {
   font-size: 10px;
-  margin: 10px 20px 0 70px;
+  margin: 10px 20px 0 55px;
   color: #616161;
 }
 
@@ -497,10 +521,152 @@ p#total-cost {
 }
 
 /*--------------- CUSTOMER --------------*/
+.checkout-forms {
+  width: 85%;
+  margin-bottom: 30px;
+  margin-left: 80px;
+}
 
+#customer-email > form {
+  margin-bottom: 12px;
+}
+
+#customer-email > form > label {
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+#customer-email > form > input, #shipping-details > form > div > input,
+#shipping-details > form > div > select {
+  margin-top: 10px;
+  width: 100%;
+  border: 2px solid #666;
+  height: 45px;
+}
+
+#customer-email > form > input:focus, #shipping-details > form > div > input:focus,
+#shipping-details > form > div > select:focus {
+  background: #f5f5f5;
+  color: #000;
+  border: 2px solid #000;
+}
+
+#customer-email > p {
+  font-size: 12px;
+  color: #828282  ;
+}
+
+#customer-email > p > a {
+  color: #000;
+  margin-left: 8px;
+}
+
+#shipping-details > form > div > input, #shipping-details > form > div > select {
+  border: 1px solid #666;
+}
+
+#shipping-details > h5 {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.eight.columns.shipping-address {
+  width: 67%;
+}
+
+.four.columns.shipping-apartment {
+  margin-left: 10px;
+}
+
+.eight.columns.shipping-address, .five.columns.shipping-country {
+  margin-left: 0;
+}
+
+.five.columns.shipping-state {
+  margin-left: 10px;
+}
+
+.two.columns.shipping-zipcode {
+  margin-left: 10px;
+  width: 109px;
+}
+
+#customer-navigation.row {
+  margin-left: 10px;
+}
+
+#customer-navigation.row  > div.six.columns > a > button {
+  margin-left: 85px;
+}
+
+.save-information {
+  margin-top: 20px;
+}
+
+#save-checkbox.six.columns {
+  width: 0;
+  margin-left: 10px;
+}
+
+input[type=checkbox] {
+  -ms-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  padding: 10px;
+}
+
+#info-save > p {
+  margin-top: 2px;
+  color: #828282;
+  font-size: 14px;
+}
+
+.return {
+  width: 20%;
+}
+
+.four.columns.return {
+  margin-left: 0;
+}
+
+.return > p {
+  margin-top: 10px;
+}
+
+.return > img {
+  margin-top: 15px;
+}
+
+.return > p > a {
+  color: #000;
+  font-size: 15px;
+}
+
+.return > img {
+  width: 50%;
+}
+
+#customer-navigation.row > div.six.columns > a > button {
+  height: 50px;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  font-size: 12px;
+  background-color: #fff;
+  border: 3px solid #a57967;
+  color: #a57967;
+  font-weight: bolder;
+}
+
+#customer-navigation.row > div.six.columns > a > button:hover {
+  background-color: #a57967;
+  color: #fff;
+}
 
 /*--------------- ACCOUNT PAGES --------------*/
-input[type=text], input[type=password] {
+#first-name.six.columns > input, #last-name.six.columns > input,
+#email.six.columns > input, #password.six.columns > input {
   width: 280px;
   height: 50px;
   border-radius: 0;
@@ -508,6 +674,14 @@ input[type=text], input[type=password] {
   letter-spacing: 2px;
   border: 2px solid #000;
 }
+/*input[type=text], input[type=password] {
+  width: 280px;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+}*/
 
 input:focus {
   border: 3px solid #a57967;
