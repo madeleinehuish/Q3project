@@ -30,7 +30,9 @@ const App = React.createClass({
       signupEmail: '',
       signupPassword: '',
       cartItems: [],
-      products: []
+      products: [],
+      loggedIn: false,
+      currentUser: {}
     };
   },
 
@@ -67,6 +69,11 @@ const App = React.createClass({
       });
   },
 
+  logOut() {
+    this.setState({ loggedIn: false });
+    this.setState({ currentUser: {}});
+  },
+
   onFormChangeFirstName(event) {
     this.setState({signupFirstName: event.target.value}, () => {
 
@@ -91,7 +98,7 @@ const App = React.createClass({
   },
 
   onSubmit(event) {
-    alert(this.state.signupFirstName + " " + this.state.signupLastName + " " + this.state.signupEmail + " " + this.state.signupPassword);
+
       // event.preventDefault();
       const firstName = this.state.signupFirstName;
       const lastName = this.state.signupLastName;
@@ -120,6 +127,8 @@ const App = React.createClass({
           axios.post('/api-token', { email, password })
             .then((user) => {
               sessionStorage.setItem('userId', user.id);
+              this.setState({ loggedIn : true });
+              this.setState({ currentUser: user.data});
               console.log('got through');
               // window.location.href = '/main.html';
             })
@@ -135,7 +144,7 @@ const App = React.createClass({
 
   onSubmitLogin(event) {
       // event.preventDefault();
-    alert(this.state.signupEmail + " " + this.state.signupPassword);
+
 
     const email = this.state.signupEmail;
     const password = this.state.signupPassword;
@@ -150,7 +159,10 @@ const App = React.createClass({
   axios.post('/api-token', { email, password })
     .then((user) => {
       sessionStorage.setItem('userId', user.id);
-      console.log('user logged in, id = ' + user.id)
+      this.setState({ loggedIn : true });
+      this.setState({ currentUser: user.data});
+      console.log(this.state.currentUser.firstName);
+      console.log('logged in = ' + this.state.loggedIn)
     })
     .catch(function (error) {
       console.log(error);
@@ -162,7 +174,7 @@ const App = React.createClass({
     return (
       <BrowserRouter>
         <main>
-          <Header />
+          <Header loggedIn={this.state.loggedIn} currentUser={this.state.currentUser} logOut={this.logOut}/>
           <Match pattern="/" exactly render={
           () => <Home
             { ...this.state }
