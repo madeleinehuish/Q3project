@@ -3,8 +3,6 @@ import Products from './Products';
 
 const ProductsLists = React.createClass({
   render() {
-    // const filteredProducts = this.props.searchFilter();
-
     const products = this.props.products.map((product, index) => {
       return <Products
         product={product}

@@ -361,6 +361,183 @@ nav.six.columns > ul > li {
   content:"$";
 }
 
+/*-------------- CART -------------*/
+#cart-main.row {
+  width: 80%;
+  margin: auto;
+}
+
+#cart-header.row {
+  background-color: #000;
+  color: #fff;
+}
+
+#cart-header.row {
+  padding: 10px 0 0 10px;
+  margin-bottom: 0;
+  height: 40px;
+}
+
+#product-list.cart > #products-header.row > h1 {
+  margin-bottom: 15px;
+}
+
+#products-header.row > h5 {
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 20px;
+}
+
+#cart-header.row > div.six.columns > h5, #cart-header.row > div.three.columns > h5 {
+  font-size: 16px;
+  margin-bottom: 0;
+  margin-top: 4px;
+  font-weight: bolder;;
+}
+
+#cart-header.row > div.six.columns > h5 {
+  margin-left: 40px;
+}
+
+#cart-header.row > div.three.columns {
+  float: right;
+  width: 12%;
+}
+
+#products-in-cart.row {
+  margin-top: 25px;
+  border-bottom: 1px solid #d6d6d6;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+#products-in-cart.row > div.two.columns {
+  margin-top: 20px;
+}
+
+#products-in-cart.row > div.three.columns {
+  margin-top: 25px;
+  width: 4%;
+}
+
+.product-image > img {
+  width: 60px;
+  margin-left: 20px;
+}
+
+#products-in-cart.row > div.six.columns > p {
+  margin-left: 0;
+  margin-top: 25px;
+  color: #4a4a4a;
+}
+
+#products-in-cart.row > div.two.columns {
+  margin-left: 145px;
+  width: 12%;
+}
+
+/*div#qty-counter {
+  border: 1px solid #000;
+  font-size: 0.87836rem;
+  margin: 0;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative !important;
+  width: 100%;
+}*/
+
+#qty-counter > input {
+  border-radius: 0;
+  width: 80%;
+}
+
+#qty-counter > input:focus {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  /*margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 1rem;*/
+}
+
+/*#qty-counter > span.qty-text {
+  box-sizing: border-box;
+  font-size: 0.87836rem;
+  white-space: normal;
+}*/
+
+/*#qty-counter > span.up-arrow {
+  transition: 0.2s;
+  outline: none;
+  cursor: pointer !important;
+  display: block;
+  border-left: 1px solid #000;
+}*/
+
+#products-in-cart.row > div.three.columns > p {
+  width: 50%;
+  float: right;
+}
+
+#cart-subtotal.row {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+  line-height: 0.2;
+  padding: 5px 2px 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+p#subtotal {
+  color: #454545;
+}
+
+p#subtotal > span {
+  font-weight: bolder;
+  color: black;
+  margin-left: 12px;
+}
+
+#shipping-disclaimer {
+  color: #919191;
+  font-size: 10px;
+  font-style: italic;
+}
+
+#shop-checkout-btn {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#proceed-to-checkout, #continue-shopping {
+  width: 240px;
+  margin-left: 22px;
+  border-radius: 0;
+  height: 50px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+}
+
+#proceed-to-checkout, #continue-shopping {
+  background-color: #fff;
+  border: 3px solid #a57967;
+  /*font-weight: bolder;*/
+  color: #a57967;
+}
+
+#continue-shopping {
+  /*background-color: #f5f5f5;
+  color: #000;*/
+  margin-right: 450px;
+}
+
+/*#proceed-to-checkout:hover {
+  background-color: #a57967;
+  color: #fff;
+}*/
 /*-------------- CHECKOUT -------------*/
 #checkout > div.row > div.six.columns {
   padding: 35px 0 0 80px;
@@ -721,36 +898,6 @@ div.four.columns.return {
   font-weight: bolder;
 }
 
-/*--------------- ACCOUNT PAGES --------------*/
-#first-name.six.columns > input, #last-name.six.columns > input,
-#email.six.columns > input, #password.six.columns > input {
-  width: 280px;
-  height: 50px;
-  border-radius: 0;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border: 2px solid #000;
-}
-/*input[type=text], input[type=password] {
-  width: 280px;
-  height: 50px;
-  border-radius: 0;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border: 2px solid #000;
-}*/
-
-input:focus {
-  border: 3px solid #a57967;
-  background-color: #a57967;
-  color: #fff;
-  font-weight: bolder;
-}
-
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-}
-
 /*--------------- PAYMENT --------------*/
 div#payment-method > h5 {
   margin-bottom: 5px;
@@ -824,6 +971,36 @@ div#payment-method > p {
 
 .choose-address.row {
   padding-bottom: 20px;
+}
+
+/*--------------- ACCOUNT PAGES --------------*/
+#first-name.six.columns > input, #last-name.six.columns > input,
+#email.six.columns > input, #password.six.columns > input {
+  width: 280px;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+}
+/*input[type=text], input[type=password] {
+  width: 280px;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+}*/
+
+input:focus {
+  border: 3px solid #a57967;
+  background-color: #a57967;
+  color: #fff;
+  font-weight: bolder;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
 /*--------------- ACCOUNT PAGES --------------*/
