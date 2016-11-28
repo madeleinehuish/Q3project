@@ -53,7 +53,7 @@ const Customer = React.createClass({
                       <input type="text" name="apartment" placeholder="Apt, suite, etc. (optional)"/>
                     </div>
 
-                    <div className="company">
+                    <div className="city">
                       <input type="text" name="city" placeholder="City" required/>
                     </div>
 

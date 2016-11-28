@@ -16,7 +16,7 @@ const Shipping = React.createClass({
 
           <div className="checkout-forms">
             {/* Users do not have to create an account. That is optional. Users can get through the entire
-            shopping process without needing to create a password */}
+            shipping process without needing to create a password */}
             <div id="shipping-info-header" className="row">
             {/* The shipping address needs to save from the previous page. If the user has shopped before and saved their
               address on a previous visit, their address should render.*/}
@@ -32,7 +32,7 @@ const Shipping = React.createClass({
               </div>
 
 
-              <div id="shipping-method" className="row">
+              <div className="row shipping-method">
                 <h5>Shipping method</h5>
                 <form>
                   {/* Need to add 3 radio buttons: standard shipping (free), premium ($9.99), FedEx 2 Day ($25.00).

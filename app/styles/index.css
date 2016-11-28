@@ -546,7 +546,7 @@ p#total-cost {
 }
 
 #customer-email > form > input:focus, #shipping-details > form > div > input:focus,
-#shipping-details > form > div > select:focus {
+#shipping-details > form > div > select:focus, .credit-card-number > input:focus {
   background: #f5f5f5;
   color: #000;
   border: 2px solid #000;
@@ -598,6 +598,7 @@ p#total-cost {
 
 #customer-navigation.row  > div.six.columns > a > button {
   margin-left: 85px;
+  min-width: 275px;
 }
 
 .save-information {
@@ -666,7 +667,7 @@ div.four.columns.return {
 }
 
 /*--------------- SHIPPING --------------*/
-#customer-email > h5, #shipping-details > h5, #shipping-method.row > h5 {
+#customer-email > h5, #shipping-details > h5, .shipping-method.row > h5 {
   padding-top: 10px;
   font-size: 18px;
   font-weight: lighter;
@@ -687,35 +688,142 @@ div.four.columns.return {
   color: #000;
 }
 
-#shipping-method.row {
+.shipping-method.row {
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-#shipping-method.row > form {
+.shipping-method.row > form {
   border: 2px solid #d6d6d6;
   border-radius: 4px;
 }
 
-#shipping-method.row > form > div.row {
+.shipping-method.row > form > div.row {
   border-bottom: 1px solid #d6d6d6;
   padding-left: 20px;
   padding-top: 20px;
 }
 
-#shipping-method.row > form > div.row > div.nine.columns {
+.shipping-method.row > form > div.row > div.nine.columns,
+.shipping-method.row > form > div.row > div.eleven.columns {
   margin-left: 0;
   font-size: 14px;
 }
 
-#shipping-method.row > form > div.row > div.nine.columns > label {
+.shipping-method.row > form > div.row > div.nine.columns > label,
+.shipping-method.row > form > div.row > div.eleven.columns > label {
   color: #6b6b6b;
 }
 
-#shipping-method.row > form > div.row > div.two.columns > p {
+.shipping-method.row > form > div.row > div.two.columns > p {
   text-align: right;
   font-size: 14px;
   font-weight: bolder;
+}
+
+/*--------------- ACCOUNT PAGES --------------*/
+#first-name.six.columns > input, #last-name.six.columns > input,
+#email.six.columns > input, #password.six.columns > input {
+  width: 280px;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+}
+/*input[type=text], input[type=password] {
+  width: 280px;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+}*/
+
+input:focus {
+  border: 3px solid #a57967;
+  background-color: #a57967;
+  color: #fff;
+  font-weight: bolder;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+/*--------------- PAYMENT --------------*/
+div#payment-method > h5 {
+  margin-bottom: 5px;
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+div#payment-method > p {
+  font-size: 13px;
+  color: #616161;
+}
+
+#payment-form.row {
+  border: 2px solid #d6d6d6;
+  border-radius: 4px;
+}
+
+#payment-form.row > form {
+  margin-bottom: 0;
+}
+
+#credit-card {
+  height: 10px;
+}
+
+#credit-card > div.eight.columns, #credit-card > div.four.columns {
+  padding: 20px;
+}
+
+#credit-card > div.eight.columns > h5 {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 15px;
+}
+
+#credit-card > .four.columns {
+  margin-top: -5px;
+}
+
+#credit-card > .four.columns > img {
+  width: 100%;
+}
+
+.credit-card-details {
+  background-color: #f5f5f5;
+  margin-top: 60px;
+  height: 160px;
+  text-align: center;
+  border-top: 1px solid #d6d6d6;
+  /*border-bottom: 1px solid #d6d6d6;*/
+}
+
+.credit-card-number > input, .credit-card-name > input,
+.credit-card-date > input, .credit-card-cvc > input {
+  width: 90%;
+}
+
+.credit-card-number {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.credit-card-name {
+  margin-left: 16px;
+}
+
+.credit-card-date, .credit-card-cvc {
+  margin-left: 4px;
+}
+
+.choose-address.row {
+  padding-bottom: 20px;
 }
 
 /*--------------- ACCOUNT PAGES --------------*/
