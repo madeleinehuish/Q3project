@@ -47,12 +47,14 @@ app.use(express.static(path.join('public')));
 
 // const products = require('./routes/products');
 const users = require('./routes/api-users');
-// const token = require('./routes/api-token');
+const token = require('./routes/api-token');
+const products = require('./routes/api-products');
 //
 //
 // app.use(products);
 app.use(users);
-// app.use(token);
+app.use(token);
+app.use(products);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
