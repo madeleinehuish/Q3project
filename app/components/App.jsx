@@ -47,6 +47,11 @@ const App = React.createClass({
       });
   },
 
+  logOut() {
+    this.setState({ loggedIn: false });
+    this.setState({ currentUser: {}});
+  },
+
   onFormChangeFirstName(event) {
     this.setState({signupFirstName: event.target.value}, () => {
 
@@ -101,6 +106,7 @@ const App = React.createClass({
             .then((user) => {
               sessionStorage.setItem('userId', user.id);
               this.setState({ loggedIn : true });
+              this.setState({ currentUser: user.data});
               console.log('got through');
               // window.location.href = '/main.html';
             })
@@ -146,7 +152,7 @@ const App = React.createClass({
     return (
       <BrowserRouter>
         <main>
-          <Header loggedIn={this.state.loggedIn} currentUser={this.state.currentUser}/>
+          <Header loggedIn={this.state.loggedIn} currentUser={this.state.currentUser} logOut={this.logOut}/>
           <Match pattern="/" exactly render={
           () => <Home
             { ...this.state }

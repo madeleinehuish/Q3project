@@ -13,7 +13,11 @@ const NotFound = React.createClass({
           <li><Link to='/cart'>Cart</Link></li>
         </ul>
         <div>
-          <img src="https://media.giphy.com/media/KrLqtbe8PGEDe/giphy.gif"/>
+          <img src="http://i.giphy.com/hlrC0QXsmbBSg.gif"/>
+          {/* <img src="http://www.rd.com/wp-content/uploads/2013/10/upturned.jpg"/> */}
+
+          <img src="http://i.giphy.com/Y6ne0Vik9UmT6.gif"/>
+          <img src="http://i.giphy.com/n94I6qyMbVzRS.gif"/>
         </div>
       </main>
     )
