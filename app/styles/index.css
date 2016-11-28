@@ -457,8 +457,12 @@ nav.six.columns > ul > li {
 }
 
 #cart-items.cart > div.three.columns > input {
-  width: 20px;
-  height: 20px;
+  width: 35%;
+  height: 10%;
+}
+
+#cart-items.cart > div.three.columns > input:focus {
+  border: none;
 }
 
 #cart-item-price {

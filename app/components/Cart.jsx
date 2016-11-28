@@ -9,6 +9,7 @@ const Cart = React.createClass({
         cartItem={item}
         key={index}
         cartItems={this.props.cartItems}
+        handleRemoveFromCart={this.props.handleRemoveFromCart}
       />
     });
 

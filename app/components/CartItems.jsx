@@ -2,6 +2,10 @@ import { Link } from 'react-router';
 import React from 'react';
 
 const CartItems = React.createClass({
+  handleClickRemove() {
+    this.props.handleRemoveFromCart(this.props.cartItem);
+  },
+
   render() {
     return (
       <section id="cart-items" className="cart">
@@ -24,8 +28,8 @@ const CartItems = React.createClass({
         </div>
         <div className="three columns">
           <p id="cart-item-price">$10</p>
-          <input type="image" src="http://www.iconshock.com/img_vista/IPHONE/general/jpg/trash_can_icon.jpg"/>
-          {/* <input onClick={this.handleClickRemove} type="image" src="http://www.iconshock.com/img_vista/IPHONE/general/jpg/trash_can_icon.jpg"/> */}
+          {/* <input type="image" src="http://www.iconshock.com/img_vista/IPHONE/general/jpg/trash_can_icon.jpg"/> */}
+          <input onClick={this.handleClickRemove} type="image" src="http://www.iconshock.com/img_vista/IPHONE/general/jpg/trash_can_icon.jpg"/>
         </div>
       </section>
     )

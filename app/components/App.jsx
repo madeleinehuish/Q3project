@@ -58,6 +58,14 @@ const App = React.createClass({
     this.setState({ cartItems: cart });
   },
 
+  handleRemoveFromCart(product) {
+    const removeFromCart = this.state.cartItems.filter((element, index) => {
+      return element.id !== product.id;
+    });
+
+    this.setState({ cartItems: removeFromCart });
+  },
+
   componentDidMount() {
     axios.get('/api-products')
       .then(res => {
@@ -197,18 +205,16 @@ const App = React.createClass({
           <Match pattern="/signup" exactly render={
             () => <Signup
             { ...this.state }
-
-            onSubmit={this.onSubmit}
-            inputValue={this.state.value}
-            onFormChangeFirstName={this.onFormChangeFirstName}
-            onFormChangeLastName={this.onFormChangeLastName}
-            onFormChangeEmail={this.onFormChangeEmail}
-            onFormChangePassword={this.onFormChangePassword}
-            signUpFirstName={this.state.signUpFirstName}
-            signUpLastName={this.state.signUpLastName}
-            signUpEmail={this.state.signUpEmail}
-            signUpPassword={this.state.signUpPassword}
-
+              onSubmit={this.onSubmit}
+              inputValue={this.state.value}
+              onFormChangeFirstName={this.onFormChangeFirstName}
+              onFormChangeLastName={this.onFormChangeLastName}
+              onFormChangeEmail={this.onFormChangeEmail}
+              onFormChangePassword={this.onFormChangePassword}
+              signUpFirstName={this.state.signUpFirstName}
+              signUpLastName={this.state.signUpLastName}
+              signUpEmail={this.state.signUpEmail}
+              signUpPassword={this.state.signUpPassword}
             />
           }/>
           <Match pattern="/productslist" exactly render={
@@ -216,19 +222,19 @@ const App = React.createClass({
             { ...this.state }
               handleAddToCart={this.handleAddToCart}
             />
-          }/>
-          <Match pattern="/cart" exactly render={
-            () => <Cart
-            { ...this.state }
-            products={this.state.products}
-            />
-          }/>
-          <Match pattern="/customer-checkout" exactly render={
-            () => <Customer
-            { ...this.state }
+            }/>
+            <Match pattern="/cart" exactly render={
+              () => <Cart
+              { ...this.state }
+                handleRemoveFromCart={this.handleRemoveFromCart}
+              />
+            }/>
+            <Match pattern="/customer-checkout" exactly render={
+              () => <Customer
+              { ...this.state }
 
-            />
-          }/>
+              />
+            }/>
           <Match pattern="/shipping" exactly render={
             () => <Shipping
             { ...this.state }
