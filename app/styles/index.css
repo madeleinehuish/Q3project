@@ -324,13 +324,14 @@ nav.six.columns > ul > li {
   width: 320px;
   margin-left: 24px;
   color: #242424;
-  min-height: 80px;
-  max-height: 80px;
+  min-height: 85px;
+  max-height: 85px;
 }
 
 #product-name {
-  margin: 20px 36px 20px 10px;
+  margin: 20px 25px 20px 10px;
   width: 325px;
+  font-size: 13px;
 }
 
 #product-price {
@@ -355,6 +356,14 @@ nav.six.columns > ul > li {
 #products-to-buy.four.columns > a > button:hover {
   background-color: #a57967;
   color: #fff;
+}
+
+.bling {
+  font-weight: bolder;
+  margin-bottom: 0;
+  margin-right: 10px;
+  padding-top: 18px;
+  font-size: 15px;
 }
 
 .bling::before {
@@ -405,12 +414,10 @@ nav.six.columns > ul > li {
 }
 
 #products-in-cart.row {
-  margin-top: 25px;
-  border-bottom: 1px solid #d6d6d6;
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
-
+/*
 #products-in-cart.row > div.two.columns {
   margin-top: 20px;
 }
@@ -418,23 +425,50 @@ nav.six.columns > ul > li {
 #products-in-cart.row > div.three.columns {
   margin-top: 25px;
   width: 4%;
-}
+}*/
 
 .product-image > img {
   width: 60px;
   margin-left: 20px;
 }
 
-#products-in-cart.row > div.six.columns > p {
-  margin-left: 0;
-  margin-top: 25px;
+#cart-items.cart {
+  height: 120px;
+  border-bottom: 1px solid #d6d6d6;
+  padding-top: 30px;
+}
+
+#cart-items.cart > div.six.columns > p {
+  margin-left: 18px;
+  margin-top: 20px;
   color: #4a4a4a;
 }
 
-#products-in-cart.row > div.two.columns {
+#cart-items.cart > div.two.columns {
+  margin-top: 27px;
+  margin-left: 145px;
+}
+
+#cart-items.cart > div.three.columns {
+  width: 6%;
+  margin-top: 32px;
+  margin-left: 32px;
+  display: inline-flex;
+}
+
+#cart-items.cart > div.three.columns > input {
+  width: 20px;
+  height: 20px;
+}
+
+#cart-item-price {
+  margin-right: 40px;
+}
+
+/*#products-in-cart.row > div.two.columns {
   margin-left: 145px;
   width: 12%;
-}
+}*/
 
 /*div#qty-counter {
   border: 1px solid #000;
@@ -475,10 +509,10 @@ nav.six.columns > ul > li {
   border-left: 1px solid #000;
 }*/
 
-#products-in-cart.row > div.three.columns > p {
+/*#products-in-cart.row > div.three.columns > p {
   width: 50%;
   float: right;
-}
+}*/
 
 #cart-subtotal.row {
   width: 80%;
@@ -492,6 +526,7 @@ nav.six.columns > ul > li {
 
 p#subtotal {
   color: #454545;
+  margin-right: 20px;
 }
 
 p#subtotal > span {
@@ -504,6 +539,7 @@ p#subtotal > span {
   color: #919191;
   font-size: 10px;
   font-style: italic;
+  margin-right: 20px;
 }
 
 #shop-checkout-btn {

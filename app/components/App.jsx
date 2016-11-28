@@ -34,6 +34,28 @@ const App = React.createClass({
     };
   },
 
+  handleAddToCart(product) {
+    let cart;
+    const cartItems = this.state.cartItems;
+    const cartIds = this.state.cartItems.map((item) => item.id);
+
+    if (cartIds.indexOf(product.id) === -1) {
+      cart = cartItems.concat(product)
+    } else {
+      cart = cartItems.map((item) => {
+        if (product.id !== item.id) {
+          return item;
+        }
+
+        item.quantity++;
+
+        return item;
+      });
+    }
+
+    this.setState({ cartItems: cart });
+  },
+
   componentDidMount() {
     axios.get('/api-products')
       .then(res => {
@@ -180,7 +202,7 @@ const App = React.createClass({
           <Match pattern="/productslist" exactly render={
             () => <ProductsList
             { ...this.state }
-              // onRender={this.onRender}
+              handleAddToCart={this.handleAddToCart}
             />
           }/>
           <Match pattern="/cart" exactly render={

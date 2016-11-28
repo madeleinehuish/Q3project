@@ -5,23 +5,28 @@ const CartItems = React.createClass({
   render() {
     return (
       <section id="cart-items" className="cart">
-            <div className="seven columns">
-              <div className="product-image">
-                <img src={this.props.product.image}/>
-              </div>
-            </div>
-            <div className="two columns">
-
-            </div>
-            <div className="three columns">
-
-            </div>
-            {/* <img /> */}
-            {/* State change: if we allow user to increase or descrease the quantity --> will affect quantity and price */}
-            {/* <p>qty</p> */}
-            {/* <p>price</p> */}
-            {/* State change: remove item from cart */}
-            {/* <button>x</button> */}
+        <div className="one columns">
+          <div className="product-image">
+            <img src={this.props.cartItem.image}/>
+          </div>
+        </div>
+        <div className="six columns">
+          <p>{this.props.cartItem.name}</p>
+        </div>
+        <div className="two columns">
+          <div id="qty-counter">
+              <input type="number" name="qty" defaultValue="1" min="0"/>
+            {/* <span className="qty-text">1</span>
+            <span className="up-arrow" data-value="1">
+              <img src=""/>
+            </span> */}
+          </div>
+        </div>
+        <div className="three columns">
+          <p id="cart-item-price">$10</p>
+          <input type="image" src="http://www.iconshock.com/img_vista/IPHONE/general/jpg/trash_can_icon.jpg"/>
+          {/* <input onClick={this.handleClickRemove} type="image" src="http://www.iconshock.com/img_vista/IPHONE/general/jpg/trash_can_icon.jpg"/> */}
+        </div>
       </section>
     )
   }

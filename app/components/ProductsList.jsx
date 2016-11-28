@@ -8,6 +8,7 @@ const ProductsLists = React.createClass({
       return <Products
         product={product}
         key={index}
+        handleAddToCart={this.props.handleAddToCart}
       />
     });
 

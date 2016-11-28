@@ -4,9 +4,9 @@ import CartItems from './CartItems';
 
 const Cart = React.createClass({
   render() {
-    const cartItems = this.props.cartItems.map((product, index) => {
+    const cartItems = this.props.cartItems.map((item, index) => {
       return <CartItems
-        product={product}
+        cartItem={item}
         key={index}
         cartItems={this.props.cartItems}
       />
@@ -32,33 +32,7 @@ const Cart = React.createClass({
             </div>
           </div>
           <div id='products-in-cart' className="row">
-            {/* { cartItems } */}
-            <div className="one columns">
-              <div className="product-image">
-                <img src="http://www.westcoastshaving.com/resize/Shared/Images/Product/Benjamin-Barber-Beard-Oil-Black-Oak/benjamin-barber-beard-oil-black-oak.jpg"/>
-              </div>
-            </div>
-            <div className="six columns">
-              <p>Benjamin Barber Beard Oil, Black Oak</p>
-            </div>
-            <div className="two columns">
-              <div id="qty-counter">
-                  <input type="number" name="qty" defaultValue="1" min="0"/>
-                {/* <span className="qty-text">1</span>
-                <span className="up-arrow" data-value="1">
-                  <img src=""/>
-                </span> */}
-              </div>
-            </div>
-            <div className="three columns">
-              <p>$10</p>
-            </div>
-            {/* <img /> */}
-            {/* State change: if we allow user to increase or descrease the quantity --> will affect quantity and price */}
-            {/* <p>qty</p> */}
-            {/* <p>price</p> */}
-            {/* State change: remove item from cart */}
-            {/* <button>x</button> */}
+            { cartItems }
           </div>
         </div>
 
