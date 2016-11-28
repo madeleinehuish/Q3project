@@ -5,7 +5,7 @@ const NotFound = React.createClass({
   render() {
     return (
       <main>
-        <h2>Ain't nothing here mo-fo</h2>
+        <h2>fo oh fo There ain't nothing here mo-fo</h2>
         <ul>
           <li><Link to='/login'>Login</Link></li>
           <li><Link to='/products'>Products</Link></li>
