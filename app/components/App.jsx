@@ -132,13 +132,13 @@ const App = React.createClass({
   logIn(user) {
     const email = this.state.signupEmail;
     const password = this.state.signupPassword;
-    //
-    // if (!email) {
-    //   alert('Email must not be blank');
-    // }
-    // if (!password) {
-    //   alert('Password must not be blank');
-    // }
+
+    if (!email) {
+      alert('Email must not be blank');
+    }
+    if (!password) {
+      alert('Password must not be blank');
+    }
 
     // axios.get(`api-orders/order_items/${this.state.currentUser.id}`)
     //   .then(res => {
@@ -203,8 +203,7 @@ const App = React.createClass({
         axios.post('/api-token', { email, password })
           .then((res) => {
             sessionStorage.setItem('userId', res.data.id);
-            this.setState({ loggedIn : true });
-            this.setState({ currentUser: res.data});
+            this.setState({ loggedIn : true, currentUser: res.data });
             console.log('got through');
             // window.location.href = '/main.html';
           })
@@ -217,29 +216,7 @@ const App = React.createClass({
       });
   },
 
-  // onSubmitLogin(event) {
-  //   const email = this.state.signupEmail;
-  //   const password = this.state.signupPassword;
-  //
-  //   if (!email) {
-  //     alert('Email must not be blank');
-  //   }
-  //   if (!password) {
-  //     alert('Password must not be blank');
-  //   }
-  //
-  //   axios.post('/api-token', { email, password })
-  //     .then((user) => {
-  //       sessionStorage.setItem('userId', user.id);
-  //       this.setState({ loggedIn : true });
-  //       this.setState({ currentUser: user.data });
-  //       console.log(this.state.currentUser.firstName);
-  //       console.log('logged in = ' + this.state.loggedIn)
-  //     })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // },
+
 
   render() {
     return (
