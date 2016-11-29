@@ -19,6 +19,7 @@ const User = React.createClass({
 					</div>
 					<div className="seven columns">
 						<h2>User Orders</h2>
+
 					</div>
 				</div>
 				<button onClick={this.logOut}>Log out</button>

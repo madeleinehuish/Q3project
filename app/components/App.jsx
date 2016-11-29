@@ -20,6 +20,7 @@ import ProductsList from './ProductsList';
 import Signup from './Signup';
 import Success from './checkout/Success';
 import User from './User';
+import Test from './Test';
 
 const App = React.createClass({
   getInitialState(){
@@ -33,7 +34,9 @@ const App = React.createClass({
       cartItems: [],
       products: [],
       loggedIn: false,
-      currentUser: {}
+      currentUser: {},
+      ordersFromDb: {},
+      orderItemsFromDb: {}
     };
   },
 
@@ -83,18 +86,30 @@ const App = React.createClass({
     axios.get('/api-products')
       .then(res => {
         this.setState({ products: res.data });
-      }
-    )
-      .catch(function (error) {
+        axios.get('/api-orders')
+          .then(res => {
+            this.setState({ ordersFromDb: res.data});
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
         console.log(error);
       });
   },
 
-  logOut() {
-    this.setState({ loggedIn: false });
-    this.setState({ currentUser: {}});
-    console.log('loggedIn = ' + this.state.loggedIn)
-  },
+  // userOrders() {
+  //   axios.get(`/api-orders/${this.state.currentUser.id}`)
+  //     .then(res => {
+  //       this.setState({ ordersFromDb: res.data });
+  //       console.log(res.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
+  // },
 
   onFormChangeFirstName(event) {
     this.setState({signupFirstName: event.target.value}, () => {
@@ -117,6 +132,23 @@ const App = React.createClass({
     this.setState({signupPassword: event.target.value}, () => {
 
     });
+  },
+
+  logIn(user) {
+    this.setState({ loggedIn : true });
+    this.setState({ currentUser: user.data}, () => {
+      axios.get(`api-orders/order_items/${this.state.currentUser.id}`)
+        .then(res => {
+          console.log(res);
+          this.setState({ orderItemsFromDb: res.data });
+
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    });
+
+
   },
 
   onSubmit(event) {
@@ -149,8 +181,9 @@ const App = React.createClass({
           axios.post('/api-token', { email, password })
             .then((user) => {
               sessionStorage.setItem('userId', user.id);
-              this.setState({ loggedIn : true });
-              this.setState({ currentUser: user.data});
+              // this.setState({ loggedIn : true });
+              // this.setState({ currentUser: user.data});
+              this.logIn(user);
               console.log('got through');
               // window.location.href = '/main.html';
             })
@@ -179,8 +212,9 @@ const App = React.createClass({
   axios.post('/api-token', { email, password })
     .then((user) => {
       sessionStorage.setItem('userId', user.id);
-      this.setState({ loggedIn : true });
-      this.setState({ currentUser: user.data});
+      // this.setState({ loggedIn : true });
+      // this.setState({ currentUser: user.data});
+      this.logIn(user);
       console.log(this.state.currentUser.firstName);
       console.log('logged in = ' + this.state.loggedIn)
     })
@@ -281,6 +315,13 @@ const App = React.createClass({
             { ...this.state }
               logOut={this.logOut}
               currentUser={this.state.currentUser}
+              userOrders={this.userOrders}
+            />
+          }/>
+          <Match pattern="/test" exactly render={
+            () => <Test
+            { ...this.state }
+
             />
           }/>
           <Footer />
