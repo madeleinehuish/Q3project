@@ -166,8 +166,6 @@ const App = React.createClass({
 
   onSubmitLogin(event) {
       // event.preventDefault();
-
-
     const email = this.state.signupEmail;
     const password = this.state.signupPassword;
 
@@ -245,6 +243,7 @@ const App = React.createClass({
             () => <Customer
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
+              logOut={this.logOut}
             />
           }/>
           <Match pattern="/shipping" exactly render={

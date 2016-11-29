@@ -4,6 +4,10 @@ import Checkout from './Checkout';
 import CheckoutCart from './CheckoutCart';
 
 const Customer = React.createClass({
+  logOut(){
+    this.props.logOut();
+  },
+
   render() {
     return (
       <section id="customer" className="checkout">
@@ -18,7 +22,9 @@ const Customer = React.createClass({
             {/* Users do not have to create an account. That is optional. Users can get through the entire
             shopping process without needing to create a password */}
             <div id="customer-info-header" className="row">
-
+            {/* {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={'/user'}>{this.props.currentUser.firstName}</Link></li>
+             : <li><Link to='/login'>Login</Link></li>} */}
+             {this.props.loggedIn ? <div></div> :
               <div id="customer-email">
                 <h5>Customer information</h5>
                 <form>
@@ -29,7 +35,7 @@ const Customer = React.createClass({
                 If the user logs in from the navbar, they also won't see this page. When they click on CHECKOUT from cart, it
                 should direct them straight to shipping. */}
                 <p>Already have an account?<Link to='/login'> Login</Link></p>
-              </div>
+              </div>}
 
               <div id="customer-form" className="row">
                 <div id="shipping-details">
