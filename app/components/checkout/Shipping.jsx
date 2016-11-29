@@ -27,7 +27,7 @@ const Shipping = React.createClass({
                   <p>Street address</p>
                   <p>City, state, zip</p>
                   <p>Country</p>
-                  <p id="edit"><Link to='./customer'>Edit shipping address</Link></p>
+                  <p id="edit"><Link to='./customer-checkout'>Edit shipping address</Link></p>
                 </div>
               </div>
 
@@ -79,7 +79,7 @@ const Shipping = React.createClass({
                   <img src="images/return.png" />
                 </div>
                 <div className="four columns return">
-                  <p><Link to='./customer'>Return to Customer Information</Link></p>
+                  <p><Link to='/customer-checkout'>Return to Customer Information</Link></p>
                 </div>
                 <div className="six columns">
                   <Link to='/payment'><button>Continue to Payment Method</button></Link>

@@ -15,9 +15,9 @@ const Signup = React.createClass({
           <div id="create-title" className="twelve columns">
             <h1>CREATE ACCOUNT</h1>
           </div>
+
           <form id="sign-up-form" onSubmit={this.onClickSubmit}>
             <div id="user-name" className="row">
-
               <div id="first-name" className="six columns">
                 <input placeholder="First Name" id="firstName" type="text" onChange={this.props.onFormChangeFirstName} value={this.props.signupFirstName} className="validate"/>
               </div>
@@ -25,7 +25,6 @@ const Signup = React.createClass({
                 <input placeholder="Last Name" id="lastName" type="text" onChange={this.props.onFormChangeLastName} value={this.props.signupLastName} className="validate"/>
               </div>
             </div>
-
             <div id="email-password" className="row">
               <div id="email" className="six columns">
                 <input placeholder="Email" id="email" type="text" onChange={this.props.onFormChangeEmail} value={this.props.signupEmail} className="validate"/>
@@ -33,7 +32,6 @@ const Signup = React.createClass({
               <div id="password" className="six columns">
                 <input placeholder="Password" id="password" type="password" onChange={this.props.onFormChangePassword} value={this.props.signupPassword} className="validate"/>
               </div>
-
             </div>
           </form>
 

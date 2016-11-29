@@ -1043,44 +1043,44 @@ input:-webkit-autofill {
 }
 
 /*---------- SIGNUP ---------*/
-div#create-account {
+#create-account {
   margin-top: 90px;
 }
 
-div#create-title.twelve.columns, div#create-account.twelve.columns,
-div#create-account-btn.twelve.columns  {
+#create-title.twelve.columns, #create-account.twelve.columns,
+#create-account-btn.twelve.columns  {
   text-align: center;
 }
 
-div#create-title.twelve.columns > h1, div#return-to-login > div.row > p {
+#create-title.twelve.columns > h1, #return-to-login > div.row > p {
   font-size: 22px;
   font-weight: bolder;
   letter-spacing: 4px;
   margin-bottom: 70px;
 }
 
-div#first-name.six.columns, div#email.six.columns {
+#first-name.six.columns, #email.six.columns {
   text-align: right;
 }
 
-div#last-name.six.columns, div#password.six.columns {
+#last-name.six.columns, #password.six.columns {
   text-align: left;
 }
 
-div#user-name.row {
+#user-name.row {
   margin-bottom: 25px;
 }
 
-div#email-password.row {
+#email-password.row {
   height: 90px;
 }
 
-div#create-account {
+#create-account {
   height: 440px;
 }
 
-div#create-account-btn.twelve.columns > a > button#create,
-div#return-to-login > div.row > a > button#return-to-login-btn {
+#create-account-btn.twelve.columns > a > button#create,
+#return-to-login > div.row > a > button#return-to-login-btn {
   width: 250px;
   height: 50px;
   border-radius: 0;
@@ -1092,8 +1092,8 @@ div#return-to-login > div.row > a > button#return-to-login-btn {
   font-weight: bolder;
 }
 
-div#create-account-btn.twelve.columns > a > button#create:hover,
-div#return-to-login > div.row > a >button#return-to-login-btn:hover {
+#create-account-btn.twelve.columns > a > button#create:hover,
+#return-to-login > div.row > a > button#return-to-login-btn:hover {
   background-color: #a57967;
   color: #fff;
 }
@@ -1108,6 +1108,70 @@ div#return-to-login {
 }
 
 /*---------- LOGIN ---------*/
+#login-account {
+  margin-top: 90px;
+}
+
+#login-title.twelve.columns, #login-account.twelve.columns,
+#login-account-btn.twelve.columns  {
+  text-align: center;
+}
+
+#login-title.twelve.columns > h1, #return-to-signup > p {
+  font-size: 22px;
+  font-weight: bolder;
+  letter-spacing: 4px;
+  margin-bottom: 70px;
+}
+
+#login-account-btn {
+  margin-bottom: 12px;
+}
+
+#login-account {
+  height: 390px;
+  text-align: center;
+}
+
+#login-account > p {
+  font-size: 13px;
+}
+
+#login-form {
+  margin-bottom: 140px;
+}
+
+#login-account-btn.twelve.columns > a > button#login-btn,
+#return-to-signup > a > button {
+  width: 250px;
+  height: 50px;
+  border-radius: 0;
+  letter-spacing: 2px;
+  font-size: 18px;
+  background-color: #fff;
+  border: 3px solid #a57967;
+  color: #a57967;
+  font-weight: bolder;
+}
+
+#return-to-signup > a > button {
+  font-size: 15px;
+}
+
+#login-account-btn.twelve.columns > a > button#login:hover,
+#return-to-signup > a > button:hover {
+  background-color: #a57967;
+  color: #fff;
+}
+
+#return-to-signup {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  border-top: 1px solid #999;
+  padding-top: 70px;
+  height: 250px;
+}
 
 /*--------------- FOOTER --------------*/
 footer, .push {
