@@ -6,13 +6,8 @@ const Header = React.createClass({
     this.props.logOut();
   },
 
-  onClickSubmitLogin(event) {
-    event.preventDefault()
-    this.props.onSubmitLogin()
-  },
-
   onClickSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     this.props.onSubmit()
   },
 
@@ -59,7 +54,7 @@ const Header = React.createClass({
                     {/* <a href="#close" title="Close" className="close"><button id="login-btn" type="submit" name="action" onClick={this.onClickSubmitLogin}> */}
                     {/* Need to set this up so user is redirected to page they came form */}
                     {/* LOGIN</button></a> */}
-                    <a href='#close' title="Close" className="close"><button id="login-btn" type="submit" name="action" onClick={this.onClickSubmitLogin}>
+                    <a href='#close' title="Close" className="close"><button id="login-btn" type="submit" name="action" onClick={() => this.props.logIn(this.props.currentUser)}>
                     {/* Need to set this up so user is redirected to page they came form */}
                     LOGIN</button></a>
                   </div>
