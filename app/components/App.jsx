@@ -14,10 +14,10 @@ import Header from './layouts/Header';
 import Guides from './Guides';
 import History from './History';
 import Home from './Home';
-import Login from './Login';
+// import Login from './Login';
 import NotFound from './NotFound';
 import ProductsList from './ProductsList';
-import Signup from './Signup';
+// import Signup from './Signup';
 import Success from './checkout/Success';
 import User from './User';
 import Test from './Test';
@@ -71,16 +71,16 @@ const App = React.createClass({
 
     this.setState({ cartItems: removeFromCart });
   },
-
-  cartItemCount() {
-    let itemQuantity = 0;
-
-    for (let i = 0; i < this.items.length; i++) {
-      itemQuantity += parseInt(this.items[i].quantity);
-    }
-
-    return itemQuantity;
-  },
+  //
+  // cartItemCount() {
+  //   let itemQuantity = 0;
+  //
+  //   for (let i = 0; i < this.items.length; i++) {
+  //     itemQuantity += parseInt(this.items[i].quantity);
+  //   }
+  //
+  //   return itemQuantity;
+  // },
 
   componentDidMount() {
     axios.get('/api-products')
@@ -152,89 +152,109 @@ const App = React.createClass({
   },
 
   onSubmit(event) {
-
-      // event.preventDefault();
-      const firstName = this.state.signupFirstName;
-      const lastName = this.state.signupLastName;
-      const email = this.state.signupEmail;
-      const password = this.state.signupPassword;
-
-      if (!firstName) {
-        alert('First name must not be blank');
-      }
-      if (!lastName) {
-        alert('Last name must not be blank');
-      }
-      if (!email) {
-        alert('Email must not be blank.');
-      }
-      if (email.indexOf('@') < 0) {
-        alert('Email must be valid.');
-      }
-      if (!password || password.length < 8) {
-        alert('Password must be valid.');
-      }
-
-      axios.post('/api-users', { firstName, lastName, email, password })
-        .then((response) => {
-          console.log(response);
-          axios.post('/api-token', { email, password })
-            .then((user) => {
-              sessionStorage.setItem('userId', user.id);
-              // this.setState({ loggedIn : true });
-              // this.setState({ currentUser: user.data});
-              this.logIn(user);
-              console.log('got through');
-              // window.location.href = '/main.html';
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-  },
-
-  onSubmitLogin(event) {
-      // event.preventDefault();
+    const firstName = this.state.signupFirstName;
+    const lastName = this.state.signupLastName;
     const email = this.state.signupEmail;
     const password = this.state.signupPassword;
 
-  if (!email) {
-    alert('Email must not be blank');
-  }
-  if (!password) {
-    alert('Password must not be blank');
-  }
+    if (!firstName) {
+      alert('First name must not be blank');
+    }
+    if (!lastName) {
+      alert('Last name must not be blank');
+    }
+    if (!email) {
+      alert('Email must not be blank.');
+    }
+    if (email.indexOf('@') < 0) {
+      alert('Email must be valid.');
+    }
+    if (!password || password.length < 8) {
+      alert('Password must be valid.');
+    }
 
-  axios.post('/api-token', { email, password })
-    .then((user) => {
-      sessionStorage.setItem('userId', user.id);
-      // this.setState({ loggedIn : true });
-      // this.setState({ currentUser: user.data});
-      this.logIn(user);
-      console.log(this.state.currentUser.firstName);
-      console.log('logged in = ' + this.state.loggedIn)
-    })
+    axios.post('/api-users', { firstName, lastName, email, password })
+      .then((response) => {
+        console.log(response);
+        axios.post('/api-token', { email, password })
+          .then((user) => {
+            sessionStorage.setItem('userId', user.id);
+            this.setState({ loggedIn : true });
+            this.setState({ currentUser: user.data});
+            console.log('got through');
+            // window.location.href = '/main.html';
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
+
+  onSubmitLogin(event) {
+    const email = this.state.signupEmail;
+    const password = this.state.signupPassword;
+
+    if (!email) {
+      alert('Email must not be blank');
+    }
+    if (!password) {
+      alert('Password must not be blank');
+    }
+
+    axios.post('/api-token', { email, password })
+      .then((user) => {
+        sessionStorage.setItem('userId', user.id);
+        this.setState({ loggedIn : true });
+        this.setState({ currentUser: user.data });
+        console.log(this.state.currentUser.firstName);
+        console.log('logged in = ' + this.state.loggedIn)
+      })
     .catch(function (error) {
       console.log(error);
     });
-
   },
 
   render() {
     return (
       <BrowserRouter>
         <main>
-          <Header loggedIn={this.state.loggedIn} currentUser={this.state.currentUser} logOut={this.logOut}/>
+          <Header
+              { ...this.state }
+              loggedIn={this.loggedIn}
+              currentUser={this.currentUser}
+              logOut={this.logOut}
+              onSubmitLogin={this.onSubmitLogin}
+              onSubmit={this.onSubmit}
+              inputValue={this.state.value}
+              onFormChangeFirstName={this.onFormChangeFirstName}
+              onFormChangeLastName={this.onFormChangeLastName}
+              onFormChangeEmail={this.onFormChangeEmail}
+              onFormChangePassword={this.onFormChangePassword}
+              signUpFirstName={this.state.signUpFirstName}
+              signUpLastName={this.state.signUpLastName}
+              signUpEmail={this.state.signUpEmail}
+              signUpPassword={this.state.signUpPassword}
+            />
           <Match pattern="/" exactly render={
           () => <Home
               { ...this.state }
+              // onSubmitLogin={this.onSubmitLogin}
+              // onSubmit={this.onSubmit}
+              // inputValue={this.state.value}
+              // onFormChangeFirstName={this.onFormChangeFirstName}
+              // onFormChangeLastName={this.onFormChangeLastName}
+              // onFormChangeEmail={this.onFormChangeEmail}
+              // onFormChangePassword={this.onFormChangePassword}
+              // signUpFirstName={this.state.signUpFirstName}
+              // signUpLastName={this.state.signUpLastName}
+              // signUpEmail={this.state.signUpEmail}
+              // signUpPassword={this.state.signUpPassword}
           />
           }/>
-          <Match pattern="/login" exactly render={
+          {/* <Match pattern="/login" exactly render={
             () => <Login
               { ...this.state }
               onSubmitLogin={this.onSubmitLogin}
@@ -259,7 +279,7 @@ const App = React.createClass({
               signUpEmail={this.state.signUpEmail}
               signUpPassword={this.state.signUpPassword}
             />
-          }/>
+          }/> */}
           <Match pattern="/productslist" exactly render={
             () => <ProductsList
               { ...this.state }

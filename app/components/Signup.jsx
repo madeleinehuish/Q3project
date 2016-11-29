@@ -2,7 +2,6 @@ import { Link } from 'react-router';
 import React from 'react';
 
 const Signup = React.createClass({
-
   onClickSubmit(event) {
     event.preventDefault()
     this.props.onSubmit()
