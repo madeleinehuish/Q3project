@@ -37,25 +37,27 @@ const App = React.createClass({
   },
 
   handleAddToCart(product) {
-    let cart;
-    const cartItems = this.state.cartItems;
-    const cartIds = this.state.cartItems.map((item) => item.id);
+    let productNotInCart = true;
+    const updatedCart = this.state.cartItems.map((productInCart) => {
+      if (product.id !== productInCart.id) {
+        return productInCart;
+      }
 
-    if (cartIds.indexOf(product.id) === -1) {
-      cart = cartItems.concat(product)
-    } else {
-      cart = cartItems.map((item) => {
-        if (product.id !== item.id) {
-          return item;
-        }
+      productNotInCart = false;
 
-        item.quantity++;
+      const updateQuantity = (productInCart.quantity || 0) + 1;
 
-        return item;
-      });
+      const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
+
+      return newProduct;
+    });
+
+    if (productNotInCart) {
+      const newProduct = Object.assign({}, product, { quantity: 1 });
+      updatedCart.push(newProduct);
     }
 
-    this.setState({ cartItems: cart });
+    this.setState({ cartItems: updatedCart });
   },
 
   handleRemoveFromCart(product) {
@@ -64,6 +66,16 @@ const App = React.createClass({
     });
 
     this.setState({ cartItems: removeFromCart });
+  },
+
+  cartItemCount() {
+    let itemQuantity = 0;
+
+    for (let i = 0; i < this.items.length; i++) {
+      itemQuantity += parseInt(this.items[i].quantity);
+    }
+
+    return itemQuantity;
   },
 
   componentDidMount() {
@@ -223,6 +235,7 @@ const App = React.createClass({
           <Match pattern="/cart" exactly render={
             () => <Cart
               { ...this.state }
+              cartItemCount={this.cartItemCount}
               handleRemoveFromCart={this.handleRemoveFromCart}
             />
           }/>

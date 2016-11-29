@@ -34,18 +34,16 @@ const CheckoutCart = React.createClass({
                 <p>Shipping: </p>
               </div>
               <div id="payment-costs" className=" six columns">
-                <p>$0 </p>
-                {/* <p className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
+                {/* <p>$0 </p> */}
+                <p className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
                   return amount + curr.price * curr.quantity;
-                  }, 0)).toFixed(2)}</p> */}
-                <p>$0 </p>
-                {/* <p className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
+                  }, 0)).toFixed(2)}</p>
+                {/* <p>$0 </p> */}
+                <p className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
                   return amount + ((curr.price * curr.quantity) * .09);
-                  }, 0)).toFixed(2)}</p> */}
-                <p>$0 </p>
-                {/* <p className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
-                  return amount + ((curr.price * curr.quantity) * .09) + (curr.price * curr.quantity);
-                }, 0)).toFixed(2)}</p> */}
+                  }, 0)).toFixed(2)}</p>
+                <p>$0.00 </p>
+
               </div>
             </div>
 
@@ -56,7 +54,10 @@ const CheckoutCart = React.createClass({
                 </div>
               <div className="four columns cost">
                 <p id="total-currency">USD </p>
-                <p id="total-cost">$0 </p>
+                {/* <p id="total-cost">$0 </p> */}
+                <p id="total-cost" className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
+                  return amount + ((curr.price * curr.quantity) * .09) + (curr.price * curr.quantity);
+                }, 0)).toFixed(2)}</p>
               </div>
             </div>
           </div>
