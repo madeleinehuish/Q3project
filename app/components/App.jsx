@@ -19,6 +19,7 @@ import NotFound from './NotFound';
 import ProductsList from './ProductsList';
 import Signup from './Signup';
 import Success from './checkout/Success';
+import User from './User';
 
 const App = React.createClass({
   getInitialState(){
@@ -92,6 +93,7 @@ const App = React.createClass({
   logOut() {
     this.setState({ loggedIn: false });
     this.setState({ currentUser: {}});
+    console.log('loggedIn = ' + this.state.loggedIn)
   },
 
   onFormChangeFirstName(event) {
@@ -273,6 +275,13 @@ const App = React.createClass({
             () => <Guides
               { ...this.state }
 
+            />
+          }/>
+          <Match pattern="/user" exactly render={
+            () => <User
+            { ...this.state }
+              logOut={this.logOut}
+              currentUser={this.state.currentUser}
             />
           }/>
           <Footer />

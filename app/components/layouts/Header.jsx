@@ -18,7 +18,8 @@ const Header = React.createClass({
             {/* <li><Link to='/login'>Login</Link></li> */}
             {/* {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={`/api-users/${this.props.currentUser.id}`}>{this.props.currentUser.firstName}</Link></li>
              : <li><Link to='/login'>Login</Link></li>} */}
-             {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={`/api-users/${this.props.currentUser.id}`} onClick={this.logOut}>{this.props.currentUser.firstName}</Link></li>
+             {/* to={`/api-users/${this.props.currentUser.id}`} */}
+             {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={'/user'}>{this.props.currentUser.firstName}</Link></li>
               : <li><Link to='/login'>Login</Link></li>}
             <li><Link to='/productslist'>Products</Link></li>
             <li><Link to='/guides'>Guides</Link></li>
