@@ -24,6 +24,10 @@ header > div.container {
   margin: 0;
 }
 
+header > div.twelve.columns, nav.six.columns {
+  height: 50px;
+}
+
 #logo.six.columns > a {
   margin-left: 25px;
 }
@@ -44,12 +48,26 @@ header > div.container {
 nav.six.columns > ul {
   display: flex;
   float: right;
-  margin-top: 10px;
+  margin-top: 13px;
+  width: 64%;
+  height: 50px;
 }
 
 nav.six.columns > ul > li {
   padding-right: 25px;
   padding-left: 25px;
+}
+
+nav.six.columns > ul > li > a > img, nav.six.columns > ul > li#login-icon > a > img {
+  width: 30%;
+}
+
+nav.six.columns > ul > li#products {
+  padding-left: 0;
+}
+
+nav.six.columns > ul > li#login-icon {
+  padding-right: 0;
 }
 
 /*--------------- HOMEPAGE ----------------*/

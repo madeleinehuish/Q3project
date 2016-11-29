@@ -20,10 +20,10 @@ const Header = React.createClass({
              : <li><Link to='/login'>Login</Link></li>} */}
              {/* to={`/api-users/${this.props.currentUser.id}`} */}
              {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={'/user'}>{this.props.currentUser.firstName}</Link></li>
-              : <li><Link to='/login'>Login</Link></li>}
-            <li><Link to='/productslist'>Products</Link></li>
+              : <li id="login-icon"><Link to='/login'><img src="images/login.png"/></Link></li>}
+            <li id="products"><Link to='/productslist'>Products</Link></li>
             <li><Link to='/guides'>Guides</Link></li>
-            <li><Link to='/cart'>Cart</Link></li>
+            <li><Link to='/cart'><img src="images/cart.png"/></Link></li>
           </ul>
         </nav>
       </div>
