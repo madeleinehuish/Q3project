@@ -22,7 +22,7 @@ const User = React.createClass({
 
 					</div>
 				</div>
-				<button onClick={this.logOut}>Log out</button>
+				<Link to="/"><button onClick={this.logOut}>Log out</button></Link>
 			</section>
 		)}
 });

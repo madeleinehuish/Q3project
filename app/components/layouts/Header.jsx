@@ -7,7 +7,7 @@ const Header = React.createClass({
   },
 
   onClickSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();  
     this.props.onSubmit()
   },
 
@@ -101,9 +101,9 @@ const Header = React.createClass({
                   </form>
 
                   <div id="create-account-btn" className="twelve columns">
-                    <Link to='/'><button id="create" type="submit" name="action" onClick={this.onClickSubmit}>
+                    <a href='#close' title="Close" className="close"><button id="create" type="submit" name="action" onClick={this.onClickSubmit}>
                     {/* Need to set this up so user is redirected to page they came form */}
-                    CREATE ACCOUNT</button></Link>
+                    CREATE ACCOUNT</button></a>
                   </div>
 
                 </div>
