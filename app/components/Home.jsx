@@ -13,6 +13,8 @@ const Home = React.createClass({
           </div>
         </div>
 
+
+
         <div id="blurb" className="row">
           <div className="six columns">
             <h3>Legendary beard and mustache grooming products</h3>
