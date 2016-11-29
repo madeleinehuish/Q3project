@@ -39,6 +39,10 @@ const Cart = React.createClass({
 
         <div id="cart-subtotal" className="row">
           {/* <div className="four columns"> */}
+          {/* SUBTOTAL CALCULATIONS READY - NEED TO ADD QUANTITY */}
+          {/* <span className="bling">{(this.props.cartItem.reduce((amount, curr, index) => {
+              return amount + curr.price * curr.quantity;
+            }, 0)).toFixed(2)}</span> */}
             <p id="subtotal">SUBTOTAL <span>$69.95</span></p>
             <p id="shipping-disclaimer">*Doesn't include shipping cost. FREE SHIPPING over $50.</p>
           {/* </div> */}

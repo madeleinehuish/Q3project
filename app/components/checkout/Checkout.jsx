@@ -9,7 +9,10 @@ const Checkout = React.createClass({
           <div className="six columns">
             <div className="customer-flow">
               <h2>Refined</h2>
-              <p>Cart > Customer Information > Shipping > Payment </p>
+              <p><Link to='/cart'>Cart > </Link>
+                <Link to='/customer-checkout'>Customer Information > </Link>
+                <Link to='/shipping'>Shipping > </Link>
+                <Link to='/payment'>Payment</Link></p>
             </div>
           </div>
         </div>
