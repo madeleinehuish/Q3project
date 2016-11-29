@@ -185,26 +185,23 @@ const App = React.createClass({
           <Header loggedIn={this.state.loggedIn} currentUser={this.state.currentUser} logOut={this.logOut}/>
           <Match pattern="/" exactly render={
           () => <Home
-            { ...this.state }
-
+              { ...this.state }
           />
           }/>
           <Match pattern="/login" exactly render={
             () => <Login
-            { ...this.state }
-
-            onSubmitLogin={this.onSubmitLogin}
-            inputValue={this.state.value}
-            onFormChangeEmail={this.onFormChangeEmail}
-            onFormChangePassword={this.onFormChangePassword}
-            signUpEmail={this.state.signUpEmail}
-            signUpPassword={this.state.signUpPassword}
-
+              { ...this.state }
+              onSubmitLogin={this.onSubmitLogin}
+              inputValue={this.state.value}
+              onFormChangeEmail={this.onFormChangeEmail}
+              onFormChangePassword={this.onFormChangePassword}
+              signUpEmail={this.state.signUpEmail}
+              signUpPassword={this.state.signUpPassword}
             />
           }/>
           <Match pattern="/signup" exactly render={
             () => <Signup
-            { ...this.state }
+              { ...this.state }
               onSubmit={this.onSubmit}
               inputValue={this.state.value}
               onFormChangeFirstName={this.onFormChangeFirstName}
@@ -219,54 +216,54 @@ const App = React.createClass({
           }/>
           <Match pattern="/productslist" exactly render={
             () => <ProductsList
-            { ...this.state }
+              { ...this.state }
               handleAddToCart={this.handleAddToCart}
             />
             }/>
-            <Match pattern="/cart" exactly render={
-              () => <Cart
+          <Match pattern="/cart" exactly render={
+            () => <Cart
               { ...this.state }
-                handleRemoveFromCart={this.handleRemoveFromCart}
-              />
-            }/>
-            <Match pattern="/customer-checkout" exactly render={
-              () => <Customer
+              handleRemoveFromCart={this.handleRemoveFromCart}
+            />
+          }/>
+          <Match pattern="/customer-checkout" exactly render={
+            () => <Customer
               { ...this.state }
-
-              />
-            }/>
+              handleAddToCart={this.handleAddToCart}
+            />
+          }/>
           <Match pattern="/shipping" exactly render={
             () => <Shipping
-            { ...this.state }
+              { ...this.state }
 
             />
           }/>
           <Match pattern="/payment" exactly render={
             () => <Payment
-            { ...this.state }
+              { ...this.state }
 
             />
           }/>
           <Match pattern="/success" exactly render={
             () => <Success
-            { ...this.state }
+              { ...this.state }
 
             />
           }/>
           <Match pattern="/history" exactly render={
             () => <History
-            { ...this.state }
+              { ...this.state }
 
             />
           }/>
           <Match pattern="/guides" exactly render={
             () => <Guides
-            { ...this.state }
+              { ...this.state }
 
             />
           }/>
           <Footer />
-          <Miss component={NotFound} />
+          <Miss component={ NotFound } />
         </main>
       </BrowserRouter>
     )

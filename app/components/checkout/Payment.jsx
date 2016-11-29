@@ -100,6 +100,7 @@ const Payment = React.createClass({
         <div id="checkout-cart" className="row">
           <div className="five columns">
             <CheckoutCart
+              cartItems={this.props.cartItems}
             />
           </div>
         </div>
