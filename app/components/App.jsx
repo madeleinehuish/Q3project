@@ -19,7 +19,7 @@ import NotFound from './NotFound';
 import ProductsList from './ProductsList';
 // import Signup from './Signup';
 import Success from './checkout/Success';
-import User from './User';
+import User from './user/User';
 import Test from './Test';
 
 const App = React.createClass({
@@ -35,14 +35,16 @@ const App = React.createClass({
       products: [],
       loggedIn: false,
       currentUser: {},
-      ordersFromDb: {},
-      orderItemsFromDb: {}
+      // ordersFromDb: {},
+      orderHistory: {},
+      userOrders: []
     };
   },
 
 
   handleAddToCart(product) {
     let productNotInCart = true;
+
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (product.id !== productInCart.id) {
         return productInCart;
@@ -89,7 +91,7 @@ const App = React.createClass({
         this.setState({ products: res.data });
         axios.get('/api-orders')
           .then(res => {
-            this.setState({ ordersFromDb: res.data});
+            this.setState({ orderHistory: res.data});
             console.log(res.data);
           })
           .catch((error) => {
@@ -99,6 +101,22 @@ const App = React.createClass({
       .catch((error) => {
         console.log(error);
       });
+
+    // axios.get('/api-orders')
+    //   .then(res => {
+    //     this.setState({ orders: res.data });
+    //     axios.get('/api-orders')
+    //       .then(res => {
+    //         this.setState({ ordersFromDb: res.data});
+    //         console.log(res.data);
+    //       })
+    //       .catch((error) => {
+    //         console.log(error);
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 
   // userOrders() {
@@ -365,12 +383,12 @@ const App = React.createClass({
               userOrders={this.userOrders}
             />
           }/>
-          <Match pattern="/test" exactly render={
+          {/* <Match pattern="/test" exactly render={
             () => <Test
             { ...this.state }
 
             />
-          }/>
+          }/> */}
           <Footer />
           <Miss component={ NotFound } />
         </main>
