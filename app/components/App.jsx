@@ -14,7 +14,7 @@ import Header from './layouts/Header';
 import Guides from './Guides';
 import History from './History';
 import Home from './Home';
-// import Login from './Login';
+import Login from './Login';
 import NotFound from './NotFound';
 import ProductsList from './ProductsList';
 // import Signup from './Signup';
@@ -35,11 +35,20 @@ const App = React.createClass({
       products: [],
       loggedIn: false,
       currentUser: {},
-      ordersFromDb: {},
-      orderItemsFromDb: {}
+      previousOrders: {},
+        firstName: '',
+        lastName: '',
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zip: '',
+        shipping: '',
+        orderedAt: '',
+        items: []
+
     };
   },
-
 
   handleAddToCart(product) {
     let productNotInCart = true;
@@ -87,46 +96,40 @@ const App = React.createClass({
     axios.get('/api-products')
       .then(res => {
         this.setState({ products: res.data });
-        axios.get('/api-orders')
-          .then(res => {
-            this.setState({ ordersFromDb: res.data});
-            console.log(res.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        // axios.get('/api-orders')
+        //   .then(res => {
+        //     this.setState({ ordersFromDb: res.data});
+        //     console.log(res.data);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
       })
       .catch((error) => {
         console.log(error);
       });
   },
 
-  // userOrders() {
-  //   axios.get(`/api-orders/${this.state.currentUser.id}`)
-  //     .then(res => {
-  //       this.setState({ ordersFromDb: res.data });
-  //       console.log(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
+  // onFormChangeFirstName(event) {
+  //   this.setState({signupFirstName: event.target.value});
+  // },
+  //
+  // onFormChangeLastName(event) {
+  //   this.setState({signupLastName: event.target.value});
+  //
+  // },
+  //
+  // onFormChangeEmail(event) {
+  //   this.setState({ signupEmail: event.target.value});
+  // },
+  //
+  // onFormChangePassword(event) {
+  //   this.setState({ signupPassword: event.target.value });
   // },
 
-  onFormChangeFirstName(event) {
-    this.setState({signupFirstName: event.target.value});
-  },
+  onFormChange(event) {
 
-  onFormChangeLastName(event) {
-    this.setState({signupLastName: event.target.value});
-
-  },
-
-  onFormChangeEmail(event) {
-    this.setState({ signupEmail: event.target.value});
-  },
-
-  onFormChangePassword(event) {
-    this.setState({ signupPassword: event.target.value});
+    this.setState({ [event.target.name] : event.target.value })
   },
 
   logIn(user) {
@@ -140,39 +143,31 @@ const App = React.createClass({
       alert('Password must not be blank');
     }
 
-    // axios.get(`api-orders/order_items/${this.state.currentUser.id}`)
-    //   .then(res => {
-    //     console.log(res);
-    //     this.setState({ orderItemsFromDb: res.data });
-    //
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
     axios.post('/api-token', { email, password })
       .then((res) => {
         sessionStorage.setItem('userId', res.data.id);
         this.setState({ loggedIn : true, currentUser: res.data });
         console.log('logged in = ' + this.state.loggedIn)
       })
-    .catch(function (error) {
-      console.log(error);
-    });
-    // this.setState({ loggedIn : true });
-    // this.setState({ currentUser: user.data}, () => {
-    //   axios.get(`api-orders/order_items/${this.state.currentUser.id}`)
-    //     .then(res => {
-    //       console.log(res);
-    //       this.setState({ orderItemsFromDb: res.data });
-    //
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     })
-    // });
+      .then(() => {
+        axios.get(`api-orders/${this.state.currentUser.id}`)
+          .then(res => {
+            console.log(res);
+            this.setState({ previousOrders: res.data });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
+  },
 
+  logOut() {
+    this.setState({ loggedIn: false });
+    this.setState({ currentUser: {} });
   },
 
   onSubmit(event) {
@@ -216,8 +211,6 @@ const App = React.createClass({
       });
   },
 
-
-
   render() {
     return (
       <BrowserRouter>
@@ -226,13 +219,15 @@ const App = React.createClass({
               { ...this.state }
               logIn={this.logIn}
               logOut={this.logOut}
-              onSubmitLogin={this.onSubmitLogin}
+              // onSubmitLogin={this.onSubmitLogin}
               onSubmit={this.onSubmit}
-              inputValue={this.state.value}
-              onFormChangeFirstName={this.onFormChangeFirstName}
-              onFormChangeLastName={this.onFormChangeLastName}
-              onFormChangeEmail={this.onFormChangeEmail}
-              onFormChangePassword={this.onFormChangePassword}
+              // inputValue={this.state.value}
+              // handleChange={this.handleChange}
+              onFormChange={this.onFormChange}
+              // onFormChangeFirstName={this.onFormChangeFirstName}
+              // onFormChangeLastName={this.onFormChangeLastName}
+              // onFormChangeEmail={this.onFormChangeEmail}
+              // onFormChangePassword={this.onFormChangePassword}
               signUpFirstName={this.state.signUpFirstName}
               signUpLastName={this.state.signUpLastName}
               signUpEmail={this.state.signUpEmail}
@@ -254,18 +249,18 @@ const App = React.createClass({
               // signUpPassword={this.state.signUpPassword}
           />
           }/>
-          {/* <Match pattern="/login" exactly render={
-            () => <Login
+          {/* <Login
               { ...this.state }
-              onSubmitLogin={this.onSubmitLogin}
-              inputValue={this.state.value}
-              onFormChangeEmail={this.onFormChangeEmail}
-              onFormChangePassword={this.onFormChangePassword}
-              signUpEmail={this.state.signUpEmail}
-              signUpPassword={this.state.signUpPassword}
+              onFormChangeSample={this.onFormChangeSample}
+              // onSubmitLogin={this.onSubmitLogin}
+              // inputValue={this.state.value}
+              // onFormChangeEmail={this.onFormChangeEmail}
+              // onFormChangePassword={this.onFormChangePassword}
+              // signUpEmail={this.state.signUpEmail}
+              // signUpPassword={this.state.signUpPassword}
             />
-          }/>
-          <Match pattern="/signup" exactly render={
+          }/> */}
+          {/* <Match pattern="/signup" exactly render={
             () => <Signup
               { ...this.state }
               onSubmit={this.onSubmit}
@@ -298,6 +293,13 @@ const App = React.createClass({
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
               logOut={this.logOut}
+              firstName={ this.state.firstName }
+              lastName={ this.state.lastName }
+              address1={ this.state.address1 }
+              city={ this.state.city }
+              state={ this.state.state }
+              zip={ this.state.zip }
+              onFormChange={ this.onFormChange }
             />
           }/>
           <Match pattern="/shipping" exactly render={
