@@ -18,7 +18,8 @@ const Login = React.createClass({
           <form id="login-form">
             <div id="email-password" className="row">
               <div id="email" className="six columns">
-                <input placeholder="Email" id="email" type="text" onChange={this.props.onFormChangeEmail} value={this.props.signupEmail} className="validate"/>
+                {/* <input placeholder="Email" id="email" type="text" onChange={this.props.onFormChangeEmail} value={this.props.signupEmail} className="validate"/> */}
+                <input placeholder="Email" id="email" name="signupEmail" type="text" onChange={this.props.onFormChangeSample} value={this.props.signupEmail} className="validate"/>
               </div>
               <div id="password" className="six columns">
                 <input placeholder="Password" id="password" type="password" onChange={this.props.onFormChangePassword} value={this.props.signupPassword} className="validate"/>

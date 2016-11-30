@@ -7,7 +7,6 @@ const Header = React.createClass({
   },
 
   onClickSubmit(event) {
-    // event.preventDefault();  
     this.props.onSubmit()
   },
 
@@ -42,10 +41,10 @@ const Header = React.createClass({
                   <form id="login-form">
                     <div id="email-password" className="row">
                       <div id="email" className="six columns">
-                        <input placeholder="Email" id="email" type="text" onChange={this.props.onFormChangeEmail} value={this.props.signupEmail} className="validate"/>
+                        <input placeholder="Email" id="email" name="signupEmail" type="text" onChange={this.props.onFormChange} value={this.props.signupEmail} className="validate"/>
                       </div>
                       <div id="password" className="six columns">
-                        <input placeholder="Password" id="password" type="password" onChange={this.props.onFormChangePassword} value={this.props.signupPassword} className="validate"/>
+                        <input placeholder="Password" id="password" name="signupPassword" type="password" onChange={this.props.onFormChange} value={this.props.signupPassword} className="validate"/>
                       </div>
                     </div>
                   </form>
@@ -84,24 +83,25 @@ const Header = React.createClass({
                   <form id="sign-up-form" onSubmit={this.onClickSubmit}>
                     <div id="user-name" className="row">
                       <div id="first-name" className="six columns">
-                        <input placeholder="First Name" id="firstName" type="text" onChange={this.props.onFormChangeFirstName} value={this.props.signupFirstName} className="validate"/>
+                        <input placeholder="First Name" id="firstName" name="signupFirstName" type="text" onChange={this.props.onFormChange} value={this.props.signupFirstName} className="validate"/>
                       </div>
                       <div id="last-name" className="six columns">
-                        <input placeholder="Last Name" id="lastName" type="text" onChange={this.props.onFormChangeLastName} value={this.props.signupLastName} className="validate"/>
+                        <input placeholder="Last Name" id="lastName" name="signupLastName" type="text" onChange={this.props.onFormChange} value={this.props.signupLastName} className="validate"/>
                       </div>
                     </div>
                     <div id="email-password" className="row">
                       <div id="email" className="six columns">
-                        <input placeholder="Email" id="email" type="text" onChange={this.props.onFormChangeEmail} value={this.props.signupEmail} className="validate"/>
+                        <input placeholder="Email" id="email" name="signupEmail" type="text" onChange={this.props.onFormChange} value={this.props.signupEmail} className="validate"/>
                       </div>
                       <div id="password" className="six columns">
-                        <input placeholder="Password" id="password" type="password" onChange={this.props.onFormChangePassword} value={this.props.signupPassword} className="validate"/>
+                        <input placeholder="Password" id="password" name="signupPassword" type="password" onChange={this.props.onFormChange} value={this.props.signupPassword} className="validate"/>
                       </div>
                     </div>
                   </form>
 
                   <div id="create-account-btn" className="twelve columns">
                     <a href='#close' title="Close" className="close"><button id="create" type="submit" name="action" onClick={this.onClickSubmit}>
+
                     {/* Need to set this up so user is redirected to page they came form */}
                     CREATE ACCOUNT</button></a>
                   </div>
