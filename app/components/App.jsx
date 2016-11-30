@@ -36,6 +36,7 @@ const App = React.createClass({
       loggedIn: false,
       currentUser: {},
       previousOrders: {},
+      userInformation: [],
         firstName: '',
         lastName: '',
         address1: '',
@@ -107,22 +108,6 @@ const App = React.createClass({
       .catch((error) => {
         console.log(error);
       });
-
-    // axios.get('/api-orders')
-    //   .then(res => {
-    //     this.setState({ orders: res.data });
-    //     axios.get('/api-orders')
-    //       .then(res => {
-    //         this.setState({ ordersFromDb: res.data});
-    //         console.log(res.data);
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   },
 
   // onFormChangeFirstName(event) {
@@ -165,10 +150,10 @@ const App = React.createClass({
         console.log('logged in = ' + this.state.loggedIn)
       })
       .then(() => {
-        axios.get(`api-orders/${this.state.currentUser.id}`)
+        axios.get('api-orders/')
           .then(res => {
-            console.log(res);
-            this.setState({ previousOrders: res.data });
+            console.log(res.data);
+            this.setState({ userInformation: res.data });
           })
           .catch((error) => {
             console.log(error);

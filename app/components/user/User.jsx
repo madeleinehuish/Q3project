@@ -14,13 +14,16 @@ const User = React.createClass({
 				<div className="row">
 					<h3>{this.props.currentUser.firstName} {this.props.currentUser.lastName}</h3>
 					<h5>{this.props.currentUser.email}</h5>
-				</div>
+					{this.props.loggedIn ? <Link to="/"><button onClick={this.logOut}>Log out</button></Link>
+					: <p id="login-icon">This is shit</p>}
+					</div>
+
 				<div className="row">
 					<UserInfo
-						currentUser={this.props.currentUser}
+						userInformation={this.props.userInformation}
 					/>
 					<UserOrders
-						userOrders={this.props.userOrders}
+						// userOrders={this.props.userOrders}
 					/>
 				</div>
 			</section>

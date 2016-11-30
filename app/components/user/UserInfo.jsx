@@ -4,20 +4,21 @@ import Information from './Information';
 
 const UserInfo = React.createClass({
 	render() {
-    // const userInfo = this.props.cartItems.map((item, index) => {
-    //   return <Information
-    //     userInfo={item}
-    //     key={index}
-    //   />
-    // });
+    const userInfo = this.props.userInformation.map((item, index) => {
+      return <Information
+        userInfo={item}
+        key={index}
+      />
+    });
 
     return (
 			<section id="user-information">
         {/* <div id="info-orders" className="row"> */}
           <div id="user-info" className="five columns">
             <h5>Your Information</h5>
-            {/* {userInfo} */}
-
+						<div>
+						{userInfo}
+						</div>
           </div>
         {/* </div> */}
 			</section>

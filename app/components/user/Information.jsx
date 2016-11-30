@@ -7,7 +7,7 @@ const Information = React.createClass({
     return (
 			<section id="information">
         {/* <div  className="seven columns"> */}
-          <p>address etc.</p>
+					<p>{this.props.userInfo.address1}</p>
         {/* </div> */}
 			</section>
 		)}

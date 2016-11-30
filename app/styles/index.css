@@ -1300,10 +1300,34 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   background-color: pink;
 }
 
-#user-info > h5, #user-orders > h5 {
+#user-page > div.row > h5 {
+  font-size: 14px;
+}
+
+#user-page > div {
+  text-align: center;
+}
+
+#user-page > div.row > a > button {
+  /*font-size: 14px;*/
+  width: 140px;
+  height: 40px;
+  border: 2px solid #a57967;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #a57967;
+}
+
+#user-page > div.row > a > button:hover {
+  background-color: #a57967;
+  color: #fff;
+}
+
+/*#user-info > h5, #user-orders > h5 {
   font-size: 18px;
   text-transform: uppercase;
-}
+}*/
 
 #order-history {
   background-color: pink;
