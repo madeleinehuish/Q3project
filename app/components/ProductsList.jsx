@@ -2,6 +2,9 @@ import React from 'react';
 import Products from './Products';
 
 const ProductsLists = React.createClass({
+  handleSort(event) {
+    this.props.handleSort(event.target.value);
+  },
 
   render() {
     const products = this.props.products.map((product, index) => {
@@ -23,9 +26,9 @@ const ProductsLists = React.createClass({
             <ul id="filter-sort">
               <li id="filter-options">FILTER BY LINE:</li>
               {/* STATE CHANGE: when user clicks on an option, images rerender, and font becomes bold */}
-              <li>ALL</li>
-              <li>BEARD</li>
-              <li>MUSTACHE</li>
+              <li><a >ALL</a></li>
+              <li><a>BEARD</a></li>
+              <li><a>MUSTACHE</a></li>
             </ul>
           </div>
           <div id="search-img" className="four columns">
