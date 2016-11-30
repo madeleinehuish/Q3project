@@ -4,8 +4,10 @@ import React from 'react';
 const NotFound = React.createClass({
   render() {
     return (
-      <main>
-        <h2>fo oh fo There ain't nothing here mo-fo</h2>
+      <main id="not-found">
+        <div id="nf-header">
+          <h3>NO BEARDS OR STACHES HERE</h3>
+        </div>
         <ul>
           <li><Link to='/login'>Login</Link></li>
           <li><Link to='/products'>Products</Link></li>
@@ -13,10 +15,8 @@ const NotFound = React.createClass({
           <li><Link to='/cart'>Cart</Link></li>
         </ul>
         <div>
-          <img src="http://i.giphy.com/hlrC0QXsmbBSg.gif"/>
-          {/* <img src="http://www.rd.com/wp-content/uploads/2013/10/upturned.jpg"/> */}
-
           <img src="http://i.giphy.com/Y6ne0Vik9UmT6.gif"/>
+          <img src="http://i.giphy.com/hlrC0QXsmbBSg.gif"/>
           <img src="http://i.giphy.com/n94I6qyMbVzRS.gif"/>
         </div>
       </main>

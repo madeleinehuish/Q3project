@@ -380,8 +380,8 @@ const App = React.createClass({
 
             />
           }/> */}
-          <Footer />
           <Miss component={ NotFound } />
+          <Footer />
         </main>
       </BrowserRouter>
     )
