@@ -29,6 +29,7 @@ const App = React.createClass({
       inputValue: '',
       signupFirstName: '',
       signupLastName: '',
+      searchVisible: false,
       signupEmail: '',
       signupPassword: '',
       cartItems: [],
@@ -49,49 +50,6 @@ const App = React.createClass({
         items: []
     };
   },
-
-  handleAddToCart(product) {
-    let productNotInCart = true;
-
-    const updatedCart = this.state.cartItems.map((productInCart) => {
-      if (product.id !== productInCart.id) {
-        return productInCart;
-      }
-
-      productNotInCart = false;
-
-      const updateQuantity = (productInCart.quantity || 0) + 1;
-
-      const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
-
-      return newProduct;
-    });
-
-    if (productNotInCart) {
-      const newProduct = Object.assign({}, product, { quantity: 1 });
-      updatedCart.push(newProduct);
-    }
-
-    this.setState({ cartItems: updatedCart });
-  },
-
-  handleRemoveFromCart(product) {
-    const removeFromCart = this.state.cartItems.filter((element, index) => {
-      return element.id !== product.id;
-    });
-
-    this.setState({ cartItems: removeFromCart });
-  },
-  //
-  // cartItemCount() {
-  //   let itemQuantity = 0;
-  //
-  //   for (let i = 0; i < this.items.length; i++) {
-  //     itemQuantity += parseInt(this.items[i].quantity);
-  //   }
-  //
-  //   return itemQuantity;
-  // },
 
   componentDidMount() {
     axios.get('/api-products')
@@ -211,6 +169,54 @@ const App = React.createClass({
       });
   },
 
+  handleAddToCart(product) {
+    let productNotInCart = true;
+
+    const updatedCart = this.state.cartItems.map((productInCart) => {
+      if (product.id !== productInCart.id) {
+        return productInCart;
+      }
+
+      productNotInCart = false;
+
+      const updateQuantity = (productInCart.quantity || 0) + 1;
+
+      const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
+
+      return newProduct;
+    });
+
+    if (productNotInCart) {
+      const newProduct = Object.assign({}, product, { quantity: 1 });
+      updatedCart.push(newProduct);
+    }
+
+    this.setState({ cartItems: updatedCart });
+  },
+
+  handleRemoveFromCart(product) {
+    const removeFromCart = this.state.cartItems.filter((element, index) => {
+      return element.id !== product.id;
+    });
+
+    this.setState({ cartItems: removeFromCart });
+  },
+
+  displaySearch() {
+    this.setState({ searchVisible: !this.state.searchVisible });
+  },
+
+  //
+  // cartItemCount() {
+  //   let itemQuantity = 0;
+  //
+  //   for (let i = 0; i < this.items.length; i++) {
+  //     itemQuantity += parseInt(this.items[i].quantity);
+  //   }
+  //
+  //   return itemQuantity;
+  // },
+
   // setTaxRate()
   //   var avalaraAPI = 'https://taxrates.api.avalara.com/postal?country=usa&postal='
   //   + $('#zipcode').val() +
@@ -289,6 +295,7 @@ const App = React.createClass({
             () => <ProductsList
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
+              displaySearch={this.displaySearch}
             />
             }/>
           <Match pattern="/cart" exactly render={
