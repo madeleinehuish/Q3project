@@ -16,6 +16,7 @@ app.disable('x-powered-by');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const _ = require('lodash');
 
 switch (app.get('env')) {
   case 'development':

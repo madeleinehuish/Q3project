@@ -152,8 +152,19 @@ const App = React.createClass({
       .then(() => {
         axios.get('api-orders/')
           .then(res => {
+
             console.log(res.data);
             this.setState({ userInformation: res.data });
+
+
+            // const newData = res.data;
+
+            // const filteredOrders = newData.filter((element)=> {
+            //     return element.userId === 2;
+            //   })
+            this.setState({ previousOrders: res.data });
+            // this.setState({ previousOrders: filteredOrders });
+
           })
           .catch((error) => {
             console.log(error);

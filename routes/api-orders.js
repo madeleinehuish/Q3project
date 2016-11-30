@@ -45,6 +45,7 @@ router.get('/api-orders/:id', (req, res, next) => {
     .then((rows) => {
       const orderItemsData = camelizeKeys(rows);
 
+
       res.send({ orderItemsData, orders });
     })
     .catch((err) => {
