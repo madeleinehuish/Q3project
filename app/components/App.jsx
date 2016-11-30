@@ -19,7 +19,7 @@ import NotFound from './NotFound';
 import ProductsList from './ProductsList';
 // import Signup from './Signup';
 import Success from './checkout/Success';
-import User from './User';
+import User from './user/User';
 import Test from './Test';
 
 const App = React.createClass({
@@ -46,12 +46,12 @@ const App = React.createClass({
         shipping: '',
         orderedAt: '',
         items: []
-
     };
   },
 
   handleAddToCart(product) {
     let productNotInCart = true;
+
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (product.id !== productInCart.id) {
         return productInCart;
@@ -103,11 +103,26 @@ const App = React.createClass({
         //   })
         //   .catch((error) => {
         //     console.log(error);
-        //   });
       })
       .catch((error) => {
         console.log(error);
       });
+
+    // axios.get('/api-orders')
+    //   .then(res => {
+    //     this.setState({ orders: res.data });
+    //     axios.get('/api-orders')
+    //       .then(res => {
+    //         this.setState({ ordersFromDb: res.data});
+    //         console.log(res.data);
+    //       })
+    //       .catch((error) => {
+    //         console.log(error);
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 
   // onFormChangeFirstName(event) {
@@ -142,19 +157,6 @@ const App = React.createClass({
     if (!password) {
       alert('Password must not be blank');
     }
-<<<<<<< HEAD
-
-    // axios.get(`api-orders/order_items/${this.state.currentUser.id}`)
-    //   .then(res => {
-    //     console.log(res);
-    //     this.setState({ orderItemsFromDb: res.data });
-    //
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-=======
->>>>>>> cfabc62d7a7c089199e2e2a632571fad29543473
 
     axios.post('/api-token', { email, password })
       .then((res) => {
@@ -353,12 +355,12 @@ const App = React.createClass({
               userOrders={this.userOrders}
             />
           }/>
-          <Match pattern="/test" exactly render={
+          {/* <Match pattern="/test" exactly render={
             () => <Test
             { ...this.state }
 
             />
-          }/>
+          }/> */}
           <Footer />
           <Miss component={ NotFound } />
         </main>

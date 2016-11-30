@@ -18,6 +18,23 @@ router.get('/api-orders', (_req, res, next) => {
       next(err);
     });
 });
+<<<<<<< HEAD
+=======
+
+router.get('/api-orders/:id', (req, res, next) => {
+  const id = Number.parseInt(req.params.id);
+
+  if (Number.isNaN(id)) {
+    return next();
+  }
+  knex('orders')
+    .where('user_id', id)
+    .then((row) => {
+      if (!row) {
+        throw boom.create(404, 'Not Found');
+      }
+      const order = camelizeKeys(row);
+>>>>>>> userpage
 
 router.get('/api-orders/:id', (req, res, next) => {
   const orderId = Number.parseInt(req.params.id);

@@ -10,22 +10,19 @@ const CheckoutCart = React.createClass({
         cartItem={item}
         key={index}
         cartItems={this.props.cartItems}
-        // handleRemoveFromCart={this.props.handleRemoveFromCart}
       />
     });
 
     return (
       <section className="checkout-cart">
-      {/* <div id="cart-main" className="row"> */}
         <div id='products-in-checkout-cart'>
           <div className="row">
-
             <div className="updated-checkout-cart">
               <div className="row">
                 { cartItems }
                 </div>
               </div>
-            </div>
+          </div>
 
             <div id="running-totals" className="row">
               <div id="payment-headings" className=" six columns">
