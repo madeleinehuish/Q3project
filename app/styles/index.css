@@ -334,6 +334,21 @@ nav.six.columns > ul > li#login-icon {
   max-height: 290px;
 }
 
+#search-options.twelve.columns {
+  text-align: center;
+}
+
+#search-options.twelve.columns > input {
+  width: 30%;
+  text-align: center;
+}
+
+#search-options.twelve.columns > input:focus {
+  background: #f5f5f5;
+  color: #000;
+  border: 2px solid #000;
+}
+
 .name-price {
   display: flex;
   width: 320px;

@@ -206,7 +206,22 @@ const App = React.createClass({
     this.setState({ searchVisible: !this.state.searchVisible });
   },
 
+  // handleSearch(event) {
+  //   const inputValue = event.target.value.toLowerCase();
   //
+  //   this.setState({ inputValue })
+  // },
+  //
+  // searchFilter() {
+  //   const inputValue = this.state.inputValue;
+  //   const products = this.state.products;
+  //   const filteredProducts = this.state.products.filter((element) => {
+  //     return element.name.toLowerCase().includes(inputValue);
+  //   });
+  //
+  //   return filteredProducts;
+  // },
+
   // cartItemCount() {
   //   let itemQuantity = 0;
   //
@@ -296,6 +311,8 @@ const App = React.createClass({
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
               displaySearch={this.displaySearch}
+              handleSearch={this.handleSearch}
+              searchFilter={this.searchFilter}
             />
             }/>
           <Match pattern="/cart" exactly render={

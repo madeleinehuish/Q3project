@@ -7,12 +7,17 @@ const ProductsLists = React.createClass({
     this.props.displaySearch()
   },
 
+  // const filteredProducts = this.props.searchFilter();
+
   render() {
+    // const products = this.props.filteredProducts.map((product, index) => {
     const products = this.props.products.map((product, index) => {
       return <Products
         product={product}
         key={index}
         handleAddToCart={this.props.handleAddToCart}
+        handleSearch={this.handleSearch}
+        inputValue={this.props.inputValue}
       />
     });
 
