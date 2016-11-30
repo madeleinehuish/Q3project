@@ -26,6 +26,7 @@ const User = React.createClass({
 					</div>
 					<div id="user-info">
 						<UserOrders
+							previousOrders={this.props.previousOrders}
 							// userOrders={this.props.userOrders}
 						/>
 					</div>

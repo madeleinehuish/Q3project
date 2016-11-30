@@ -13,6 +13,8 @@ const OrderHistory = React.createClass({
         </div>
         <div className="seven columns text">
           {/* <p>{this.props.userOrder.name}</p> */}
+
+          {/* <p>{this.props.orderHistory}</p> */}
         </div>
         <div className="three columns text">
           {/* <p className="bling">{Number(this.props.userOrder.price).toFixed(2)}</p> */}

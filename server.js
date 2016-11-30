@@ -16,6 +16,7 @@ app.disable('x-powered-by');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const _ = require('lodash');
 
 switch (app.get('env')) {
   case 'development':
@@ -45,7 +46,7 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-// const products = require('./routes/products');
+// const products = require('./routes/products')
 const users = require('./routes/api-users');
 const token = require('./routes/api-token');
 const products = require('./routes/api-products');
