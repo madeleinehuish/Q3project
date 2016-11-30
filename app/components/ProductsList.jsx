@@ -27,6 +27,7 @@ const ProductsLists = React.createClass({
               <li id="filter-options">FILTER BY LINE:</li>
               {/* STATE CHANGE: when user clicks on an option, images rerender, and font becomes bold */}
               <li><a >ALL</a></li>
+              {/* <li onClick={this.handleSort}><a >ALL</a></li> */}
               <li><a>BEARD</a></li>
               <li><a>MUSTACHE</a></li>
             </ul>

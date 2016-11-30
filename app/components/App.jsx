@@ -115,7 +115,7 @@ const App = React.createClass({
 
     this.setState({ sortType: type });
 
-    const filteredProducts = this.state.cartItems.filter((element) => {
+    const filteredProducts = this.state.products.filter((element) => {
       return element;
     });
 
@@ -146,6 +146,7 @@ const App = React.createClass({
 
     this.setState({ products: sortedProducts });
 
+    console.log(sortedProducts);
     return sortedProducts;
   },
 
