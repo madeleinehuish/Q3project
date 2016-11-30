@@ -10,17 +10,28 @@ const UserOrders = React.createClass({
 		//     key={index}
 		//   />
 		// });
+		const prevOrders = this.props.previousOrders;
+		for (let i = 0; i < prevOrders.length; i++) {
+		const orderHistory = prevOrders.map((item, index) => {
+		  return <OrderHistory
+		    orderHistory={item}
+		    key={index}
+		  />
+		});
+
     return (
 			<section id="user-previous-orders">
 				{/* <div id="info-orders" className="row"> */}
 					<div id="user-orders" className="seven columns">
 						<h5>Order History</h5>
-						{/* {userInfo} */}
-
+						{orderHistory}
 					</div>
 				{/* </div> */}
 			</section>
-		)}
+		)
+
+		}
+	}
 });
 
 export default UserOrders;

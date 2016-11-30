@@ -60,8 +60,10 @@ router.get('/api-orders/:id', authorize, (req, res, next) => {
     })
     .then((rows) => {
       const orderItemsData = camelizeKeys(rows);
-      const sortedOrderItems =_.groupBy(orderItemsData, 'orderId');
-
+      const sortedOrderItemsprep =_.groupBy(orderItemsData, 'orderId');
+      const sortedOrderItems = _.map(sortedOrderItemsprep, (value, key) => {
+        return [key, value];
+      });
       res.send({ orders, sortedOrderItems });
     })
     .catch((err) => {

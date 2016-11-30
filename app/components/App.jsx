@@ -142,7 +142,6 @@ const App = React.createClass({
         axios.get('api-orders/')
           .then(res => {
 
-            console.log(res.data);
             this.setState({ userInformation: res.data });
 
             // const newData = res.data;
@@ -342,6 +341,7 @@ const App = React.createClass({
               logOut={this.logOut}
               currentUser={this.state.currentUser}
               userOrders={this.userOrders}
+              previousOrders={this.state.previousOrders}
             />
           }/>
           {/* <Match pattern="/test" exactly render={
