@@ -1257,6 +1257,58 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   display: none;
 }
 
+/*--------------- USER --------------*/
+#user-page > div.row {
+  text-align: center;
+  margin-top: 80px;
+}
+
+#info-orders.row {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#user-page > div.row > h3, #user-page > div.row > h5 {
+  height: 50px;
+  width: 80%;
+  margin: auto;
+}
+
+#user-page > div.row > h3 {
+  font-weight: bolder;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/*#user-page > div.row > h5, #order-history > h5 {
+  font-size: 16px;
+}*/
+
+/*#info-orders.row > div.five.columns, #info-orders.row > div.seven.columns {
+  font-size: 18px;
+  text-transform: uppercase;
+}*/
+
+#user-info {
+  background-color: lightgreen;
+  margin-left: 25px;
+}
+
+#user-orders {
+  background-color: pink;
+}
+
+#user-info > h5, #user-orders > h5 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#order-history {
+  background-color: pink;
+}
+
 /*--------------- FOOTER --------------*/
 footer, .push {
   height: 40px;
