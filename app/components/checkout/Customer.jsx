@@ -4,8 +4,12 @@ import Checkout from './Checkout';
 import CheckoutCart from './CheckoutCart';
 
 const Customer = React.createClass({
-  logOut(){
+  logOut() {
     this.props.logOut();
+  },
+
+  setTaxRate(event) {
+    this.props.setTaxRate(event.target.value);
   },
 
   render() {
@@ -65,11 +69,12 @@ const Customer = React.createClass({
                     </div>
 
                     <div className="five columns shipping-country">
-                      <select name="country" form="countryform" required>
+                      <input id="country" type="text" name="country" placeholder="United States" readOnly/>
+                      {/* <select name="country" form="countryform" required>
                         <option value="USA">United States</option>
                         <option value="Canada">Canada</option>
                         <option value="Canada">Mexico</option>
-                      </select>
+                      </select> */}
                     </div>
                     <div className="five columns shipping-state">
                       <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required>
@@ -127,7 +132,7 @@ const Customer = React.createClass({
                       </select>
                     </div>
                     <div className="two columns shipping-zipcode">
-                      <input type="number" name="zip" placeholder="Zip code" onChange={this.props.onFormChange} value={this.props.zip} className="validate" required/>
+                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} className="validate" required/>
                     </div>
                     {/* <select onChange={this.props.handleSort} value={this.props.sortType}>
                       <option value="name">Name</option>

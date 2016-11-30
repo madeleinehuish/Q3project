@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
 import axios from 'axios';
+// import ErrorLogger from './ErrorLogger';
 
 import Cart from './Cart';
 // import Checkout from './checkout/Checkout';
@@ -50,47 +51,6 @@ const App = React.createClass({
         items: []
     };
   },
-
-  handleAddToCart(product) {
-    let productNotInCart = true;
-    const updatedCart = this.state.cartItems.map((productInCart) => {
-      if (product.id !== productInCart.id) {
-        return productInCart;
-      }
-
-      productNotInCart = false;
-
-      const updateQuantity = (productInCart.quantity || 0) + 1;
-      const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
-
-      return newProduct;
-    });
-
-    if (productNotInCart) {
-      const newProduct = Object.assign({}, product, { quantity: 1 });
-      updatedCart.push(newProduct);
-    }
-
-    this.setState({ cartItems: updatedCart });
-  },
-
-  handleRemoveFromCart(product) {
-    const removeFromCart = this.state.cartItems.filter((element, index) => {
-      return element.id !== product.id;
-    });
-
-    this.setState({ cartItems: removeFromCart });
-  },
-  //
-  // cartItemCount() {
-  //   let itemQuantity = 0;
-  //
-  //   for (let i = 0; i < this.items.length; i++) {
-  //     itemQuantity += parseInt(this.items[i].quantity);
-  //   }
-  //
-  //   return itemQuantity;
-  // },
 
   componentDidMount() {
     axios.get('/api-products')
@@ -238,6 +198,16 @@ const App = React.createClass({
     this.setState({ cartItems: removeFromCart });
   },
 
+  // cartItemCount() {
+  //   let itemQuantity = 0;
+  //
+  //   for (let i = 0; i < this.items.length; i++) {
+  //     itemQuantity += parseInt(this.items[i].quantity);
+  //   }
+  //
+  //   return itemQuantity;
+  // },
+
   displaySearch() {
     this.setState({ searchVisible: !this.state.searchVisible });
   },
@@ -258,25 +228,31 @@ const App = React.createClass({
   //   return filteredProducts;
   // },
 
-  // cartItemCount() {
-  //   let itemQuantity = 0;
-  //
-  //   for (let i = 0; i < this.items.length; i++) {
-  //     itemQuantity += parseInt(this.items[i].quantity);
-  //   }
-  //
-  //   return itemQuantity;
-  // },
+  setTaxRate(event) {
+    const zip = event.target.value;
+    let numberPattern = /^\d{5}$/g;
+    // let confirmZipIsNumber = zip.match(numberPattern).join([]);
+    // let zipcode;
+    //
+    // if (typeof confirmZipIsNumber === 'string') {
+    //   zipcode = parseInt(confirmZipIsNumber);
+    // }
+    // console.log(typeof zipcode);
+    //
+    // this.setState({ zip });
 
-  // setTaxRate()
-  //   var avalaraAPI = 'https://taxrates.api.avalara.com/postal?country=usa&postal='
-  //   + $('#zipcode').val() +
-  //   '&apikey=qkU8XpDL6k51J5dJlKF2Bie1LcF9z6NT3tdQG1wJbNRARpHNOs9I39pNH4jwpq30X8yTwI5kNwMIxUhMtUp3Cg==';
-  //   $.getJSON(avalaraAPI, function(data) {
-  //     userTaxRate = data.totalRate/100;
-  //     setTaxAndTotal();
-  //   });
-  // }
+    numberPattern.test(zip.trim())
+
+    axios.get(`https://taxrates.api.avalara.com:443/postal?country=usa&postal=` + zip.trim() +
+              `&apikey=uHzyARYbSWUoeb7F9%2F1alRcmI8kTeWanW7FCGoWV4SbMvUY0NQ%2BH8JUs%2Bxl2wTqc8AAGF1ew3XPEapKh0tP1vw%3D%3D`)
+      .then(res => {
+        this.setState({ zip: zipcode });
+      })
+      .catch((err) => {
+        this.setState({ loadErr: err });
+      });
+
+  },
 
   render() {
     return (
@@ -370,6 +346,7 @@ const App = React.createClass({
               state={ this.state.state }
               zip={ this.state.zip }
               onFormChange={ this.onFormChange }
+              setTaxRate={this.setTaxRate}
             />
           }/>
           <Match pattern="/shipping" exactly render={

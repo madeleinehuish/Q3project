@@ -38,7 +38,6 @@ const ProductsLists = React.createClass({
             </ul>
           </div>
           <div id="search-img" className="four columns">
-            {/* STATE CHANGE: need to add a recursive feature that displays a search box. */}
             <img onClick={this.handleClick} src="images/search-icon.png"/>
           </div>
             {

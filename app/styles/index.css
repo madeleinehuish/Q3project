@@ -54,6 +54,14 @@ nav.six.columns > ul {
 }
 
 nav.six.columns > ul > li {
+  text-transform: lowercase;
+}
+
+nav.six.columns > ul > li:first-letter {
+  text-transform: uppercase;
+}
+
+nav.six.columns > ul > li {
   padding-right: 25px;
   padding-left: 25px;
 }
@@ -593,6 +601,17 @@ p#subtotal > span {
 
 .customer-flow > p > a {
   color: black;
+}
+
+input[type="text"]#country::-webkit-input-placeholder {
+  color: 080808;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+input#country:focus {
+  border: none;
+  background-color: #fff;
 }
 
 /*-------------- CHECKOUT-CART -------------*/
