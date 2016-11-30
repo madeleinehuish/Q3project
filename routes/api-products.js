@@ -19,6 +19,7 @@ router.get('/api-products', (_req, res, next) => {
       next(err);
     });
 });
+
 router.get('/api-products/:id', (req, res, next) => {
   const id = Number.parseInt(req.params.id);
 

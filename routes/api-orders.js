@@ -18,6 +18,7 @@ router.get('/api-orders', (_req, res, next) => {
       next(err);
     });
 });
+
 router.get('/api-orders/:id', (req, res, next) => {
   const id = Number.parseInt(req.params.id);
 
