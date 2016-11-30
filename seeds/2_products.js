@@ -88,20 +88,20 @@ exports.seed = function(knex) {
         on_sale: false
       }, {
         id: 10,
-        name: 'Prospector Co. Burroughs Beard Oil',
-        image: 'http://www.westcoastshaving.com/resize/shared/images/prospector-co.-burroughs-beard-oil.jpg',
-        rating: 5,
-        price: 28,
-        description: 'Have you ever heard of beard oil? No, it\'s not something that you harvest by squeezing some unfortunate man\'s facial hair. It is actually a product that you use to help keep the hair on a man\'s face looking and smelling great, and Prospector Co. Burroughs Beard Oil could be just what you need to keep your own face fur in top condition.',
-        keywords: 'beard, oil',
+        name: 'The Gentleman\'s Beard Oil and Conditioner Softener',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/61JoIHg%2BlqL._SX522_.jpg',
+        rating: 4.5,
+        price: 19.97,
+        description: 'The Gentlemen’s Beard Oil Conditioner Softener with Vitamin E and Evening Primrose oil reduces beard itch that can come with a brand new beard. Plus it helps with “bearddruff”. No more irritation or flakes!',
+        keywords: 'beard, oil, conditioner, softener',
         on_sale: false
       }, {
         id: 11,
-        name: 'Beard Balm',
-        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Beard-Balm/beard-balm.jpg',
+        name: 'Wisdom: Bright & Woodsy Balm',
+        image: 'https://cdn.shopify.com/s/files/1/0221/6898/products/dry-lid-Wisdom-02_1024x1024.jpg',
         rating: 4.5,
         price: 15.99,
-        description: 'Beard Balm is a wonderful product made for our friends with a little of facial scruff. Hand-crafted in Detroit, it contains the best all-natural ingredients, including the oil of grapeseed and coconut and other pure essential oils. These oils give this product a light, fresh scent that you will love to rub into your whiskers and keep near your sniffer all day long. It\'s a natural scent that will keep you coming back each day and will make the ladies take notice.',
+        description: 'It\'s like sending cedar, spruce and a few lemons through a wood chipper. That, minus the sawdust. The virtue of Wisdom is knowing how to apply knowledge to real-life situations. This scent reminds us of late nights on the back porch and telling stories.',
         keywords: 'beard, balm',
         on_sale: false
       }, {
@@ -160,12 +160,12 @@ exports.seed = function(knex) {
         on_sale: false
       }, {
         id: 18,
-        name: 'brroklyn Grooming Beard Oil, Commando',
-        image:'http://www.westcoastshaving.com/resize/shared/images/brooklyn-grooming-beard-oil-commando.jpg',
+        name: 'The MoGuard- Mustache Guard',
+        image:'https://images-na.ssl-images-amazon.com/images/I/51EH1uNBdRL._SX522_.jpg',
         rating: 5,
-        price: 29,
-        description: 'So, you\'ve grown a great beard and have recently discovered that dandruff is a thing you didn\'t expect there. Brooklyn Grooming Beard Oil, Commando, can help. The Commando refers to the fact that this product has no scent in it, which is great for people who are sensitive to colognes and perfumes.',
-        keywords: 'beard, oil',
+        price: 13.60,
+        description: 'Do you enjoy beer, but you end up wearing most of it on your mustache and beard? Don\'t ruin your mustache wax, reach for a MoGuard. Attaches to all sized drinking glasses. The MoGuard\'s design and the fact that it is made of a very flexible silicone material enables it to fit onto all drinking cups.',
+        keywords: 'mustahce, moustache, protector',
         on_sale: true
       }, {
         id: 19,
@@ -214,13 +214,13 @@ exports.seed = function(knex) {
         on_sale: false
       }, {
         id: 24,
-        name: 'Antica Barbieria Colla Beard Conditioning Balm with Jojoba Oil',
-        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Antica-Barbieria-Colla-Beard-Conditioning-Balm-with-Jojoba-Oil-100ml/antica-barbieria-colla-beard-conditioning-balm-jojoba-oil.jpg',
-        rating: 4.5,
-        price: 41,
-        description: 'If you\'re a beard lover, then you need to experience the luxury of Antica Barbieria Colla. You might think a European shave house isn\'t exactly the habitat for a full-fledged, full-growth gentleman, but you would be wrong. This iconic barbershop in Milan, Italy is focused on all aspects of men\'s grooming. And the line of products that they are releasing shows the expertise gained from over a hundred years of experience.',
-        keywords: 'beard, conditioning, balm',
-        on_sale: false
+        name: 'The Gentlman\'s Beard Premium Beard Balm',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/81kD4wMGQBL._SX522_.jpg',
+        rating: 4,
+        price: 13.97,
+        description: 'The Gentlemen’s Fragrance Free Beard Balm will moisturize your hair and treat the skin at the same time. It conditions, strengthens and hydrates hair fibers from the inside, encourages hair growth, keeps your beard healthy, Controls Rogue, Coarse Hairs and will help repair dry and damaged Split Ends while giving it a slight hold. ',
+        keywords: 'beard, balm',
+        on_sale: true
       }, {
         id: 25,
         name: 'Antica Barbieria Colla Beard Dry Oil, Bitter Orange',

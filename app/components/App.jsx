@@ -211,6 +211,16 @@ const App = React.createClass({
       });
   },
 
+  // setTaxRate()
+  //   var avalaraAPI = 'https://taxrates.api.avalara.com/postal?country=usa&postal='
+  //   + $('#zipcode').val() +
+  //   '&apikey=qkU8XpDL6k51J5dJlKF2Bie1LcF9z6NT3tdQG1wJbNRARpHNOs9I39pNH4jwpq30X8yTwI5kNwMIxUhMtUp3Cg==';
+  //   $.getJSON(avalaraAPI, function(data) {
+  //     userTaxRate = data.totalRate/100;
+  //     setTaxAndTotal();
+  //   });
+  // }
+
   render() {
     return (
       <BrowserRouter>
