@@ -52,7 +52,6 @@ const App = React.createClass({
 
   handleAddToCart(product) {
     let productNotInCart = true;
-
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (product.id !== productInCart.id) {
         return productInCart;
@@ -61,7 +60,6 @@ const App = React.createClass({
       productNotInCart = false;
 
       const updateQuantity = (productInCart.quantity || 0) + 1;
-
       const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
 
       return newProduct;
@@ -97,38 +95,13 @@ const App = React.createClass({
     axios.get('/api-products')
       .then(res => {
         this.setState({ products: res.data });
-        // axios.get('/api-orders')
-        //   .then(res => {
-        //     this.setState({ ordersFromDb: res.data});
-        //     console.log(res.data);
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
       })
       .catch((error) => {
         console.log(error);
       });
   },
 
-  // onFormChangeFirstName(event) {
-  //   this.setState({signupFirstName: event.target.value});
-  // },
-  //
-  // onFormChangeLastName(event) {
-  //   this.setState({signupLastName: event.target.value});
-  //
-  // },
-  //
-  // onFormChangeEmail(event) {
-  //   this.setState({ signupEmail: event.target.value});
-  // },
-  //
-  // onFormChangePassword(event) {
-  //   this.setState({ signupPassword: event.target.value });
-  // },
-
   onFormChange(event) {
-
     this.setState({ [event.target.name] : event.target.value })
   },
 
@@ -150,25 +123,35 @@ const App = React.createClass({
         console.log('logged in = ' + this.state.loggedIn)
       })
       .then(() => {
+        axios.get(`/api-orders/${this.state.currentUser.id}`)
+          .then((res) => {
+            console.log(res.data);
+            const sortedOrders = res.data.sortedOrderItems;
+            console.log(sortedOrders);
+            // const filteredOrders = newData.filter((element)=> {
+            //     return element.userId === 2;
+            //   })
+            // this.setState({ previousOrders: res.data });
+            this.setState({ previousOrders: sortedOrders });
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      })
+      .then(() => {
         axios.get('api-orders/')
           .then(res => {
 
             console.log(res.data);
             this.setState({ userInformation: res.data });
 
-
             // const newData = res.data;
-
-            // const filteredOrders = newData.filter((element)=> {
-            //     return element.userId === 2;
-            //   })
-            this.setState({ previousOrders: res.data });
             // this.setState({ previousOrders: filteredOrders });
 
           })
           .catch((error) => {
             console.log(error);
-          });
+          })
       })
       .catch(function (error) {
         console.log(error);
@@ -177,8 +160,11 @@ const App = React.createClass({
   },
 
   logOut() {
-    this.setState({ loggedIn: false });
-    this.setState({ currentUser: {} });
+    this.setState({
+      loggedIn: false,
+      currentUser: {},
+      previousOrders: {}
+    });
   },
 
   onSubmit(event) {
@@ -205,13 +191,10 @@ const App = React.createClass({
 
     axios.post('/api-users', { firstName, lastName, email, password })
       .then((response) => {
-        console.log(response);
         axios.post('/api-token', { email, password })
           .then((res) => {
             sessionStorage.setItem('userId', res.data.id);
             this.setState({ loggedIn : true, currentUser: res.data });
-            console.log('got through');
-            // window.location.href = '/main.html';
           })
           .catch(function (error) {
             console.log(error);

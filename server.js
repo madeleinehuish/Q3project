@@ -46,7 +46,7 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-// const products = require('./routes/products');
+// const products = require('./routes/products')
 const users = require('./routes/api-users');
 const token = require('./routes/api-token');
 const products = require('./routes/api-products');
