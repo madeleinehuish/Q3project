@@ -16,7 +16,7 @@ const ProductsLists = React.createClass({
         product={product}
         key={index}
         handleAddToCart={this.props.handleAddToCart}
-        handleSearch={this.handleSearch}
+        handleSearch={this.props.handleSearch}
         inputValue={this.props.inputValue}
       />
     });

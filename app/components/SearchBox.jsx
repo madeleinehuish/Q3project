@@ -1,9 +1,9 @@
 import React from 'react';
 
 const SearchBox = React.createClass({
-  handleSearch(event) {
-    this.props.handleSearch(event.target.value);
-  },
+  // handleSearch(event) {
+  //   this.props.handleSearch(event.target.value);
+  // },
 
   render() {
     return (
