@@ -178,6 +178,7 @@ const Customer = React.createClass({
           <div className="five columns">
             <CheckoutCart
               cartItems={this.props.cartItems}
+              taxRate={this.props.taxRate}
             />
           </div>
         </div>

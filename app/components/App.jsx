@@ -31,6 +31,7 @@ const App = React.createClass({
       signupFirstName: '',
       signupLastName: '',
       searchVisible: false,
+      taxRate: 0,
       signupEmail: '',
       signupPassword: '',
       cartItems: [],
@@ -231,27 +232,22 @@ const App = React.createClass({
   setTaxRate(event) {
     const zip = event.target.value;
     let numberPattern = /^\d{5}$/g;
-    // let confirmZipIsNumber = zip.match(numberPattern).join([]);
-    // let zipcode;
-    //
-    // if (typeof confirmZipIsNumber === 'string') {
-    //   zipcode = parseInt(confirmZipIsNumber);
-    // }
-    // console.log(typeof zipcode);
-    //
-    // this.setState({ zip });
+    const taxRate = this.state.taxRate;
+    let userTax;
 
     numberPattern.test(zip.trim())
 
     axios.get(`https://taxrates.api.avalara.com:443/postal?country=usa&postal=` + zip.trim() +
               `&apikey=uHzyARYbSWUoeb7F9%2F1alRcmI8kTeWanW7FCGoWV4SbMvUY0NQ%2BH8JUs%2Bxl2wTqc8AAGF1ew3XPEapKh0tP1vw%3D%3D`)
       .then(res => {
-        this.setState({ zip: zipcode });
+        userTax = res.data.totalRate / 100;
+        console.log(userTax);
+        this.setState({ taxRate: userTax })
+        console.log(taxRate);
       })
       .catch((err) => {
         this.setState({ loadErr: err });
       });
-
   },
 
   render() {
