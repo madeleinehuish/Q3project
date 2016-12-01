@@ -33,6 +33,7 @@ const App = React.createClass({
       searchVisible: false,
       formComplete: false,
       // formFieldEmpty: '',
+      shippingCost: 0,
       taxRate: 0,
       signupEmail: '',
       signupPassword: '',
@@ -292,14 +293,9 @@ const App = React.createClass({
   //   return itemQuantity;
   // },
 
-
-
-
-
-
-
-
-
+  selectShipping() {
+    this.setState({ shippingCost: 4.99 })
+  },
 
 
   //
@@ -409,6 +405,7 @@ const App = React.createClass({
             () => <Shipping
               { ...this.state }
               currentUser={this.state.currentUser}
+              selectShipping={this.selectShipping}
             />
           }/>
           <Match pattern="/payment" exactly render={
