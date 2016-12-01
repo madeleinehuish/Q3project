@@ -28,7 +28,7 @@ const CartItems = React.createClass({
         </div>
         <div className="two columns">
           <div id="qty-counter">
-              <input type="number" name="qty" defaultValue={this.props.cartItem.quantity} onClick={this.handleClickAddQuantity} onChange={this.handleClickAddQuantity} min="0"/>
+              <input type="number" name="qty" value={this.props.cartItem.quantity} onClick={this.handleClickAddQuantity} onChange={this.handleClickAddQuantity} min="0"/>
             {/* <span className="qty-text">1</span>
             <span className="up-arrow" data-value="1">
               <img src=""/>

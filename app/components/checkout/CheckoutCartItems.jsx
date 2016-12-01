@@ -9,7 +9,7 @@ const CheckoutCartItems = React.createClass({
           <div className="product-thumbnail__wrapper">
             <img src={this.props.cartItem.image}/>
           </div>
-            <span className="product-thumbnail__quantity">1</span>
+            <span className="product-thumbnail__quantity" >{this.props.cartItem.quantity}</span>
         </div>
         <div className="seven columns text">
           <p>{this.props.cartItem.name}</p>

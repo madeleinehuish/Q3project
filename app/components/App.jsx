@@ -106,15 +106,15 @@ const App = React.createClass({
     this.setState({ cartItems: updatedCart });
   },
 
-  handleClickAdd(id) {
+  handleClickAdd(id, newQuantity) {
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (id !== productInCart.id) {
         return productInCart;
       }
 
-    const updateQuantity = (productInCart.quantity || 0) + 1;
 
-    const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
+
+    const newProduct = Object.assign({}, productInCart, { quantity: newQuantity });
 
     return newProduct;
     });
@@ -125,6 +125,7 @@ const App = React.createClass({
     const removeFromCart = this.state.cartItems.filter((element, index) => {
       return element.id !== product.id;
     });
+
 
     this.setState({ cartItems: removeFromCart });
   },
@@ -227,11 +228,15 @@ const App = React.createClass({
 
   onFormChange(event) {
     this.setState({ [event.target.name] : event.target.value })
+    if (this.state.loggedIn) {
+      this.setState( { email: this.state.currentUser.email })
+      console.log( this.state.email );
+    };
 
-    const incompleteForm = this.state.firstName === '' || this.state.lastName === '' ||
-      this.state.address1 === '' || this.state.city === '' || this.state.zip === '';
-      // || this.state.email === '';
-
+    const incompleteForm = (this.state.firstName === '' || this.state.lastName === '' ||
+      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' || this.state.email === '')
+        ;
+    // if (loggedIn) { Object.assign({}, currentUser, { email: newQuantity });}
     this.setState({ formComplete: !incompleteForm });
 
   },
@@ -417,13 +422,13 @@ const App = React.createClass({
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
               logOut={this.logOut}
-              firstName={ this.firstName }
+              // firstName={ this.firstName }
               // email={ this.email }
-              lastName={ this.lastName }
-              address1={ this.address1 }
-              city={ this.city }
-              state={ this.state }
-              zip={ this.zip }
+              // lastName={ this.lastName }
+              // address1={ this.address1 }
+              // city={ this.city }
+              // state={ this.state }
+              // zip={ this.zip }
               onFormChange={ this.onFormChange }
               setTaxRate={this.setTaxRate}
               infoFormSubmission={this.infoFormSubmission}
