@@ -50,7 +50,8 @@ const CheckoutCart = React.createClass({
                 <p id="total-currency">USD </p>
                 {/* <p id="total-cost">$0 </p> */}
                 <p id="total-cost" className="bling">{(this.props.cartItems.reduce((amount, curr, index) => {
-                  return amount + ((curr.price * curr.quantity) * this.props.taxRate) + (curr.price * curr.quantity);
+                  return amount + ((curr.price * curr.quantity) * this.props.taxRate) + (curr.price * curr.quantity)
+                  +this.props.shippingCost;
                 }, 0)).toFixed(2)}</p>
               </div>
             </div>
