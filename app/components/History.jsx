@@ -3,7 +3,7 @@ import React from 'react';
 const History = React.createClass({
   render() {
     return (
-      <section id="history">
+      <section id="history-page">
         <div className="row">
           {/* <div> */}
             <h1 id="history-header">THE HISTORY OF BEARDS AND STACHES</h1>

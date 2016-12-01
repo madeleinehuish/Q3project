@@ -14,7 +14,7 @@ ul {
 }
 
 #product-list, .twelve.columns, section#home {
-  width: 1300px;
+  width: 1260px;
   margin: auto;
 }
 
@@ -167,7 +167,7 @@ nav.six.columns > ul > li#login-icon {
 }
 
 #img-panel.row {
-  /*width: 96%;*/
+  width: 1303px;
   height: 372px;
   display: inline-block;
 }
@@ -217,7 +217,7 @@ nav.six.columns > ul > li#login-icon {
   text-align: center;
   opacity: 0;
   margin: 0;
-  width: 468px;
+  width: 430px;
   min-height: 379px;
   max-height: 379px;
   -webkit-transition: all 1.8s ease-in-out;
@@ -1109,7 +1109,7 @@ div#payment-method > p {
 }
 
 /*--------------- HISTORY --------------*/
-#history {
+#history-page {
   background-color: #000;
   height: 550px;
 }
