@@ -1042,6 +1042,35 @@ div#payment-method > p {
   padding-bottom: 20px;
 }
 
+/*--------------- SUCCESS --------------*/
+#success {
+  height: 500px;
+}
+
+#success > div.row {
+  text-align: center;
+}
+
+#success > div.row > h5 {
+  margin-top: 70px;
+  letter-spacing: 2px;
+}
+
+#email-confirmation {
+  font-weight: bolder;
+}
+
+#beard {
+  width: 10%;
+  margin-top: 40px;
+}
+
+#sit-back {
+  margin-bottom: 0;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
 /*--------------- ACCOUNT PAGES --------------*/
 #first-name.six.columns > input, #last-name.six.columns > input,
 #email.six.columns > input, #password.six.columns > input {

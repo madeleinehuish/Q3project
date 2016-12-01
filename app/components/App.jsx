@@ -44,6 +44,7 @@ const App = React.createClass({
       userInformation: [],
         firstName: '',
         lastName: '',
+        email: '',
         address1: '',
         address2: '',
         city: '',

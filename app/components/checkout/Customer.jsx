@@ -36,7 +36,7 @@ const Customer = React.createClass({
               <div id="customer-email">
                 <h5>Customer information</h5>
                 <form>
-                  <input type="email" name="email" placeholder="Email" required/>
+                  <input type="email" name="email" placeholder="Email" onChange={this.props.onFormChange} value={this.props.email} required/>
                 </form>
                 <p>Already have an account?<a href='#openModal'> Login</a></p>
               </div>}
