@@ -1404,6 +1404,26 @@ div#user-details.row {
   background-color: pink;
 }
 
+/*--------------- NOT FOUND --------------*/
+#not-found {
+  background-color: #000;
+}
+
+#nf-header {
+  text-align: center;
+}
+
+#nf-header > h3 {
+  padding-top: 80px;
+  color: #a57967;
+}
+
+#not-found > div > img {
+  width: 20%;
+  border: 4px solid #a57967;
+  border-radius: 2px;
+}
+
 /*--------------- FOOTER --------------*/
 footer, .push {
   height: 40px;
