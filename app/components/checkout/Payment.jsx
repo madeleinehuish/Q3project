@@ -5,6 +5,10 @@ import CheckoutCart from './CheckoutCart';
 // import Success from './Success';
 
 const Payment = React.createClass({
+  setTaxRate(event) {
+    this.props.setTaxRate(event.target.value);
+  },
+
   render() {
     return (
       <section id="customer" className="checkout">
@@ -101,6 +105,7 @@ const Payment = React.createClass({
           <div className="five columns">
             <CheckoutCart
               cartItems={this.props.cartItems}
+              taxRate={this.props.taxRate}
             />
           </div>
         </div>

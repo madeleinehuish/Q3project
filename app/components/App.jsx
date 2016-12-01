@@ -275,45 +275,8 @@ const App = React.createClass({
           <Match pattern="/" exactly render={
           () => <Home
               { ...this.state }
-              // onSubmitLogin={this.onSubmitLogin}
-              // onSubmit={this.onSubmit}
-              // inputValue={this.state.value}
-              // onFormChangeFirstName={this.onFormChangeFirstName}
-              // onFormChangeLastName={this.onFormChangeLastName}
-              // onFormChangeEmail={this.onFormChangeEmail}
-              // onFormChangePassword={this.onFormChangePassword}
-              // signUpFirstName={this.state.signUpFirstName}
-              // signUpLastName={this.state.signUpLastName}
-              // signUpEmail={this.state.signUpEmail}
-              // signUpPassword={this.state.signUpPassword}
           />
           }/>
-          {/* <Login
-              { ...this.state }
-              onFormChangeSample={this.onFormChangeSample}
-              // onSubmitLogin={this.onSubmitLogin}
-              // inputValue={this.state.value}
-              // onFormChangeEmail={this.onFormChangeEmail}
-              // onFormChangePassword={this.onFormChangePassword}
-              // signUpEmail={this.state.signUpEmail}
-              // signUpPassword={this.state.signUpPassword}
-            />
-          }/> */}
-          {/* <Match pattern="/signup" exactly render={
-            () => <Signup
-              { ...this.state }
-              onSubmit={this.onSubmit}
-              inputValue={this.state.value}
-              onFormChangeFirstName={this.onFormChangeFirstName}
-              onFormChangeLastName={this.onFormChangeLastName}
-              onFormChangeEmail={this.onFormChangeEmail}
-              onFormChangePassword={this.onFormChangePassword}
-              signUpFirstName={this.state.signUpFirstName}
-              signUpLastName={this.state.signUpLastName}
-              signUpEmail={this.state.signUpEmail}
-              signUpPassword={this.state.signUpPassword}
-            />
-          }/> */}
           <Match pattern="/productslist" exactly render={
             () => <ProductsList
               { ...this.state }
@@ -390,8 +353,8 @@ const App = React.createClass({
 
             />
           }/> */}
-          <Footer />
           <Miss component={ NotFound } />
+          <Footer />
         </main>
       </BrowserRouter>
     )

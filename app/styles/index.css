@@ -1404,6 +1404,11 @@ div#user-details.row {
   background-color: pink;
 }
 
+/*--------------- NOT FOUND --------------*/
+#not-found {
+  background-color: #000;
+}
+
 /*--------------- FOOTER --------------*/
 footer, .push {
   height: 40px;
