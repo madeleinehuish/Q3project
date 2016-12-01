@@ -32,8 +32,10 @@ const App = React.createClass({
       signupLastName: '',
       searchVisible: false,
       formComplete: false,
-      // formFieldEmpty: '',
-      shippingCost: 0,
+      shippingCost: 4.99,
+      // standardShipping: 4.99,
+      // premiumShipping: 9.99,
+      // fedExShipping: 25,
       taxRate: 0,
       signupEmail: '',
       signupPassword: '',
@@ -291,8 +293,20 @@ const App = React.createClass({
   //   return itemQuantity;
   // },
 
-  selectShipping() {
-    this.setState({ shippingCost: 4.99 })
+  selectShipping(shipping) {
+    let shippingCost;;
+
+    if (shipping === 'standard') {
+      shippingCost = 4.99;
+    }
+    if (shipping === 'premium') {
+      shippingCost = 9.99;
+    }
+    if (shipping === 'fedex') {
+      shippingCost = 24.99;
+    }
+
+    this.setState({ shippingCost })
   },
 
 

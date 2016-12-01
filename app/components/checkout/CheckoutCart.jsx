@@ -38,7 +38,6 @@ const CheckoutCart = React.createClass({
                   return amount + ((curr.price * curr.quantity) * this.props.taxRate);
                   }, 0)).toFixed(2)}</p>
                 <p className="bling">{this.props.shippingCost}</p>
-
               </div>
             </div>
 

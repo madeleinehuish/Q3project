@@ -4,6 +4,16 @@ import Checkout from './Checkout';
 import CheckoutCart from './CheckoutCart';
 
 const Shipping = React.createClass({
+  handleClick() {
+    this.props.handleAddToCart(this.props.product);
+  },
+
+  addShipping(event) {
+    const shipping = event.target.value;
+    this.props.selectShipping(shipping)
+    console.log(event.target.value);
+  },
+
   render() {
     return (
       <section id="customer" className="checkout">
@@ -40,7 +50,7 @@ const Shipping = React.createClass({
                     This will need to update on this page and the payment page. */}
                   <div className="row">
                     <div className="one columns">
-                      <input type="radio" name="shipping-option" value="standard" defaultChecked />
+                      <input onClick={this.addShipping} type="radio" name="shipping-option" value="standard" defaultChecked />
                     </div>
                     <div className="nine columns">
                       <label>Standard Shipping (estimated 3 - 7 business days)</label>
@@ -51,7 +61,7 @@ const Shipping = React.createClass({
                   </div>
                   <div className="row">
                     <div className="one columns">
-                      <input type="radio" name="shipping-option" value="premium" />
+                      <input onClick={this.addShipping} type="radio" name="shipping-option" value="premium" />
                     </div>
                     <div className="nine columns">
                       <label>Premium Shipping (estimated 1 - 3 business days)</label>
@@ -62,13 +72,13 @@ const Shipping = React.createClass({
                   </div>
                   <div className="row">
                     <div className="one columns">
-                      <input type="radio" name="shipping-option" value="fedex" />
+                      <input onClick={this.addShipping} type="radio" name="shipping-option" value="fedex" />
                     </div>
                     <div className="nine columns">
                       <label>FedEx 2 Day</label>
                     </div>
                     <div className="two columns">
-                      <p>$25.00</p>
+                      <p>$24.99</p>
                     </div>
                   </div>
                 </form>
