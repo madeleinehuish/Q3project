@@ -39,6 +39,8 @@ const App = React.createClass({
       cartItems: [],
       products: [],
       defaultProducts: [],
+      searchArray: [],
+      sortType: '',
       loggedIn: false,
       currentUser: {},
       previousOrders: {},
@@ -60,7 +62,7 @@ const App = React.createClass({
   componentDidMount() {
     axios.get('/api-products')
       .then(res => {
-        this.setState({ products: res.data, defaultProducts: res.data });
+        this.setState({ products: res.data, defaultProducts: res.data, sortArray: res.data });
       })
       .catch((error) => {
         console.log(error);
@@ -69,16 +71,6 @@ const App = React.createClass({
 
   displaySearch() {
     this.setState({ searchVisible: !this.state.searchVisible });
-  //   render() {
-  //     return (
-  //       <SearchBox
-  //         { ...this.state }
-  //         handleSearch={this.handleSearch}
-  //         value={this.state.value}
-  //         // value={this.state.value}
-  //     />
-  //   )
-  // }
   },
 
   handleAddToCart(product) {
@@ -131,7 +123,8 @@ const App = React.createClass({
 
   handleSearch(event) {
     this.setState({ value: event.target.value });
-    console.log(this.state.value);
+    console.log("this state value " + this.state.value);
+    console.log("etv " + event.target.value);
 
       let searchRender = this.state.products.filter((element) => {
 
@@ -141,11 +134,37 @@ const App = React.createClass({
         return false;
       });
 
-      if (event.target.value = '') {
-        this.setState({ products: defaultProducts })
+      if (!event.target.value) {
+        this.setState({ products: this.state.defaultProducts })
+        console.log('etv === ');
       } else {
           this.setState({ products : searchRender });
         }
+  },
+
+  handleSort(event) {
+    let type = event.target.value;
+    this.setState({ sortType: type });
+    const filteredProducts = this.state.products.filter((element) => {
+      return element;
+    });
+    let sortType = type;
+    let sortedProducts;
+    if (sortType === 'name') {
+      sortedProducts = sortBy(filteredProducts, (product) => {
+        return product.name;
+      });
+    }
+    if (sortType === 'price') {
+      sortedProducts = sortBy(filteredProducts, (product) => {
+        return product.price;
+      });
+    }
+    if (sortType === 'rating') {
+      sortedProducts = orderBy(filteredProducts, ['rating'], ['desc'])
+    };
+    this.setState({ products: sortedProducts })
+    return sortedProducts;
   },
 
   logIn(user) {
@@ -373,6 +392,7 @@ const App = React.createClass({
           <Match pattern="/productslist" exactly render={
             () => <ProductsList
               { ...this.state }
+              // products={this.state.searchArray}
               handleAddToCart={this.handleAddToCart}
               displaySearch={this.displaySearch}
               handleSearch={this.handleSearch}
