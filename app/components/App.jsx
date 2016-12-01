@@ -151,7 +151,7 @@ const App = React.createClass({
   },
 
   handleSort(sortValue) {
-
+    console.log(sortValue);
     let filteredProducts;
     let sortThis = this.state.defaultProducts;
     if (sortValue !== "all") {
@@ -398,6 +398,7 @@ const App = React.createClass({
               handleAddToCart={this.handleAddToCart}
               displaySearch={this.displaySearch}
               handleSearch={this.handleSearch}
+              handleSort={this.handleSort}
               searchFilter={this.searchFilter}
               value={this.state.value}
               inputValue={this.state.inputValue}
