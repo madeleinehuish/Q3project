@@ -150,29 +150,20 @@ const App = React.createClass({
         }
   },
 
-  handleSort(event) {
-    let type = event.target.value;
-    this.setState({ sortType: type });
-    const filteredProducts = this.state.products.filter((element) => {
-      return element;
-    });
-    let sortType = type;
-    let sortedProducts;
-    if (sortType === 'name') {
-      sortedProducts = sortBy(filteredProducts, (product) => {
-        return product.name;
+  handleSort(sortValue) {
+
+    let filteredProducts;
+    let sortThis = this.state.defaultProducts;
+    if (sortValue !== "all") {
+      filteredProducts = sortThis.filter((element) => {
+
+        return element.keywords.includes(sortValue)
       });
-        }
-            if (sortType === 'price') {
-      sortedProducts = sortBy(filteredProducts, (product) => {
-        return product.price;
-      });
+      this.setState({ products: filteredProducts })
+    } else {
+      this.setState({ products: this.state.defaultProducts });
     }
-    if (sortType === 'rating') {
-      sortedProducts = orderBy(filteredProducts, ['rating'], ['desc'])
-    };
-    this.setState({ products: sortedProducts })
-    return sortedProducts;
+
   },
 
   logIn(user) {
@@ -452,6 +443,21 @@ const App = React.createClass({
 
             />
           }/>
+
+          <Match pattern="/productslist" exactly render={
+            () => <ProductsList
+              { ...this.state }
+              // products={this.state.searchArray}
+              handleAddToCart={this.handleAddToCart}
+              displaySearch={this.displaySearch}
+              handleSearch={this.handleSearch}
+              handleSort={this.handleSort}
+              searchFilter={this.searchFilter}
+              value={this.state.value}
+              inputValue={this.state.inputValue}
+            />
+            }/>
+
           <Match pattern="/success" exactly render={
             () => <Success
               { ...this.state }
