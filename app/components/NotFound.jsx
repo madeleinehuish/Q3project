@@ -8,6 +8,7 @@ const NotFound = React.createClass({
         <div id="nf-header">
           <h3>NO BEARDS OR STACHES HERE</h3>
         </div>
+
         <ul>
           <li><Link to='/login'>Login</Link></li>
           <li><Link to='/products'>Products</Link></li>

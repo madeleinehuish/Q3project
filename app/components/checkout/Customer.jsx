@@ -2,6 +2,8 @@ import { Link } from 'react-router';
 import React from 'react';
 import Checkout from './Checkout';
 import CheckoutCart from './CheckoutCart';
+import Payment from './Payment';
+import Shipping from './Shipping';
 
 const Customer = React.createClass({
   logOut() {
@@ -23,22 +25,14 @@ const Customer = React.createClass({
           </div>
 
           <div className="checkout-forms">
-            {/* Users do not have to create an account. That is optional. Users can get through the entire
-            shopping process without needing to create a password */}
             <div id="customer-info-header" className="row">
-            {/* {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={'/user'}>{this.props.currentUser.firstName}</Link></li>
-             : <li><Link to='/login'>Login</Link></li>} */}
              {this.props.loggedIn ? <div></div> :
               <div id="customer-email">
                 <h5>Customer information</h5>
                 <form>
                   <input type="email" name="email" placeholder="Email" required/>
                 </form>
-                {/* STATE: if the user comes here and then logs in, they need to be directed to the shipping page.
-                This will be different to the user logging in from the navbar. That will redirect them to the homepage/products.
-                If the user logs in from the navbar, they also won't see this page. When they click on CHECKOUT from cart, it
-                should direct them straight to shipping. */}
-                <p>Already have an account?<Link to='/login'> Login</Link></p>
+                <p>Already have an account?<a href='#openModal'> Login</a></p>
               </div>}
 
               <div id="customer-form" className="row">
@@ -46,7 +40,6 @@ const Customer = React.createClass({
                   <h5>Shipping address</h5>
                   <form>
                     <div className="six columns shipping-first-name">
-                      {/* <input type="text" name="firstName" placeholder="First name" onChange={this.props.onFormChange} value={this.props.checkout.firstName} required/> */}
                       <input placeholder="First Name" id="firstName" name="firstName" type="text" onChange={this.props.onFormChange} value={this.props.firstName} className="validate" required/>
                     </div>
                     <div className="six columns shipping-last-name">
@@ -148,12 +141,10 @@ const Customer = React.createClass({
                       <div id="save-checkbox" className="six columns">
                         <input type="checkbox" name="save" value="save-info" />
                       </div>
-                      <div id="info-save" className="six columns">
+                      {/* <div id="info-save" className="six columns">
                         <p>Save this information for next time</p>
-                      </div>
+                      </div> */}
                     </div>
-                    {/* IF the user does decide to save the information for next time, where will this be saved if they don't have
-                    an account? Guessing it has something to do with cookies??? Need to talk to Ken about this. */}
                   </form>
                 </div>
               </div>
