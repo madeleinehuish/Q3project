@@ -32,7 +32,7 @@ const App = React.createClass({
       signupLastName: '',
       searchVisible: false,
       formComplete: false,
-      // formFieldEmpty: '',
+      shippingCost: 0,
       taxRate: 0,
       signupEmail: '',
       signupPassword: '',
@@ -216,6 +216,8 @@ const App = React.createClass({
       this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
         incompleteForm = false;
     }
+
+    // console.log(typeof this.state.zip);
 
     this.setState({ formComplete: !this.state.formComplete });
 
