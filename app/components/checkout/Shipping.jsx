@@ -40,7 +40,7 @@ const Shipping = React.createClass({
                     This will need to update on this page and the payment page. */}
                   <div className="row">
                     <div className="one columns">
-                      <input type="radio" name="standard" value="standard" defaultChecked />
+                      <input type="radio" name="shipping-option" value="standard" defaultChecked />
                     </div>
                     <div className="nine columns">
                       <label>Standard Shipping (estimated 3 - 7 business days)</label>
@@ -51,7 +51,7 @@ const Shipping = React.createClass({
                   </div>
                   <div className="row">
                     <div className="one columns">
-                      <input type="radio" name="premium" value="premium" />
+                      <input type="radio" name="shipping-option" value="premium" />
                     </div>
                     <div className="nine columns">
                       <label>Premium Shipping (estimated 1 - 3 business days)</label>
@@ -62,7 +62,7 @@ const Shipping = React.createClass({
                   </div>
                   <div className="row">
                     <div className="one columns">
-                      <input type="radio" name="fedex" value="fedex" />
+                      <input type="radio" name="shipping-option" value="fedex" />
                     </div>
                     <div className="nine columns">
                       <label>FedEx 2 Day</label>

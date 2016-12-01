@@ -67,7 +67,7 @@ const Payment = React.createClass({
                       This will need to update on this page and the payment page. */}
                     <div className="row choose-address">
                       <div className="one columns">
-                        <input type="radio" name="standard" value="standard" defaultChecked />
+                        <input type="radio" name="address" value="standard" defaultChecked />
                       </div>
                       <div className="eleven columns">
                         <label>Same as shipping address</label>
@@ -75,7 +75,7 @@ const Payment = React.createClass({
                     </div>
                     <div className="row choose-address">
                       <div className="one columns">
-                        <input type="radio" name="premium" value="premium" />
+                        <input type="radio" name="address" value="premium" />
                       </div>
                       <div className="eleven columns">
                         <label>Use a different billing address</label>
