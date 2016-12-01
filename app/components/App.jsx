@@ -31,6 +31,8 @@ const App = React.createClass({
       signupFirstName: '',
       signupLastName: '',
       searchVisible: false,
+      formComplete: false,
+      // formFieldEmpty: '',
       taxRate: 0,
       signupEmail: '',
       signupPassword: '',
@@ -65,6 +67,17 @@ const App = React.createClass({
 
   onFormChange(event) {
     this.setState({ [event.target.name] : event.target.value })
+
+    let incompleteForm;
+
+    if (this.state.firstName === '' || this.state.lastName === '' ||
+      this.state.address1 === '' || this.state.city === '' ||
+      this.state.state === '' || this.state.zip === '' ) {
+        incompleteForm = false;
+    }
+
+    this.setState({ formComplete: !this.state.formComplete });
+
   },
 
   logIn(user) {
@@ -235,9 +248,7 @@ const App = React.createClass({
               `&apikey=uHzyARYbSWUoeb7F9%2F1alRcmI8kTeWanW7FCGoWV4SbMvUY0NQ%2BH8JUs%2Bxl2wTqc8AAGF1ew3XPEapKh0tP1vw%3D%3D`)
       .then(res => {
         userTax = res.data.totalRate / 100;
-        console.log(userTax);
         this.setState({ taxRate: userTax })
-        console.log(taxRate);
       })
       .catch((err) => {
         this.setState({ loadErr: err });
@@ -300,6 +311,7 @@ const App = React.createClass({
               zip={ this.state.zip }
               onFormChange={ this.onFormChange }
               setTaxRate={this.setTaxRate}
+              infoFormSubmission={this.infoFormSubmission}
             />
           }/>
           <Match pattern="/shipping" exactly render={
