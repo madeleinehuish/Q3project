@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
-  height: 100%;
 }
 
 a {
@@ -11,6 +11,11 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+#product-list, .twelve.columns, section#home {
+  width: 1300px;
+  margin: auto;
 }
 
 /*-------------- NAVIGATION -------------*/
@@ -234,16 +239,19 @@ nav.six.columns > ul > li#login-icon {
   border: 8px solid #a57967;
 }
 
-#homepage-shipping.six.columns, div#find-us.six.columns {
+#homepage-shipping.six.columns, #find-us.six.columns {
   width: 20%;
   margin-left: 250px;
-  margin-right: 100px;
   text-align: center;
 }
 
 #homepage-shipping.six.columns {
   margin-right: 100px;
   padding-top: 130px;
+}
+
+#find-us.six.columns {
+  margin-right: 100px;
 }
 
 #homepage-shipping.six.columns > img, div#find-us.six.columns > img {
@@ -748,7 +756,7 @@ div.two.columns.product-thumbnail {
 
 p#total-currency {
   font-size: 10px;
-  margin: 10px 20px 0 55px;
+  margin: 10px 10px 0 50px;
   color: #616161;
 }
 
@@ -764,15 +772,13 @@ p#total-cost {
   margin-left: 80px;
 }
 
+#customer-form.row {
+  margin-bottom: 30px;
+}
+
 #customer-email > form {
   margin-bottom: 12px;
 }
-
-/*#customer-email > h5 {
-  padding-top: 10px;
-  font-size: 16px;
-  font-weight: lighter;
-}*/
 
 #customer-email > form > input, #shipping-details > form > div > input,
 #shipping-details > form > div > select {
@@ -802,11 +808,6 @@ p#total-cost {
 #shipping-details > form > div > input, #shipping-details > form > div > select {
   border: 1px solid #666;
 }
-
-/*#shipping-details > h5 {
-  margin-top: 12px;
-  font-size: 16px;
-}*/
 
 .eight.columns.shipping-address {
   width: 67%;
@@ -901,6 +902,13 @@ div.four.columns.return {
 #customer-navigation.row > div.six.columns > a > button:hover {
   background-color: #a57967;
   color: #fff;
+}
+
+#complete-form {
+  font-size: 12px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: -20px;
 }
 
 /*--------------- SHIPPING --------------*/
@@ -1171,8 +1179,8 @@ input:-webkit-autofill {
 }
 
 /*---------- LOGIN ---------*/
-#login-account {
-  /*margin-top: 90px;*/
+#login-account-btn, #login-title, #create-title, #create-account-btn {
+  width: 100%;
 }
 
 .modalDialog {
