@@ -1,12 +1,10 @@
 import React from 'react';
-// import request from 'request';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
 import axios from 'axios';
-// import ErrorLogger from './ErrorLogger';
 
+import BeardGuides from './BeardGuides';
 import Cart from './Cart';
-// import Checkout from './checkout/Checkout';
 import Customer from './checkout/Customer';
 import Shipping from './checkout/Shipping';
 import Payment from './checkout/Payment';
@@ -16,6 +14,7 @@ import Guides from './Guides';
 import History from './History';
 import Home from './Home';
 import Login from './Login';
+import MustacheGuides from './MustacheGuides';
 import NotFound from './NotFound';
 import ProductsList from './ProductsList';
 // import Signup from './Signup';
@@ -374,12 +373,6 @@ const App = React.createClass({
 
             />
           }/>
-          <Match pattern="/guides" exactly render={
-            () => <Guides
-              { ...this.state }
-
-            />
-          }/>
           <Match pattern="/user" exactly render={
             () => <User
             { ...this.state }
@@ -389,12 +382,22 @@ const App = React.createClass({
               previousOrders={this.state.previousOrders}
             />
           }/>
-          {/* <Match pattern="/test" exactly render={
-            () => <Test
-            { ...this.state }
+          <Match pattern="/guides" exactly render={
+            () => <Guides
+              { ...this.state }
 
             />
-          }/> */}
+          }/>
+          <Match pattern="/beard-guides" exactly render={
+            () => <BeardGuides
+            { ...this.state }
+            />
+          }/>
+          <Match pattern="/stache-guides" exactly render={
+            () => <MustacheGuides
+            { ...this.state }
+            />
+          }/>
           <Miss component={ NotFound } />
           <Footer />
         </main>
