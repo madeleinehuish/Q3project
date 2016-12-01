@@ -1,21 +1,22 @@
 import React from 'react';
+import Products from './Products';
 
 const SearchBox = React.createClass({
-  handleSearch(event) {
-    this.props.handleSearch(event.target.value);
-  },
+  // handleSearch(event) {
+  //   this.props.handleSearch(event.target.value);
+  // },
 
   render() {
     return (
-      <section id="search-box">
+      <form id="search-box">
         <div id="search-options" className="twelve columns">
           <input
             onChange={this.props.handleSearch}
             type='text'
-            value={this.props.inputValue}
+            value={this.props.value}
           />
         </div>
-      </section>
+      </form>
     )
   }
 });

@@ -17,6 +17,7 @@ import Login from './Login';
 import MustacheGuides from './MustacheGuides';
 import NotFound from './NotFound';
 import ProductsList from './ProductsList';
+import SearchBox from './SearchBox';
 // import Signup from './Signup';
 import Success from './checkout/Success';
 import User from './user/User';
@@ -37,46 +38,114 @@ const App = React.createClass({
       signupPassword: '',
       cartItems: [],
       products: [],
+      defaultProducts: [],
       loggedIn: false,
       currentUser: {},
       previousOrders: {},
       userInformation: [],
-        firstName: '',
-        lastName: '',
-        email: '',
-        address1: '',
-        address2: '',
-        city: '',
-        state: '',
-        zip: '',
-        shipping: '',
-        orderedAt: '',
-        items: []
+      firstName: '',
+      lastName: '',
+      address1: '',
+      address2: '',
+      city: '',
+      state: '',
+      zip: '',
+      shipping: '',
+      orderedAt: '',
+      items: []
+
     };
   },
 
   componentDidMount() {
     axios.get('/api-products')
       .then(res => {
-        this.setState({ products: res.data });
+        this.setState({ products: res.data, defaultProducts: res.data });
       })
       .catch((error) => {
         console.log(error);
       });
   },
 
-  onFormChange(event) {
-    this.setState({ [event.target.name] : event.target.value })
+  displaySearch() {
+    this.setState({ searchVisible: !this.state.searchVisible });
+  //   render() {
+  //     return (
+  //       <SearchBox
+  //         { ...this.state }
+  //         handleSearch={this.handleSearch}
+  //         value={this.state.value}
+  //         // value={this.state.value}
+  //     />
+  //   )
+  // }
+  },
 
-    let incompleteForm;
+  handleAddToCart(product) {
+    let productNotInCart = true;
 
-    if (this.state.firstName === '' || this.state.lastName === '' ||
-      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
-        incompleteForm = false;
+    const updatedCart = this.state.cartItems.map((productInCart) => {
+      if (product.id !== productInCart.id) {
+        return productInCart;
+      }
+
+      productNotInCart = false;
+
+      const updateQuantity = (productInCart.quantity || 0) + 1;
+
+      const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
+
+      return newProduct;
+    });
+
+    if (productNotInCart) {
+      const newProduct = Object.assign({}, product, { quantity: 1 });
+      updatedCart.push(newProduct);
     }
 
-    this.setState({ formComplete: !this.state.formComplete });
+    this.setState({ cartItems: updatedCart });
+  },
 
+  handleClickAdd(id) {
+    const updatedCart = this.state.cartItems.map((productInCart) => {
+      if (id !== productInCart.id) {
+        return productInCart;
+      }
+
+    const updateQuantity = (productInCart.quantity || 0) + 1;
+
+    const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
+
+    return newProduct;
+    });
+    this.setState({ cartItems: updatedCart });
+  },
+
+  handleRemoveFromCart(product) {
+    const removeFromCart = this.state.cartItems.filter((element, index) => {
+      return element.id !== product.id;
+    });
+
+    this.setState({ cartItems: removeFromCart });
+  },
+
+  handleSearch(event) {
+    this.setState({ value: event.target.value });
+    console.log(this.state.value);
+
+      let searchRender = this.state.products.filter((element) => {
+
+        if(element.name.toUpperCase().includes(event.target.value.toUpperCase())) {
+          return true;
+        }
+        return false;
+      });
+
+      if (event.target.value = '') {
+        this.setState({ products: defaultProducts })
+      } else {
+          this.setState({ products : searchRender });
+        }
   },
 
   logIn(user) {
@@ -132,6 +201,24 @@ const App = React.createClass({
       currentUser: {},
       previousOrders: {}
     });
+  },
+
+  // onFormChange(event) {
+  //   this.setState({ [event.target.name] : event.target.value })
+  // },
+
+  onFormChange(event) {
+    this.setState({ [event.target.name] : event.target.value })
+
+    let incompleteForm;
+
+    if (this.state.firstName === '' || this.state.lastName === '' ||
+      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
+        incompleteForm = false;
+    }
+
+    this.setState({ formComplete: !this.state.formComplete });
+
   },
 
   onSubmit(event) {
@@ -191,53 +278,9 @@ const App = React.createClass({
       });
   },
 
-  handleClickAdd(id) {
-    const updatedCart = this.state.cartItems.map((productInCart) => {
-      if (id !== productInCart.id) {
-        return productInCart;
-      }
 
-    const updateQuantity = (productInCart.quantity || 0) + 1;
 
-    const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
 
-    return newProduct;
-    });
-    this.setState({ cartItems: updatedCart });
-  },
-
-  handleAddToCart(product) {
-    let productNotInCart = true;
-
-    const updatedCart = this.state.cartItems.map((productInCart) => {
-      if (product.id !== productInCart.id) {
-        return productInCart;
-      }
-
-      productNotInCart = false;
-
-      const updateQuantity = (productInCart.quantity || 0) + 1;
-
-      const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
-
-      return newProduct;
-    });
-
-    if (productNotInCart) {
-      const newProduct = Object.assign({}, product, { quantity: 1 });
-      updatedCart.push(newProduct);
-    }
-
-    this.setState({ cartItems: updatedCart });
-  },
-
-  handleRemoveFromCart(product) {
-    const removeFromCart = this.state.cartItems.filter((element, index) => {
-      return element.id !== product.id;
-    });
-
-    this.setState({ cartItems: removeFromCart });
-  },
 
   // cartItemCount() {
   //   let itemQuantity = 0;
@@ -249,15 +292,16 @@ const App = React.createClass({
   //   return itemQuantity;
   // },
 
-  displaySearch() {
-    this.setState({ searchVisible: !this.state.searchVisible });
-  },
 
-  // handleSearch(event) {
-  //   const inputValue = event.target.value.toLowerCase();
-  //
-  //   this.setState({ inputValue })
-  // },
+
+
+
+
+
+
+
+
+
   //
   // searchFilter() {
   //   const inputValue = this.state.inputValue;
@@ -268,6 +312,8 @@ const App = React.createClass({
   //
   //   return filteredProducts;
   // },
+
+
 
   setTaxRate(event) {
     const zipcode = event.target.value;
@@ -310,6 +356,15 @@ const App = React.createClass({
               signUpEmail={this.state.signUpEmail}
               signUpPassword={this.state.signUpPassword}
             />
+          {/* <Miss pattern="/SearchBox" render={
+            () =>  */}
+            {/* <SearchBox
+              { ...this.state }
+              handleSearch={this.handleSearch}
+              value={this.state.value}
+              // value={this.state.value}
+          /> */}
+          {/* }/> */}
           <Match pattern="/" exactly render={
           () => <Home
               { ...this.state }
@@ -322,6 +377,8 @@ const App = React.createClass({
               displaySearch={this.displaySearch}
               handleSearch={this.handleSearch}
               searchFilter={this.searchFilter}
+              value={this.state.value}
+              inputValue={this.state.inputValue}
             />
             }/>
           <Match pattern="/cart" exactly render={

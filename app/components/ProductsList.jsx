@@ -1,5 +1,6 @@
 import React from 'react';
 import Products from './Products';
+import ProductsList from './ProductsList';
 import SearchBox from './SearchBox';
 
 const ProductsLists = React.createClass({
@@ -16,8 +17,11 @@ const ProductsLists = React.createClass({
         product={product}
         key={index}
         handleAddToCart={this.props.handleAddToCart}
-        handleSearch={this.handleSearch}
+        displaySearch={this.displaySearch}
+        searchFilter={this.searchFilter}
+        handleSearch={this.props.handleSearch}
         inputValue={this.props.inputValue}
+        value={this.props.value}
       />
     });
 
@@ -40,7 +44,9 @@ const ProductsLists = React.createClass({
           <div id="search-img" className="four columns">
             <img onClick={this.handleClick} src="images/search-icon.png"/>
           </div>
-            {this.props.searchVisible ? <SearchBox /> : null}
+            {this.props.searchVisible ? <SearchBox
+              handleSearch={this.props.handleSearch}
+              value={this.props.value}/> : null}
         </div>
 
         <div id="products-page" className="row">
