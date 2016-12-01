@@ -39,7 +39,6 @@ const App = React.createClass({
       cartItems: [],
       products: [],
       defaultProducts: [],
-      searchValue: '',
       loggedIn: false,
       currentUser: {},
       previousOrders: {},
@@ -68,23 +67,18 @@ const App = React.createClass({
       });
   },
 
-
-  onFormChange(event) {
-    this.setState({ [event.target.name] : event.target.value })
-
-    let incompleteForm;
-
-    if (this.state.firstName === '' || this.state.lastName === '' ||
-      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
-        incompleteForm = false;
-    }
-
-    this.setState({ formComplete: !this.state.formComplete });
-
-  },
-
   displaySearch() {
     this.setState({ searchVisible: !this.state.searchVisible });
+  //   render() {
+  //     return (
+  //       <SearchBox
+  //         { ...this.state }
+  //         handleSearch={this.handleSearch}
+  //         value={this.state.value}
+  //         // value={this.state.value}
+  //     />
+  //   )
+  // }
   },
 
   handleAddToCart(product) {
@@ -136,7 +130,8 @@ const App = React.createClass({
   },
 
   handleSearch(event) {
-    this.setState({searchValue: event.target.value});
+    this.setState({ value: event.target.value });
+    console.log(this.state.value);
 
       let searchRender = this.state.products.filter((element) => {
 
@@ -151,11 +146,6 @@ const App = React.createClass({
       } else {
           this.setState({ products : searchRender });
         }
-
-    // const inputValue = event.target.value.toLowerCase();
-    //
-    // this.setState({ inputValue })
-
   },
 
   logIn(user) {
@@ -216,6 +206,20 @@ const App = React.createClass({
   // onFormChange(event) {
   //   this.setState({ [event.target.name] : event.target.value })
   // },
+
+  onFormChange(event) {
+    this.setState({ [event.target.name] : event.target.value })
+
+    let incompleteForm;
+
+    if (this.state.firstName === '' || this.state.lastName === '' ||
+      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
+        incompleteForm = false;
+    }
+
+    this.setState({ formComplete: !this.state.formComplete });
+
+  },
 
   onSubmit(event) {
     const firstName = this.state.signupFirstName;
@@ -352,12 +356,15 @@ const App = React.createClass({
               signUpEmail={this.state.signUpEmail}
               signUpPassword={this.state.signUpPassword}
             />
-          <Miss pattern="/SearchBox" render={
-            () => <SearchBox
+          {/* <Miss pattern="/SearchBox" render={
+            () =>  */}
+            {/* <SearchBox
               { ...this.state }
               handleSearch={this.handleSearch}
-          />
-          }/>
+              value={this.state.value}
+              // value={this.state.value}
+          /> */}
+          {/* }/> */}
           <Match pattern="/" exactly render={
           () => <Home
               { ...this.state }
@@ -370,6 +377,8 @@ const App = React.createClass({
               displaySearch={this.displaySearch}
               handleSearch={this.handleSearch}
               searchFilter={this.searchFilter}
+              value={this.state.value}
+              inputValue={this.state.inputValue}
             />
             }/>
           <Match pattern="/cart" exactly render={
