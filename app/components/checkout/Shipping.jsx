@@ -9,13 +9,13 @@ const Shipping = React.createClass({
   },
 
   addShipping(event) {
-    // const shipping = event.target.value;
-    // this.props.selectShipping(shipping);
+    const shipping = event.target.value;
+    this.props.selectShipping(shipping)
     console.log(event.target.value);
   },
 
   render() {
-    return
+    return (
       <section id="customer" className="checkout">
         <div id="checkout-customer" className="seven columns">
 

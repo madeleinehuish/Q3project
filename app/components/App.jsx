@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
 import axios from 'axios';
+
 import BeardGuides from './BeardGuides';
 import Cart from './Cart';
 import Customer from './checkout/Customer';
@@ -35,8 +36,6 @@ const App = React.createClass({
       cartItems: [],
       products: [],
       defaultProducts: [],
-      searchArray: [],
-      sortType: '',
       loggedIn: false,
       currentUser: {},
       previousOrders: {},
@@ -52,17 +51,14 @@ const App = React.createClass({
       shipping: '',
       orderedAt: '',
       items: []
-    };
-  },
 
-  clearCart() {
-    this.setState({ cartItems: [] });
+    };
   },
 
   componentDidMount() {
     axios.get('/api-products')
       .then(res => {
-        this.setState({ products: res.data, defaultProducts: res.data, sortArray: res.data });
+        this.setState({ products: res.data, defaultProducts: res.data });
       })
       .catch((error) => {
         console.log(error);
@@ -71,6 +67,16 @@ const App = React.createClass({
 
   displaySearch() {
     this.setState({ searchVisible: !this.state.searchVisible });
+  //   render() {
+  //     return (
+  //       <SearchBox
+  //         { ...this.state }
+  //         handleSearch={this.handleSearch}
+  //         value={this.state.value}
+  //         // value={this.state.value}
+  //     />
+  //   )
+  // }
   },
 
   handleAddToCart(product) {
@@ -98,16 +104,15 @@ const App = React.createClass({
     this.setState({ cartItems: updatedCart });
   },
 
-  handleClickAdd(id, newQuantity) {
+  handleClickAdd(id) {
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (id !== productInCart.id) {
         return productInCart;
       }
 
-    // const updateQuantity = (productInCart.quantity || 0) + 1;
-    // const updateQuantity = newQuantity;
+    const updateQuantity = (productInCart.quantity || 0) + 1;
 
-    const newProduct = Object.assign({}, productInCart, { quantity: newQuantity });
+    const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
 
     return newProduct;
     });
@@ -124,8 +129,7 @@ const App = React.createClass({
 
   handleSearch(event) {
     this.setState({ value: event.target.value });
-    console.log("this state value " + this.state.value);
-    console.log("etv " + event.target.value);
+    console.log(this.state.value);
 
       let searchRender = this.state.products.filter((element) => {
 
@@ -135,37 +139,11 @@ const App = React.createClass({
         return false;
       });
 
-      if (!event.target.value) {
-        this.setState({ products: this.state.defaultProducts })
-        console.log('etv === ');
+      if (event.target.value = '') {
+        this.setState({ products: defaultProducts })
       } else {
           this.setState({ products : searchRender });
         }
-  },
-
-  handleSort(event) {
-    let type = event.target.value;
-    this.setState({ sortType: type });
-    const filteredProducts = this.state.products.filter((element) => {
-      return element;
-    });
-    let sortType = type;
-    let sortedProducts;
-    if (sortType === 'name') {
-      sortedProducts = sortBy(filteredProducts, (product) => {
-        return product.name;
-      });
-    }
-    if (sortType === 'price') {
-      sortedProducts = sortBy(filteredProducts, (product) => {
-        return product.price;
-      });
-    }
-    if (sortType === 'rating') {
-      sortedProducts = orderBy(filteredProducts, ['rating'], ['desc'])
-    };
-    this.setState({ products: sortedProducts })
-    return sortedProducts;
   },
 
   logIn(user) {
@@ -212,6 +190,7 @@ const App = React.createClass({
       .catch(function (error) {
         console.log(error);
       });
+
   },
 
   logOut() {
@@ -222,6 +201,10 @@ const App = React.createClass({
     });
   },
 
+  // onFormChange(event) {
+  //   this.setState({ [event.target.name] : event.target.value })
+  // },
+
   onFormChange(event) {
     this.setState({ [event.target.name] : event.target.value })
 
@@ -229,7 +212,8 @@ const App = React.createClass({
       this.state.address1 === '' || this.state.city === '' || this.state.zip === '';
       // || this.state.email === '';
 
-      this.setState({ formComplete: !incompleteForm });
+    this.setState({ formComplete: !incompleteForm });
+
   },
 
   onSubmit(event) {
@@ -291,6 +275,8 @@ const App = React.createClass({
 
 
 
+
+
   // cartItemCount() {
   //   let itemQuantity = 0;
   //
@@ -302,7 +288,7 @@ const App = React.createClass({
   // },
 
   selectShipping(shipping) {
-    let shippingCost;;
+    let shippingCost;
 
     if (shipping === 'standard') {
       shippingCost = 4.99;
@@ -311,7 +297,7 @@ const App = React.createClass({
       shippingCost = 9.99;
     }
     if (shipping === 'fedex') {
-      shippingCost = 24.99;
+      shippingCost = 24.;
     }
 
     this.setState({ shippingCost })
@@ -328,6 +314,8 @@ const App = React.createClass({
   //
   //   return filteredProducts;
   // },
+
+
 
   setTaxRate(event) {
     const zipcode = event.target.value;
@@ -356,18 +344,45 @@ const App = React.createClass({
               { ...this.state }
               logIn={this.logIn}
               logOut={this.logOut}
+              // onSubmitLogin={this.onSubmitLogin}
               onSubmit={this.onSubmit}
+              // inputValue={this.state.value}
+              // handleChange={this.handleChange}
               onFormChange={this.onFormChange}
+              // onFormChangeFirstName={this.onFormChangeFirstName}
+              // onFormChangeLastName={this.onFormChangeLastName}
+              // onFormChangeEmail={this.onFormChangeEmail}
+              // onFormChangePassword={this.onFormChangePassword}
               signUpFirstName={this.state.signUpFirstName}
               signUpLastName={this.state.signUpLastName}
               signUpEmail={this.state.signUpEmail}
               signUpPassword={this.state.signUpPassword}
             />
-          <Match pattern="/beard-guides" exactly render={
-            () => <BeardGuides
-            { ...this.state }
-            />
+          {/* <Miss pattern="/SearchBox" render={
+            () =>  */}
+            {/* <SearchBox
+              { ...this.state }
+              handleSearch={this.handleSearch}
+              value={this.state.value}
+              // value={this.state.value}
+          /> */}
+          {/* }/> */}
+          <Match pattern="/" exactly render={
+          () => <Home
+              { ...this.state }
+          />
           }/>
+          <Match pattern="/productslist" exactly render={
+            () => <ProductsList
+              { ...this.state }
+              handleAddToCart={this.handleAddToCart}
+              displaySearch={this.displaySearch}
+              handleSearch={this.handleSearch}
+              searchFilter={this.searchFilter}
+              value={this.state.value}
+              inputValue={this.state.inputValue}
+            />
+            }/>
           <Match pattern="/cart" exactly render={
             () => <Cart
               { ...this.state }
@@ -394,57 +409,28 @@ const App = React.createClass({
               currentUser={this.state.currentUser}
             />
           }/>
-          <Match pattern="/guides" exactly render={
-            () => <Guides
+          <Match pattern="/shipping" exactly render={
+            () => <Shipping
               { ...this.state }
               currentUser={this.state.currentUser}
               selectShipping={this.selectShipping}
-            />
-          }/>
-          <Match pattern="/history" exactly render={
-            () => <History
-              { ...this.state }
-
-            />
-          }/>
-          <Match pattern="/" exactly render={
-          () => <Home
-              { ...this.state }
-          />
-          }/>
-          <Match pattern="/stache-guides" exactly render={
-            () => <MustacheGuides
-            { ...this.state }
             />
           }/>
           <Match pattern="/payment" exactly render={
             () => <Payment
               { ...this.state }
               onSubmitOrder={this.onSubmitOrder}
-              clearCart={this.clearCart}
 
             />
           }/>
-          <Match pattern="/productslist" exactly render={
-            () => <ProductsList
-              { ...this.state }
-              // products={this.state.searchArray}
-              handleAddToCart={this.handleAddToCart}
-              displaySearch={this.displaySearch}
-              handleSearch={this.handleSearch}
-              searchFilter={this.searchFilter}
-              value={this.state.value}
-              inputValue={this.state.inputValue}
-            />
-            }/>
-            <Match pattern="/shipping" exactly render={
-              () => <Shipping
-                { ...this.state }
-                currentUser={this.state.currentUser}
-              />
-            }/>
           <Match pattern="/success" exactly render={
             () => <Success
+              { ...this.state }
+
+            />
+          }/>
+          <Match pattern="/history" exactly render={
+            () => <History
               { ...this.state }
 
             />
@@ -458,10 +444,26 @@ const App = React.createClass({
               previousOrders={this.state.previousOrders}
             />
           }/>
+          <Match pattern="/guides" exactly render={
+            () => <Guides
+              { ...this.state }
+
+            />
+          }/>
+          <Match pattern="/beard-guides" exactly render={
+            () => <BeardGuides
+            { ...this.state }
+            />
+          }/>
+          <Match pattern="/stache-guides" exactly render={
+            () => <MustacheGuides
+            { ...this.state }
+            />
+          }/>
           <Miss component={ NotFound } />
           <Footer />
         </main>
-        </BrowserRouter>
+      </BrowserRouter>
     )
   }
 });
