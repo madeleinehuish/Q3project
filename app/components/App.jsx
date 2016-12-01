@@ -44,6 +44,7 @@ const App = React.createClass({
       currentUser: {},
       previousOrders: {},
       userInformation: [],
+      email: '',
       firstName: '',
       lastName: '',
       address1: '',
@@ -211,14 +212,10 @@ const App = React.createClass({
   onFormChange(event) {
     this.setState({ [event.target.name] : event.target.value })
 
-    let incompleteForm;
+    const incompleteForm = this.state.firstName === '' || this.state.lastName === '' ||
+      this.state.address1 === '' || this.state.city === '' || this.state.zip === '';
 
-    if (this.state.firstName === '' || this.state.lastName === '' ||
-      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
-        incompleteForm = false;
-    }
-
-    this.setState({ formComplete: !this.state.formComplete });
+    this.setState({ formComplete: !incompleteForm });
 
   },
 
