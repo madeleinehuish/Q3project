@@ -756,7 +756,7 @@ div.two.columns.product-thumbnail {
 
 p#total-currency {
   font-size: 10px;
-  margin: 10px 10px 0 50px;
+  margin: 10px 10px 0 37px;
   color: #616161;
 }
 
@@ -887,7 +887,7 @@ div.four.columns.return {
   width: 50%;
 }
 
-#customer-navigation.row > div.six.columns > a > button {
+#customer-navigation.row > div.six.columns > a > button, #continue-shipping {
   height: 50px;
   border-radius: 3px;
   letter-spacing: 2px;
@@ -899,7 +899,7 @@ div.four.columns.return {
   margin-left: 32px;
 }
 
-#customer-navigation.row > div.six.columns > a > button:hover {
+#customer-navigation.row > div.six.columns > a > button:hover, #continue-shipping:hover {
   background-color: #a57967;
   color: #fff;
 }

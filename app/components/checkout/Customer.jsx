@@ -76,8 +76,9 @@ const Customer = React.createClass({
                       </select> */}
                     </div>
                     <div className="five columns shipping-state">
-                      <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required>
-                        <option value="state">Select State</option>
+                      <select name="state" form="stateform" onChange={this.props.onFormChange} className="validate" required>
+                      {/* <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required> */}
+                        {/* <option value="state">Select State</option> */}
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -132,7 +133,7 @@ const Customer = React.createClass({
                       </select>
                     </div>
                     <div className="two columns shipping-zipcode">
-                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} className="validate" required/>
+                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} onChange={this.props.onFormChange} className="validate" required/>
                     </div>
                     {/* <select onChange={this.props.handleSort} value={this.props.sortType}>
                       <option value="name">Name</option>
@@ -170,7 +171,7 @@ const Customer = React.createClass({
                 {/* <div className="six columns"> */}
                   {this.props.formComplete ?
                   <div className="six columns">  <Link to='/shipping'><button onChange={this.formUpdate}>Continue to Shipping Method</button></Link></div>
-                    : <div className="six columns"><button>Continue to Shipping Method</button></div>}
+                    : <div className="six columns"><button id="continue-shipping">Continue to Shipping Method</button></div>}
                 {/* </div> */}
               </div>
 

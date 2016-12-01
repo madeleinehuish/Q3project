@@ -71,8 +71,7 @@ const App = React.createClass({
     let incompleteForm;
 
     if (this.state.firstName === '' || this.state.lastName === '' ||
-      this.state.address1 === '' || this.state.city === '' ||
-      this.state.state === '' || this.state.zip === '' ) {
+      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
         incompleteForm = false;
     }
 
@@ -237,14 +236,14 @@ const App = React.createClass({
   // },
 
   setTaxRate(event) {
-    const zip = event.target.value;
+    const zipcode = event.target.value;
     let numberPattern = /^\d{5}$/g;
     const taxRate = this.state.taxRate;
     let userTax;
 
-    numberPattern.test(zip.trim())
+    numberPattern.test(zipcode.trim())
 
-    axios.get(`https://taxrates.api.avalara.com:443/postal?country=usa&postal=` + zip.trim() +
+    axios.get(`https://taxrates.api.avalara.com:443/postal?country=usa&postal=` + zipcode.trim() +
               `&apikey=uHzyARYbSWUoeb7F9%2F1alRcmI8kTeWanW7FCGoWV4SbMvUY0NQ%2BH8JUs%2Bxl2wTqc8AAGF1ew3XPEapKh0tP1vw%3D%3D`)
       .then(res => {
         userTax = res.data.totalRate / 100;
@@ -303,12 +302,12 @@ const App = React.createClass({
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
               logOut={this.logOut}
-              firstName={ this.state.firstName }
-              lastName={ this.state.lastName }
-              address1={ this.state.address1 }
-              city={ this.state.city }
-              state={ this.state.state }
-              zip={ this.state.zip }
+              firstName={ this.firstName }
+              lastName={ this.lastName }
+              address1={ this.address1 }
+              city={ this.city }
+              state={ this.state }
+              zip={ this.zip }
               onFormChange={ this.onFormChange }
               setTaxRate={this.setTaxRate}
               infoFormSubmission={this.infoFormSubmission}
@@ -317,7 +316,7 @@ const App = React.createClass({
           <Match pattern="/shipping" exactly render={
             () => <Shipping
               { ...this.state }
-
+              currentUser={this.state.currentUser}
             />
           }/>
           <Match pattern="/payment" exactly render={
