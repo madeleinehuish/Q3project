@@ -78,7 +78,7 @@ const Customer = React.createClass({
                     <div className="five columns shipping-state">
                       <select name="state" form="stateform" onChange={this.props.onFormChange} className="validate" required>
                       {/* <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required> */}
-                        {/* <option value="state">Select State</option> */}
+                        <option value="state">Select State</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>

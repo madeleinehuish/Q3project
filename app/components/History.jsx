@@ -4,7 +4,7 @@ const History = React.createClass({
   render() {
     return (
       <section id="history-page">
-        <div className="row">
+        <div id="history-row" className="row">
           {/* <div> */}
             <h1 id="history-header">THE HISTORY OF BEARDS AND STACHES</h1>
           {/* </div> */}
