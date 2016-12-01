@@ -789,7 +789,8 @@ p#total-cost {
 }
 
 #customer-email > form > input:focus, #shipping-details > form > div > input:focus,
-#shipping-details > form > div > select:focus, .credit-card-number > input:focus {
+#shipping-details > form > div > select:focus, .credit-card-number > input:focus,
+.credit-card-name > input:focus, .credit-card-date > input:focus, .credit-card-cvc > input:focus {
   background: #f5f5f5;
   color: #000;
   border: 2px solid #000;
