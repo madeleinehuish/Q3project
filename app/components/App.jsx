@@ -90,10 +90,7 @@ const App = React.createClass({
             console.log(res.data);
             const sortedOrders = res.data.sortedOrderItems;
             console.log(sortedOrders);
-            // const filteredOrders = newData.filter((element)=> {
-            //     return element.userId === 2;
-            //   })
-            // this.setState({ previousOrders: res.data });
+
             this.setState({ previousOrders: sortedOrders });
           })
           .catch((error) => {
@@ -105,9 +102,6 @@ const App = React.createClass({
           .then(res => {
 
             this.setState({ userInformation: res.data });
-
-            // const newData = res.data;
-            // this.setState({ previousOrders: filteredOrders });
 
           })
           .catch((error) => {
