@@ -9,11 +9,9 @@ const Home = React.createClass({
           <h1>Refined</h1>
           {/* <Link to='/products'>Shop</Link> */}
           <div className="twelve columns">
-            <button><Link to='/products'>SHOP</Link></button>
+            <button><Link to='/productslist'>SHOP</Link></button>
           </div>
         </div>
-
-
 
         <div id="blurb" className="row">
           <div className="six columns">
@@ -29,7 +27,7 @@ const Home = React.createClass({
           <div className="panel-header">
             <ul>
               <li><Link to='/guides'>GUIDES</Link></li>
-              <li><Link to='/products'>PRODUCTS</Link></li>
+              <li><Link to='/productslist'>PRODUCTS</Link></li>
               <li><Link to='/history'>HISTORY</Link></li>
             </ul>
           </div>
@@ -45,7 +43,7 @@ const Home = React.createClass({
           <div id="products" className="four columns">
             <img className="img-responsive" src="images/beard-kit.jpg" />
             <div id="products-text" className="overlay">
-              <h4><Link to='/products'>Products</Link></h4>
+              <h4><Link to='/productslist'>Products</Link></h4>
             </div>
           </div>
           <div id="history" className="four columns">

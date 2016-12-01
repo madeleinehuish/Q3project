@@ -4,6 +4,7 @@ import Checkout from './Checkout';
 import CheckoutCart from './CheckoutCart';
 import Payment from './Payment';
 import Shipping from './Shipping';
+// import FormIncomplete from './FormIncomplete';
 
 const Customer = React.createClass({
   logOut() {
@@ -14,6 +15,10 @@ const Customer = React.createClass({
     this.props.setTaxRate(event.target.value);
   },
 
+  formUpdate () {
+    this.props.onFormChange()
+  },
+
   render() {
     return (
       <section id="customer" className="checkout">
@@ -21,6 +26,7 @@ const Customer = React.createClass({
 
           <div className="checkout-page">
             <Checkout
+              // onFormChange={this.props.onFormChange}
             />
           </div>
 
@@ -70,7 +76,9 @@ const Customer = React.createClass({
                       </select> */}
                     </div>
                     <div className="five columns shipping-state">
-                      <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required>
+                      <select name="state" form="stateform" onChange={this.props.onFormChange} className="validate" required>
+                      {/* <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required> */}
+                        {/* <option value="state">Select State</option> */}
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -125,7 +133,7 @@ const Customer = React.createClass({
                       </select>
                     </div>
                     <div className="two columns shipping-zipcode">
-                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} onChange={this.props.onFormChange} value={this.props.zip} className="validate" required/>
+                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} onChange={this.props.onFormChange} className="validate" required/>
                     </div>
                     {/* <select onChange={this.props.handleSort} value={this.props.sortType}>
                       <option value="name">Name</option>
@@ -137,16 +145,20 @@ const Customer = React.createClass({
                       <input type="tel" name="phone" placeholder="Phone number (optional)"/>
                     </div>
 
-                    <div className="save-information">
+                    {/* <div className="save-information">
                       <div id="save-checkbox" className="six columns">
                         <input type="checkbox" name="save" value="save-info" />
                       </div>
-                      {/* <div id="info-save" className="six columns">
+                      <div id="info-save" className="six columns">
                         <p>Save this information for next time</p>
-                      </div> */}
-                    </div>
+                      </div>
+                    </div> */}
                   </form>
                 </div>
+              </div>
+
+              <div className="row">
+                {this.props.formComplete ? null : <h5 id="complete-form">Please complete all required form fields</h5>}
               </div>
 
               <div id="customer-navigation" className="row">
@@ -156,9 +168,11 @@ const Customer = React.createClass({
                 <div className="four columns return">
                   <p><Link to='./cart'>Return to Cart</Link></p>
                 </div>
-                <div className="six columns">
-                  <Link to='/shipping'><button>Continue to Shipping Method</button></Link>
-                </div>
+                {/* <div className="six columns"> */}
+                  {this.props.formComplete ?
+                  <div className="six columns">  <Link to='/shipping'><button onChange={this.formUpdate}>Continue to Shipping Method</button></Link></div>
+                    : <div className="six columns"><button id="continue-shipping">Continue to Shipping Method</button></div>}
+                {/* </div> */}
               </div>
 
             </div>

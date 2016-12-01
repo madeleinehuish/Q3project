@@ -23,10 +23,10 @@ const Shipping = React.createClass({
               <div id="saved-address" className="row">
                 <div id="shipping-details">
                   <h5>Shipping address</h5>
-                  <p>Customer name</p>
-                  <p>Street address</p>
-                  <p>City, state, zip</p>
-                  <p>Country</p>
+                  <p>{this.props.firstName} {this.props.lastName}</p>
+                  <p>{this.props.address1}</p>
+                  <p>{this.props.city}, {this.props.state}, {this.props.zip}</p>
+                  <p>United States</p>
                   <p id="edit"><Link to='./customer-checkout'>Edit shipping address</Link></p>
                 </div>
               </div>

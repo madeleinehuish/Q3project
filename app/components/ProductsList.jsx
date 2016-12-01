@@ -40,11 +40,7 @@ const ProductsLists = React.createClass({
           <div id="search-img" className="four columns">
             <img onClick={this.handleClick} src="images/search-icon.png"/>
           </div>
-            {
-           this.props.searchVisible
-             ? <SearchBox />
-             : null
-           }
+            {this.props.searchVisible ? <SearchBox /> : null}
         </div>
 
         <div id="products-page" className="row">
