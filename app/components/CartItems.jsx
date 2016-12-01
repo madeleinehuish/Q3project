@@ -6,11 +6,12 @@ const CartItems = React.createClass({
     this.props.handleRemoveFromCart(this.props.cartItem);
   },
 
-  handleClickAddQuantity() {
+  handleClickAddQuantity(event) {
+    console.log(event.target.value);
+    const newQuantity = Number(event.target.value);
+    const id = (this.props.cartItem.id);
 
-      // const id = (this.props.cartItem.id);
-      //
-      // this.props.handleClickAdd(id);
+      this.props.handleClickAdd(id, newQuantity);
   },
 
 
@@ -27,7 +28,7 @@ const CartItems = React.createClass({
         </div>
         <div className="two columns">
           <div id="qty-counter">
-              <input type="number" name="qty" defaultValue={this.props.cartItem.quantity} onClick={this.handleClickAddQuantity} onContextMenu={this.handleClickAddQuantity} min="0"/>
+              <input type="number" name="qty" defaultValue={this.props.cartItem.quantity} onClick={this.handleClickAddQuantity} onChange={this.handleClickAddQuantity} min="0"/>
             {/* <span className="qty-text">1</span>
             <span className="up-arrow" data-value="1">
               <img src=""/>
