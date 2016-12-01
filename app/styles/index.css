@@ -1108,6 +1108,39 @@ div#payment-method > p {
   margin-top: 40px;
 }
 
+/*--------------- HISTORY --------------*/
+#history {
+  background-color: #000;
+  height: 550px;
+}
+
+#history-header.row {
+  height: 170px;
+}
+
+.row > h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  color: #a57967;
+}
+
+#history-header {
+  padding-top: 70px;
+}
+
+#youtube-history.row {
+  margin-top: 65px;
+  text-align: center;
+}
+
+iframe {
+  border: 5px solid #a57967;
+  border-radius: 8px;
+}
+
 /*--------------- ACCOUNT PAGES --------------*/
 #first-name.six.columns > input, #last-name.six.columns > input,
 #email.six.columns > input, #password.six.columns > input {
