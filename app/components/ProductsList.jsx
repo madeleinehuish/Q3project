@@ -7,7 +7,11 @@ const ProductsLists = React.createClass({
   handleClick () {
     this.props.displaySearch()
   },
-
+  handleSortType(event) {
+    console.log(event.target.name);
+    const sortValue = event.target.name;
+    this.props.handleSort(sortValue);
+  },
   // const filteredProducts = this.props.searchFilter();
 
   render() {
@@ -36,9 +40,9 @@ const ProductsLists = React.createClass({
             <ul id="filter-sort">
               <li id="filter-options">FILTER BY LINE:</li>
               {/* STATE CHANGE: when user clicks on an option, images rerender, and font becomes bold */}
-              <li>ALL</li>
-              <li>BEARD</li>
-              <li>MUSTACHE</li>
+              <li><a name="all" href="#" onClick={this.handleSortType}>ALL</a></li>
+              <li><a name="beard" href="#" onClick={this.handleSortType}>BEARD</a></li>
+              <li><a name="moustache" href="#" onClick={this.handleSortType}>MUSTACHE</a></li>
             </ul>
           </div>
           <div id="search-img" className="four columns">
