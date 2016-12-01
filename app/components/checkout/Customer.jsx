@@ -8,6 +8,7 @@ import Shipping from './Shipping';
 
 const Customer = React.createClass({
   logOut() {
+    this.props.logOut();
   },
 
   setTaxRate(event) {
@@ -35,7 +36,8 @@ const Customer = React.createClass({
               <div id="customer-email">
                 <h5>Customer information</h5>
                 <form>
-                  <input type="email" name="email" placeholder="Email" onBlur={this.props.onFormChange} value={this.props.email} required/>
+                  <input type="email" name="email" placeholder="Email" onBlur={this.props.onFormChange} required/>
+                  {/* <input type="email" name="email" placeholder="Email" onBlur={this.props.onFormChange} value={this.props.email} required/> */}
                 </form>
                 <p>Already have an account?<a href='#openModal'> Login</a></p>
               </div>}
@@ -141,7 +143,7 @@ const Customer = React.createClass({
                     </select> */}
 
                     <div className="phone">
-                      <input type="tel" pattern="^\d{4}-\d{3}-\d{4}$" name="phone" placeholder="Phone number (optional)"/>
+                      <input type="tel" name="phone" placeholder="Phone number (optional)"/>
                     </div>
 
                     {/* <div className="save-information">
@@ -183,6 +185,8 @@ const Customer = React.createClass({
             <CheckoutCart
               cartItems={this.props.cartItems}
               taxRate={this.props.taxRate}
+              selectShipping={this.props.selectShipping}
+              shippingCost={this.props.shippingCost}
             />
           </div>
         </div>

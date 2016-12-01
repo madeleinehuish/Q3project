@@ -28,7 +28,7 @@ const App = React.createClass({
       signupLastName: '',
       searchVisible: false,
       formComplete: false,
-      shippingCost: 0,
+      shippingCost: 4.99,
       taxRate: 0,
       signupEmail: '',
       signupPassword: '',
@@ -227,6 +227,7 @@ const App = React.createClass({
 
     const incompleteForm = this.state.firstName === '' || this.state.lastName === '' ||
       this.state.address1 === '' || this.state.city === '' || this.state.zip === '';
+      // || this.state.email === '';
 
       this.setState({ formComplete: !incompleteForm });
   },
@@ -300,8 +301,20 @@ const App = React.createClass({
   //   return itemQuantity;
   // },
 
-  selectShipping() {
-    this.setState({ shippingCost: 4.99 })
+  selectShipping(shipping) {
+    let shippingCost;;
+
+    if (shipping === 'standard') {
+      shippingCost = 4.99;
+    }
+    if (shipping === 'premium') {
+      shippingCost = 9.99;
+    }
+    if (shipping === 'fedex') {
+      shippingCost = 24.99;
+    }
+
+    this.setState({ shippingCost })
   },
 
 
@@ -369,6 +382,7 @@ const App = React.createClass({
               handleAddToCart={this.handleAddToCart}
               logOut={this.logOut}
               firstName={ this.firstName }
+              // email={ this.email }
               lastName={ this.lastName }
               address1={ this.address1 }
               city={ this.city }
@@ -377,6 +391,7 @@ const App = React.createClass({
               onFormChange={ this.onFormChange }
               setTaxRate={this.setTaxRate}
               infoFormSubmission={this.infoFormSubmission}
+              currentUser={this.state.currentUser}
             />
           }/>
           <Match pattern="/guides" exactly render={
