@@ -160,6 +160,21 @@ const App = React.createClass({
       });
   },
 
+  handleClickAdd(id) {
+    const updatedCart = this.state.cartItems.map((productInCart) => {
+      if (id !== productInCart.id) {
+        return productInCart;
+      }
+
+    const updateQuantity = (productInCart.quantity || 0) + 1;
+
+    const newProduct = Object.assign({}, productInCart, { quantity: updateQuantity });
+
+    return newProduct;
+    });
+    this.setState({ cartItems: updatedCart });
+  },
+
   handleAddToCart(product) {
     let productNotInCart = true;
 
@@ -285,6 +300,7 @@ const App = React.createClass({
               { ...this.state }
               cartItemCount={this.cartItemCount}
               handleRemoveFromCart={this.handleRemoveFromCart}
+              handleClickAdd={this.handleClickAdd}
             />
           }/>
           <Match pattern="/customer-checkout" exactly render={

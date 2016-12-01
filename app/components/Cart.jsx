@@ -10,6 +10,7 @@ const Cart = React.createClass({
         key={index}
         cartItems={this.props.cartItems}
         handleRemoveFromCart={this.props.handleRemoveFromCart}
+        handleClickAdd={this.props.handleClickAdd}
       />
     });
 

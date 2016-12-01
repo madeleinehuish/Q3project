@@ -125,7 +125,7 @@ const Customer = React.createClass({
                       </select>
                     </div>
                     <div className="two columns shipping-zipcode">
-                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} className="validate" required/>
+                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} onChange={this.props.onFormChange} value={this.props.zip} className="validate" required/>
                     </div>
                     {/* <select onChange={this.props.handleSort} value={this.props.sortType}>
                       <option value="name">Name</option>
