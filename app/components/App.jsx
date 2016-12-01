@@ -445,20 +445,6 @@ const App = React.createClass({
             />
           }/>
 
-          <Match pattern="/productslist" exactly render={
-            () => <ProductsList
-              { ...this.state }
-              // products={this.state.searchArray}
-              handleAddToCart={this.handleAddToCart}
-              displaySearch={this.displaySearch}
-              handleSearch={this.handleSearch}
-              handleSort={this.handleSort}
-              searchFilter={this.searchFilter}
-              value={this.state.value}
-              inputValue={this.state.inputValue}
-            />
-            }/>
-
           <Match pattern="/success" exactly render={
             () => <Success
               { ...this.state }
