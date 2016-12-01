@@ -42,7 +42,7 @@ const Payment = React.createClass({
                     {/* Need to create credit card form which will use Stripe API */}
                     <div className="credit-card-details">
                       <div className="credit-card-number">
-                        <input type="number" name="card-number" pattern="[0-9]{13,16}" placeholder="Credit card number" autoComplete="cc-number" required/>
+                        <input type="number" name="card-number"   pattern="^\d{3}-\d{2}-\d{4}$" placeholder="Credit card number" autoComplete="cc-number" required/>
                       </div>
 
                       <div className="six columns credit-card-name">

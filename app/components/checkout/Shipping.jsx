@@ -95,6 +95,8 @@ const Shipping = React.createClass({
             <CheckoutCart
               cartItems={this.props.cartItems}
               taxRate={this.props.taxRate}
+              selectShipping={this.props.selectShipping}
+              shippingCost={this.props.shippingCost}
             />
           </div>
         </div>

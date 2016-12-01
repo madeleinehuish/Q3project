@@ -8,7 +8,6 @@ import Shipping from './Shipping';
 
 const Customer = React.createClass({
   logOut() {
-    this.props.logOut();
   },
 
   setTaxRate(event) {
@@ -142,7 +141,7 @@ const Customer = React.createClass({
                     </select> */}
 
                     <div className="phone">
-                      <input type="tel" name="phone" placeholder="Phone number (optional)"/>
+                      <input type="tel" pattern="^\d{4}-\d{3}-\d{4}$" name="phone" placeholder="Phone number (optional)"/>
                     </div>
 
                     {/* <div className="save-information">

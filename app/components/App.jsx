@@ -45,6 +45,7 @@ const App = React.createClass({
       currentUser: {},
       previousOrders: {},
       userInformation: [],
+      email: '',
       firstName: '',
       lastName: '',
       address1: '',
@@ -229,17 +230,10 @@ const App = React.createClass({
   onFormChange(event) {
     this.setState({ [event.target.name] : event.target.value })
 
-    let incompleteForm;
+    const incompleteForm = this.state.firstName === '' || this.state.lastName === '' ||
+      this.state.address1 === '' || this.state.city === '' || this.state.zip === '';
 
-    if (this.state.firstName === '' || this.state.lastName === '' ||
-      this.state.address1 === '' || this.state.city === '' || this.state.zip === '' ) {
-        incompleteForm = false;
-    }
-
-    // console.log(typeof this.state.zip);
-
-    this.setState({ formComplete: !this.state.formComplete });
-
+      this.setState({ formComplete: !incompleteForm });
   },
 
   onSubmit(event) {
@@ -313,14 +307,9 @@ const App = React.createClass({
   //   return itemQuantity;
   // },
 
-
-
-
-
-
-
-
-
+  selectShipping() {
+    this.setState({ shippingCost: 4.99 })
+  },
 
 
   //
@@ -431,6 +420,7 @@ const App = React.createClass({
             () => <Shipping
               { ...this.state }
               currentUser={this.state.currentUser}
+              selectShipping={this.selectShipping}
             />
           }/>
           <Match pattern="/payment" exactly render={
