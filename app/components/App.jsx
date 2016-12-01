@@ -214,6 +214,7 @@ const App = React.createClass({
 
     const incompleteForm = this.state.firstName === '' || this.state.lastName === '' ||
       this.state.address1 === '' || this.state.city === '' || this.state.zip === '';
+      // || this.state.email === '';
 
     this.setState({ formComplete: !incompleteForm });
 
@@ -388,6 +389,7 @@ const App = React.createClass({
               handleAddToCart={this.handleAddToCart}
               logOut={this.logOut}
               firstName={ this.firstName }
+              // email={ this.email }
               lastName={ this.lastName }
               address1={ this.address1 }
               city={ this.city }
@@ -396,6 +398,7 @@ const App = React.createClass({
               onFormChange={ this.onFormChange }
               setTaxRate={this.setTaxRate}
               infoFormSubmission={this.infoFormSubmission}
+              currentUser={this.state.currentUser}
             />
           }/>
           <Match pattern="/shipping" exactly render={
