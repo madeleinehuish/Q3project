@@ -160,6 +160,25 @@ const App = React.createClass({
       });
   },
 
+  onSubmitOrder(event) {
+    console.log('order submitted');
+
+    const cartItems = this.state.cartItems;
+    const address1 = this.state.address1;
+    const address2 = this.state.address2;
+    const city = this.state.city;
+    const state = this.state.state;
+    const zip = this.state.zip;
+
+    axios.post('/api-orders', { cartItems, address1, address2, city, state, zip })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
+
   handleClickAdd(id) {
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (id !== productInCart.id) {
@@ -327,6 +346,7 @@ const App = React.createClass({
           <Match pattern="/payment" exactly render={
             () => <Payment
               { ...this.state }
+              onSubmitOrder={this.onSubmitOrder}
 
             />
           }/>

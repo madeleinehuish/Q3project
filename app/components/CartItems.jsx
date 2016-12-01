@@ -8,9 +8,9 @@ const CartItems = React.createClass({
 
   handleClickAddQuantity() {
 
-      const id = (this.props.cartItem.id);
-
-      this.props.handleClickAdd(id);
+      // const id = (this.props.cartItem.id);
+      //
+      // this.props.handleClickAdd(id);
   },
 
 

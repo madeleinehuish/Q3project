@@ -4,7 +4,7 @@ const express = require('express');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
-const { camelizeKeys } = require('humps');
+const { camelizeKeys, decamelizeKeys } = require('humps');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -73,9 +73,9 @@ router.get('/api-orders/:id', authorize, (req, res, next) => {
 });
 
 router.post('/api-orders', authorize, (req, res, next) => {
-  const { items, address1, address2, city, state, zip } = req.body;
+  const { cartItems, address1, address2, city, state, zip } = req.body;
   const { userId } = req.token;
-  console.log(items);
+  console.log( cartItems );
   if (!address1 || !address1.trim()) {
     return next(boom.create(400, 'Address must not be blank'));
   }
@@ -101,11 +101,11 @@ router.post('/api-orders', authorize, (req, res, next) => {
       order = camelizeKeys(rows[0]);
 
       return knex('order_items')
-        .insert(decamelizeKeys(products.map((product) => {
+        .insert(decamelizeKeys(cartItems.map((item) => {
           return {
             orderId: order.id,
-            productsId: product.productId,
-            quantity: product.quantity
+            productsId: item.id,
+            quantity: item.quantity
           };
         })));
     })

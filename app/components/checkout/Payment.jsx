@@ -93,7 +93,7 @@ const Payment = React.createClass({
                   <p><Link to='./shipping'>Return to Shipping</Link></p>
                 </div>
                 <div className="six columns">
-                  <Link to='/success'><button>Complete Order</button></Link>
+                  <Link to='/success'><button onClick={this.props.onSubmitOrder}>Complete Order</button></Link>
                 </div>
               </div>
 
