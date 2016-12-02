@@ -1021,8 +1021,8 @@ div.four.columns.return {
   margin-left: 32px;
 }
 
-#customer-navigation.row > div.six.columns > a > button:hover, #continue-shipping:hover,
-#complete-order-btn:hover {
+#customer-navigation.row > div.six.columns > a > button:hover, #continue-shopping:hover,
+#proceed-to-checkout:hover, #complete-order-btn:hover {
   background-color: #a57967;
   color: #fff;
 }
