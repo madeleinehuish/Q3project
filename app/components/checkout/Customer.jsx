@@ -77,7 +77,7 @@ const Customer = React.createClass({
                       </select> */}
                     </div>
                     <div className="five columns shipping-state">
-                      <select name="state" form="stateform" onChange={this.props.onFormChange} className="validate" required>
+                      <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required>
                       {/* <select name="state" form="stateform" onChange={this.props.onFormChange} value={this.props.state} className="validate" required> */}
                         <option value="state">Select State</option>
                         <option value="AL">Alabama</option>
@@ -134,7 +134,7 @@ const Customer = React.createClass({
                       </select>
                     </div>
                     <div className="two columns shipping-zipcode">
-                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} onChange={this.props.onFormChange} className="validate" required/>
+                      <input type="text" name="zip" placeholder="Zip code" onBlur={this.props.setTaxRate} onChange={this.props.onFormChange} value={this.props.zip} className="validate" required/>
                     </div>
                     {/* <select onChange={this.props.handleSort} value={this.props.sortType}>
                       <option value="name">Name</option>

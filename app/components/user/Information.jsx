@@ -7,10 +7,11 @@ const Information = React.createClass({
     return (
 			<section id="information">
         {/* <div  className="seven columns"> */}
-					<p>{this.props.userInfo.address1} Apt</p>
-					<p>City</p>
-					<p>Country, State, Zipcode</p>
-					<p id="edit"><Link to='./customer-checkout'>Edit shipping address</Link></p>
+					<p>{this.props.address1}</p>
+					<p>{this.props.city}</p>
+					<p>{this.props.state}</p>
+					<p>{this.props.zip}</p>
+					<p id="edit">Edit shipping address</p>
         {/* </div> */}
 			</section>
 		)}

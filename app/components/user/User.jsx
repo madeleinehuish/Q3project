@@ -8,6 +8,7 @@ const User = React.createClass({
     this.props.logOut();
   },
 
+
 	render() {
     return (
 			<section id="user-page">
@@ -21,6 +22,10 @@ const User = React.createClass({
 				<div id="user-details" className="row">
 					<div id="user-info">
 						<UserInfo
+              address1={this.props.address1}
+							city={this.props.city}
+							state={this.props.state}
+							zip={this.props.zip}
 							userInformation={this.props.userInformation}
 						/>
 					</div>

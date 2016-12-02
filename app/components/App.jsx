@@ -58,6 +58,10 @@ const App = React.createClass({
     };
   },
 
+  clearCart() {
+    this.setState({ cartItems: []});
+  },
+
   componentDidMount() {
     axios.get('/api-products')
       .then(res => {
@@ -188,9 +192,9 @@ const App = React.createClass({
       .then(() => {
         axios.get(`/api-orders/${this.state.currentUser.id}`)
           .then((res) => {
-            console.log(res.data);
+
             const sortedOrders = res.data.sortedOrderItems;
-            console.log(sortedOrders);
+
 
             this.setState({ previousOrders: sortedOrders });
           })
@@ -201,8 +205,26 @@ const App = React.createClass({
       .then(() => {
         axios.get('api-orders/')
           .then(res => {
+            console.log(res.data);
 
-            this.setState({ userInformation: res.data });
+            // const allUsersData = res.data;
+            // const userInfoUnique = allUsersData.filter((element) => {
+            //
+            //   return element.userId === this.state.currentUser.id;
+            // });
+            // // console.log(userInfoUnique);
+            // this.setState({ userInformation: userInfoUnique});
+            //
+            // this.setState({
+            //   firstName: this.state.currentUser.firstName,
+            //   lastName: this.state.currentUser.lastName,
+            //   email: this.state.currentUser.email,
+            //   address1: this.state.userInformation[0].address1,
+            //   city: this.state.userInformation[0].city,
+            //   state: this.state.userInformation[0].state,
+            //   zip: this.state.userInformation[0].zip
+            // });
+
 
           })
           .catch((error) => {
@@ -447,6 +469,7 @@ const App = React.createClass({
             () => <Payment
               { ...this.state }
               onSubmitOrder={this.onSubmitOrder}
+              clearCart={this.clearCart}
 
             />
           }/>
@@ -470,6 +493,7 @@ const App = React.createClass({
               currentUser={this.state.currentUser}
               userOrders={this.userOrders}
               previousOrders={this.state.previousOrders}
+              userInformation={this.state.userInformation}
             />
           }/>
           <Match pattern="/guides" exactly render={
