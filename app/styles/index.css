@@ -1397,21 +1397,16 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 }
 
 /*--------------- USER --------------*/
-#user-page > div.row {
-  text-align: center;
-  margin-top: 80px;
-}
-
-#info-orders.row {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-#user-page > div.row > h3, #user-page > div.row > h5 {
-  height: 50px;
+#user-header.row {
+  /*background-color: #000;*/
   width: 80%;
   margin: auto;
+  border-bottom: 1px solid #d6d6d6;
+  /*width: 100%;*/
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  height: 220px;
 }
 
 #user-page > div.row > h3 {
@@ -1419,32 +1414,19 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   letter-spacing: 4px;
   margin-bottom: 10px;
   text-transform: uppercase;
+  margin-top: 30px;
+  /*color: #a57967;*/
 }
-
-/*#user-page > div.row > h5, #order-history > h5 {
-  font-size: 16px;
-}*/
-
-/*#info-orders.row > div.five.columns, #info-orders.row > div.seven.columns {
-  font-size: 18px;
-  text-transform: uppercase;
-}*/
 
 #user-orders {
   height: 400px;
-  /*background-color: #f5f5f5;*/
   border: 3px solid #a57967;
-  border-radius: 4px;
-  padding: 25px;
+  padding: 25px 75px;
   float: right;
   text-align: center;
 }
 
-#user-page > div.row > h5 {
-  font-size: 14px;
-}
-
-#user-page > div.row {
+#user-details.row {
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   width: 80%;
@@ -1453,8 +1435,12 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   padding-top: 50px;
 }
 
+#user-header.row > h5 {
+  /*color: #a57967;*/
+  font-size: 16px;
+}
+
 #user-page > div.row > a > button {
-  /*font-size: 14px;*/
   width: 140px;
   height: 40px;
   border: 2px solid #a57967;
@@ -1462,6 +1448,7 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   font-size: 16px;
   font-weight: bolder;
   color: #a57967;
+  margin-top: 30px;
 }
 
 #user-page > div.row > a > button:hover {
@@ -1469,12 +1456,7 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   color: #fff;
 }
 
-div#user-details.row {
-  /*margin-top: 55px;*/
-}
-
 #user-info {
-  /*background-color: lightgreen;*/
   margin-left: 15px;
   margin-right: 22px;
   text-align:left;
@@ -1494,6 +1476,12 @@ div#user-details.row {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 28px;
+}
+
+#user-orders > h5 {
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  /*border-bottom: 1px solid #d6d6d6;*/
 }
 
 #information {

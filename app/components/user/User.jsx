@@ -8,11 +8,10 @@ const User = React.createClass({
     this.props.logOut();
   },
 
-
 	render() {
     return (
 			<section id="user-page">
-				<div className="row">
+				<div id="user-header" className="row">
 					<h3>{this.props.currentUser.firstName} {this.props.currentUser.lastName}</h3>
 					<h5>{this.props.currentUser.email}</h5>
 					{this.props.loggedIn ? <Link to="/"><button onClick={this.logOut}>Log out</button></Link>
