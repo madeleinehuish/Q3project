@@ -5,13 +5,44 @@ import CheckoutCart from './CheckoutCart';
 // import Success from './Success';
 
 const Payment = React.createClass({
+
+
+
+  getInitialState: function () {
+    return {
+      card: {
+        number: '',
+        cvc: '',
+        exp_month: '',
+        exp_year: ''
+      }
+    }
+  },
+
+  componentDidMount(){
+    Stripe.setPublishableKey('pk_test_jXQn5jcYPOHMsujRjJiU85BA');
+  },
+
   setTaxRate(event) {
     this.props.setTaxRate(event.target.value);
   },
 
-  handleClick () {
+  handleClick() {
     this.props.onSubmitOrder();
     this.props.clearCart();
+  },
+
+  handleSubmit(event) {
+    event.preventDefault();
+    Stripe.createToken(this.state.card, function (status, response) {
+      console.log( status, response );
+    });
+  },
+
+  handleChange(event) {
+    let card = this.state.card;
+    card[event.target.name] = event.target.value
+    this.setState(card);
   },
 
   render() {
@@ -43,23 +74,27 @@ const Payment = React.createClass({
                   </div>
                 </div>
 
-                  <form>
+                  <form onSubmit={ this.handleSubmit }>
                     {/* Need to create credit card form which will use Stripe API */}
                     <div className="credit-card-details">
                       <div className="credit-card-number">
-                        <input type="number" name="card-number"   pattern="^\d{3}-\d{2}-\d{4}$" placeholder="Credit card number" autoComplete="cc-number" required/>
+                        <input type="number" name="number" onChange={this.handleChange}   pattern="^\d{3}-\d{2}-\d{4}$" placeholder="Credit card number" autoComplete="cc-number" required/>
                       </div>
 
                       <div className="six columns credit-card-name">
                         <input type="text" name="card-name" placeholder="Name on card" required/>
                       </div>
                       <div className="three columns credit-card-date">
-                        <input type="number" name="expiry" placeholder="MM/YY" required/>
+                        <input type="number" name="exp_month" onChange={this.handleChange} placeholder="MM" required/>
+                      </div>
+                      <div className="three columns credit-card-date">
+                        <input type="number" name="exp_year" onChange={this.handleChange} placeholder="YY" required/>
                       </div>
                       <div className="three columns credit-card-cvc">
-                        <input type="number" name="cvc" placeholder="CVC" required/>
+                        <input type="number" name="cvc" onChange={this.handleChange} placeholder="CVC" required/>
                       </div>
                     </div>
+                    <button type="submit">submit</button>
                   </form>
                 </div>
 
@@ -86,6 +121,7 @@ const Payment = React.createClass({
                         <label>Use a different billing address</label>
                       </div>
                     </div>
+
                   </form>
                 </div>
 
