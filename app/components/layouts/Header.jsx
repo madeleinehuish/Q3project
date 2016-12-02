@@ -28,7 +28,6 @@ const Header = React.createClass({
         </nav>
       </div>
 
-
       <div id="openModal" className="modalDialog">
         <div>
 

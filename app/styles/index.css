@@ -348,7 +348,7 @@ ul#filter-sort > li > a {
   max-height: 290px;
 }
 
-#products-to-buy.four.columns > div.product-image > img {
+#products-to-buy.four.columns > div.product-image > a > img {
   width: 90%;
   margin-left: 20px;
   max-height: 290px;
@@ -417,6 +417,131 @@ ul#filter-sort > li > a {
 
 .bling::before {
   content:"$";
+}
+
+.modalDialog-product {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog-product:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.modalDialog-product > div {
+	width: 1000px;
+	position: relative;
+	margin: 3% auto;
+	padding: 5px 20px 13px 20px;
+  border: 4px solid #a57967;
+	border-radius: 10px;
+	background: #fff;
+}
+
+#openModal-products.modalDialog-product > div {
+  margin-top: 50px;
+  height: 480px;
+}
+
+#product-modal {
+  height: 500px;
+}
+
+#product-title.twelve.columns > h1 {
+  height: 80px;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid #d6d6d6;
+  margin-top: 20px;
+  font-weight: bolder;
+}
+
+#product-content.row {
+  padding-top: 125px;
+}
+
+#product-content > div#product-image.five.columns {
+  text-align: center;
+}
+
+img#modal-product-image {
+  width: 80%;
+  margin-top: 6%;
+}
+
+#product-details.seven.columns {
+  margin-top: 10px;
+  padding-left: 35px;
+}
+
+#product-details > #rating-row {
+  display: -webkit-box;
+}
+
+#product-details > div > div.row {
+  width: 85%;
+  text-align: center;
+}
+
+#rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+#rating > span {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+}
+
+#rating > span:hover:before,
+#rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: gold;
+}
+
+p#rating {
+  text-align: left;
+}
+
+#product-details > div > p#price {
+  font-weight: bolder;
+}
+
+p#description {
+  letter-spacing: 1px;
+  width: 85%;
+}
+
+button#modal-product-btn {
+  height: 40px;
+  width: 50%;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  font-size: 12px;
+  background-color: #fff;
+  border: 3px solid #a57967;
+  color: #a57967;
+  font-weight: bolder;
+  margin-left: 32px;
+}
+
+button#modal-product-btn:hover {
+  background-color: #a57967;
+  color: #fff;
 }
 
 /*-------------- CART -------------*/
@@ -1276,13 +1401,12 @@ input:-webkit-autofill {
 }
 
 /*---------- LOGIN ---------*/
-#login-account-btn, #login-title, #create-title, #create-account-btn {
+#login-account-btn, #login-title, #create-title, #create-account-btn, #product-title {
   width: 100%;
 }
 
 .modalDialog {
 	position: fixed;
-	/*font-family: Arial, Helvetica, sans-serif;*/
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -1323,7 +1447,7 @@ input:-webkit-autofill {
 }
 
 #login-title.twelve.columns, #login-account.twelve.columns,
-#login-account-btn.twelve.columns  {
+#login-account-btn.twelve.columns, #product-title.twelve.columns {
   text-align: center;
 }
 
@@ -1347,7 +1471,6 @@ input:-webkit-autofill {
 }
 
 #login-account {
-  /*height: 390px;*/
   text-align: center;
 }
 

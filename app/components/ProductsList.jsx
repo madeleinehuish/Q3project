@@ -12,10 +12,8 @@ const ProductsLists = React.createClass({
     const sortValue = event.target.name;
     this.props.handleSort(sortValue);
   },
-  // const filteredProducts = this.props.searchFilter();
 
   render() {
-    // const products = this.props.filteredProducts.map((product, index) => {
     const products = this.props.products.map((product, index) => {
       return <Products
         product={product}
@@ -39,7 +37,6 @@ const ProductsLists = React.createClass({
           <div className="eight columns">
             <ul id="filter-sort">
               <li id="filter-options">FILTER BY LINE:</li>
-              {/* STATE CHANGE: when user clicks on an option, images rerender, and font becomes bold */}
               <li><a name="all" href="#" onClick={this.handleSortType}>ALL</a></li>
               <li><a name="beard" href="#" onClick={this.handleSortType}>BEARD</a></li>
               <li><a name="moustache" href="#" onClick={this.handleSortType}>MUSTACHE</a></li>
