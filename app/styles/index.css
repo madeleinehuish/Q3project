@@ -315,6 +315,10 @@ nav.six.columns > ul > li#login-icon {
   margin-left: 60px;
 }
 
+ul#filter-sort > li > a {
+  color: #000;
+}
+
 #filter-options {
   color: #7a7a7a;
 }
