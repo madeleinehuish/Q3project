@@ -55,7 +55,7 @@ const App = React.createClass({
       shipping: '',
       orderedAt: '',
       items: [],
-      chargeTotal: '',
+      chargeTotal: '0',
       stripeToken: '',
       card: {
         number: '',
@@ -340,15 +340,16 @@ const App = React.createClass({
 
     // const updatedTotal = {(this.state.cartItems.reduce((amount, curr, index) => {
     //   return amount + ((curr.price * curr.quantity) * this.state.taxRate) + (curr.price * curr.quantity)
-    //   +this.state.shippingCost;
+    //   + this.state.shippingCost;
     // }, 0)).toFixed(2)};
+    // console.log('updated total is ' + updatedTotal);
 
     // this.setState({ chargeTotal: updatedTotal });
-    this.setState({ chargeTotal: 200 });
+    // this.setState({ chargeTotal: 300 });
 
 
     // const chargeTotal = JSON.stringify(this.state.chargeTotal);
-    const chargeTotal = 300;
+    const chargeTotal = 400;
     console.log('chargeTotal is ' + chargeTotal);
     // Stripe.createToken(this.state.card, function (status, response) {
     //   console.log( status, response );
