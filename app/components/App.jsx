@@ -3,17 +3,17 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
 import axios from 'axios';
 
-import BeardGuides from './BeardGuides';
+import BeardGuides from './guides/BeardGuides';
 import Cart from './Cart';
 import Customer from './checkout/Customer';
 import Shipping from './checkout/Shipping';
 import Payment from './checkout/Payment';
 import Footer from './layouts/Footer';
 import Header from './layouts/Header';
-import Guides from './Guides';
+import Guides from './guides/Guides';
 import History from './History';
 import Home from './Home';
-import MustacheGuides from './MustacheGuides';
+import MustacheGuides from './guides/MustacheGuides';
 import NotFound from './NotFound';
 import ProductsList from './ProductsList';
 import SearchBox from './SearchBox';
@@ -34,6 +34,7 @@ const App = React.createClass({
       signupEmail: '',
       signupPassword: '',
       cartItems: [],
+      cartItemQty: false,
       products: [],
       defaultProducts: [],
       searchArray: [],

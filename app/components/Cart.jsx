@@ -4,6 +4,7 @@ import CartItems from './CartItems';
 
 const Cart = React.createClass({
   render() {
+    console.log(this.props.cartItems.length);
     const cartItems = this.props.cartItems.map((item, index) => {
       return <CartItems
         cartItem={item}
@@ -18,8 +19,8 @@ const Cart = React.createClass({
       <section className="cart">
         <div id="products-header" className="row">
           <h1>CART</h1>
-          {/* <h5>You have <span>0</span> items in your cart</h5> */}
-          <h5>Items in your cart</h5>
+          {this.props.cartItems.length ? <h5>Items in your cart</h5> :
+            <h5>Your cart has no manly items</h5>}
         </div>
 
         <div id="cart-main" className="row">

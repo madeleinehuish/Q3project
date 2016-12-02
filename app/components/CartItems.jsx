@@ -11,7 +11,7 @@ const CartItems = React.createClass({
     const newQuantity = Number(event.target.value);
     const id = (this.props.cartItem.id);
 
-      this.props.handleClickAdd(id, newQuantity);
+    this.props.handleClickAdd(id, newQuantity);
   },
 
 
