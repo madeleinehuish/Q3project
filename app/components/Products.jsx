@@ -35,7 +35,6 @@ const Products = React.createClass({
                   <img id="modal-product-image" src={this.props.product.image} />
                 </div>
                 <div id="product-details" className="seven columns">
-                  {/* {<img src="images/rating.jpeg"/>.repeat(3)} */}
                   <div id="rating-row" className="row">
                     <p id="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></p>
                     <p id="number-of-reviews">117 reviews</p>

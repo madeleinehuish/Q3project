@@ -749,7 +749,7 @@ input#country:focus {
 
 /*-------------- CHECKOUT-CART -------------*/
 .checkout-cart {
-  height: 900px;
+  height: 850px;
   background-color: #f5f5f5;
   border-left: 1px solid #d6d6d6;
   padding: 55px;
@@ -876,7 +876,7 @@ div.two.columns.product-thumbnail {
 
 .four.columns.cost {
   display: -webkit-inline-box;
-  margin-left: 0;
+  margin-left: 10px;
 }
 
 p#total-currency {
@@ -915,7 +915,8 @@ p#total-cost {
 
 #customer-email > form > input:focus, #shipping-details > form > div > input:focus,
 #shipping-details > form > div > select:focus, .credit-card-number > input:focus,
-.credit-card-name > input:focus, .credit-card-date > input:focus, .credit-card-cvc > input:focus {
+.credit-card-name > input:focus, .credit-card-mth > input:focus, .credit-card-year > input:focus,
+.credit-card-cvc > input:focus {
   background: #f5f5f5;
   color: #000;
   border: 2px solid #000;
@@ -1040,7 +1041,8 @@ div.four.columns.return {
 }
 
 /*--------------- SHIPPING --------------*/
-#customer-email > h5, #shipping-details > h5, .shipping-method.row > h5 {
+#customer-email > h5, #shipping-details > h5, .shipping-method.row > h5,
+.shipping-method-pmt > h5 {
   padding-top: 10px;
   font-size: 18px;
   font-weight: lighter;
@@ -1061,17 +1063,17 @@ div.four.columns.return {
   color: #000;
 }
 
-.shipping-method.row {
+.shipping-method.row, .shipping-method-pmt {
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-.shipping-method.row > form {
+.shipping-method.row > form, .shipping-method-pmt > div {
   border: 2px solid #d6d6d6;
   border-radius: 4px;
 }
 
-.shipping-method.row > form > div.row {
+.shipping-method.row > form > div.row, .shipping-method-pmt > div > div.row {
   border-bottom: 1px solid #d6d6d6;
   padding: 20px 0 20px 20px;
 }
@@ -1149,8 +1151,7 @@ div#payment-method > p {
   border-top: 1px solid #d6d6d6;
 }
 
-.credit-card-number > input, .credit-card-name > input,
-.credit-card-date > input, .credit-card-cvc > input {
+.credit-card-number > input {
   width: 90%;
 }
 
@@ -1160,11 +1161,46 @@ div#payment-method > p {
 }
 
 .credit-card-name {
-  margin-left: 16px;
+  margin-left: 0;
+  width: 52%;
+  /*width*/
 }
 
-.credit-card-date, .credit-card-cvc {
-  margin-left: 4px;
+div.three.columns.credit-card-mth, div.three.columns.credit-card-year,
+div.three.columns.credit-card-cvc {
+  margin-left: -36px;
+  width: 23%;
+}
+
+input#cc-name {
+  width: 80%;
+}
+
+input#cc-exp-mth, input#cc-year, input#cc-cvc {
+  width: 60%;
+}
+
+#verification-btn {
+  text-align: center;
+  margin-top: 25px;
+  height: 40px;
+}
+
+#verification-btn > button {
+  width: 270px;
+  height: 40px;
+  border-radius: 0;
+  letter-spacing: 2px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 3px solid #a57967;
+  color: #a57967;
+  font-weight: bolder;
+}
+
+#verification-btn > button:hover {
+  background-color: #a57967;
+  color: #fff;
 }
 
 .choose-address.row {
@@ -1187,6 +1223,15 @@ div#payment-method > p {
 
 #email-confirmation {
   font-weight: bolder;
+}
+
+p#confirmation {
+  margin-bottom: 5px;
+}
+
+#ripped-off {
+  font-size: 8px;
+  font-style: italic;
 }
 
 #beard {
