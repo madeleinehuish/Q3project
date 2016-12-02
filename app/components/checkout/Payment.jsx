@@ -98,7 +98,7 @@ const Payment = React.createClass({
                   <p><Link to='./shipping'>Return to Shipping</Link></p>
                 </div>
                 <form className="six columns">
-                  <Link to='/success'><button onClick={this.handleClick}>Complete Order</button></Link>
+                  <Link to='/success'><button id="complete-order-btn" onClick={this.handleClick}>Complete Order</button></Link>
                 </form>
               </div>
 
