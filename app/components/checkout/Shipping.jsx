@@ -11,7 +11,6 @@ const Shipping = React.createClass({
   addShipping(event) {
     const shipping = event.target.value;
     this.props.selectShipping(shipping)
-    console.log(event.target.value);
   },
 
   render() {
