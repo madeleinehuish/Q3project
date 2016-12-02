@@ -742,6 +742,10 @@ input#country:focus {
   background-color: #fff;
 }
 
+#cart-items.cart > div.three.columns > input:focus {
+  outline: 0;
+}
+
 /*-------------- CHECKOUT-CART -------------*/
 .checkout-cart {
   height: 900px;
