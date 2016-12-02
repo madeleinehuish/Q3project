@@ -86,7 +86,7 @@ const Shipping = React.createClass({
 
               <div id="customer-navigation" className="row">
                 <div className="one columns return">
-                  <img src="images/return.png" />
+                  <Link to='/customer-checkout'><img src="images/return.png" /></Link>
                 </div>
                 <div className="four columns return">
                   <p><Link to='/customer-checkout'>Return to Customer Information</Link></p>

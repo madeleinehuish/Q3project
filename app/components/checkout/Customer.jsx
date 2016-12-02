@@ -164,7 +164,7 @@ const Customer = React.createClass({
 
               <div id="customer-navigation" className="row">
                 <div className="one columns return">
-                  <img src="images/return.png" />
+                  <Link to='./cart'><img src="images/return.png" /></Link>
                 </div>
                 <div className="four columns return">
                   <p><Link to='./cart'>Return to Cart</Link></p>

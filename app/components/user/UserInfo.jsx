@@ -8,17 +8,17 @@ const UserInfo = React.createClass({
 
         return (
     			<section id="user-information">
-                  <div id="user-info" className="five columns">
-                    <h5>Your Information</h5>
-        				<div>
-                                  <Information
-                                    address1={this.props.address1}
-                                    city={this.props.city}
-                                    state={this.props.state}
-                                    zip={this.props.zip}
-                                  />
-        				</div>
-                  </div>
+            <div id="user-info" className="five columns">
+              <h5>Your Information</h5>
+    				<div>
+              <Information
+                address1={this.props.address1}
+                city={this.props.city}
+                state={this.props.state}
+                zip={this.props.zip}
+              />
+							</div>
+            </div>
     			</section>
     		)}
 });

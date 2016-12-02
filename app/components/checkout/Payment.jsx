@@ -92,15 +92,13 @@ const Payment = React.createClass({
 
               <div id="customer-navigation" className="row">
                 <div className="one columns return">
-                  <img src="images/return.png" />
+                  <Link to='./shipping'><img src="images/return.png" /></Link>
                 </div>
                 <div className="four columns return">
                   <p><Link to='./shipping'>Return to Shipping</Link></p>
                 </div>
                 <form className="six columns">
-
                   <Link to='/success'><button onClick={this.handleClick}>Complete Order</button></Link>
-
                 </form>
               </div>
 

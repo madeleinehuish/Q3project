@@ -520,25 +520,6 @@ ul#filter-sort > li > a {
   border: 1px solid #000;
 }
 
-/*#qty-counter > span.qty-text {
-  box-sizing: border-box;
-  font-size: 0.87836rem;
-  white-space: normal;
-}*/
-
-/*#qty-counter > span.up-arrow {
-  transition: 0.2s;
-  outline: none;
-  cursor: pointer !important;
-  display: block;
-  border-left: 1px solid #000;
-}*/
-
-/*#products-in-cart.row > div.three.columns > p {
-  width: 50%;
-  float: right;
-}*/
-
 #cart-subtotal.row {
   width: 80%;
   margin: auto;
@@ -582,6 +563,10 @@ p#subtotal > span {
   margin-bottom: 30px;
 }
 
+#proceed-to-checkout {
+  margin-left: 420px;
+}
+
 #complete-order-btn {
   width: 280px;
 }
@@ -593,7 +578,11 @@ p#subtotal > span {
 }
 
 #continue-shopping {
-  margin-right: 450px;
+  margin-right: 20px;
+}
+
+#no-btn {
+  width: 240px;
 }
 
 /*-------------- CHECKOUT -------------*/
@@ -735,6 +724,7 @@ div.two.columns.product-thumbnail {
   border-top: 1px solid #d6d6d6;
   border-bottom: 1px solid #d6d6d6;
   padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 #payment-headings.six.columns {
@@ -882,8 +872,9 @@ div.four.columns.return {
   margin-top: 10px;
 }
 
-.return > img {
+.return > a > img {
   margin-top: 15px;
+  width: 40%;
 }
 
 .return > p > a {
