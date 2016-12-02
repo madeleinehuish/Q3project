@@ -48,7 +48,7 @@ const Shipping = React.createClass({
                   {/* Need to add 3 radio buttons: standard shipping (free), premium ($9.99), FedEx 2 Day ($25.00).
                     After user selects the shipping cost will update in the aside, and so will the total.
                     This will need to update on this page and the payment page. */}
-                  <div className="row">
+                  <div id="shipping-shipping" className="row">
                     <div className="one columns">
                       <input onClick={this.addShipping} type="radio" name="shipping-option" value="standard" defaultChecked />
                     </div>
@@ -59,7 +59,7 @@ const Shipping = React.createClass({
                       <p>$4.99</p>
                     </div>
                   </div>
-                  <div className="row">
+                  <div id="shipping-shipping" className="row">
                     <div className="one columns">
                       <input onClick={this.addShipping} type="radio" name="shipping-option" value="premium" />
                     </div>
@@ -70,7 +70,7 @@ const Shipping = React.createClass({
                       <p>$9.99</p>
                     </div>
                   </div>
-                  <div className="row">
+                  <div id="shipping-shipping" className="row">
                     <div className="one columns">
                       <input onClick={this.addShipping} type="radio" name="shipping-option" value="fedex" />
                     </div>
