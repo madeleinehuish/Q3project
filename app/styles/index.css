@@ -563,7 +563,7 @@ p#subtotal > span {
   margin-bottom: 30px;
 }
 
-#proceed-to-checkout {
+button#proceed-to-checkout {
   margin-left: 420px;
 }
 
@@ -579,10 +579,6 @@ p#subtotal > span {
 
 #continue-shopping {
   margin-right: 20px;
-}
-
-#no-btn {
-  width: 240px;
 }
 
 /*-------------- CHECKOUT -------------*/
