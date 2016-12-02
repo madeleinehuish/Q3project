@@ -4,7 +4,6 @@ import CartItems from './CartItems';
 
 const Cart = React.createClass({
   render() {
-    console.log(this.props.cartItems.length);
     const cartItems = this.props.cartItems.map((item, index) => {
       return <CartItems
         cartItem={item}

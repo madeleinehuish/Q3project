@@ -7,7 +7,6 @@ const CartItems = React.createClass({
   },
 
   handleClickAddQuantity(event) {
-    console.log(event.target.value);
     const newQuantity = Number(event.target.value);
     const id = (this.props.cartItem.id);
 
