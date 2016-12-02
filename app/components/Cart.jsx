@@ -51,8 +51,8 @@ const Cart = React.createClass({
         </div>
 
         <div id="shop-checkout-btn">
-          <Link to='/productsList'><button id="continue-shopping">CONTINUE SHOPPING</button></Link>
-          {this.props.cartItems.length ? <Link to='/customer-checkout'><button id="proceed-to-checkout">CHECKOUT</button></Link> :
+          <Link to='/productsList'><button id="continue-shopping" >CONTINUE SHOPPING</button></Link>
+          {this.props.cartItems.length ? <Link to='/customer-checkout' ><button id="proceed-to-checkout">CHECKOUT</button></Link> :
             null}
         </div>
       </section>

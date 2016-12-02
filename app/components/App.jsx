@@ -21,6 +21,7 @@ import Success from './checkout/Success';
 import User from './user/User';
 
 const App = React.createClass({
+
   getInitialState(){
     return {
       value: '',
@@ -53,16 +54,32 @@ const App = React.createClass({
       zip: '',
       shipping: '',
       orderedAt: '',
-      items: []
+      items: [],
+      chargeTotal: '',
+      stripeToken: '',
+      card: {
+        number: '',
+        cvc: '',
+        exp_month: '',
+        exp_year: ''
+      }
 
     };
   },
+
+  handleChangeCard(event) {
+    let card = this.state.card;
+    card[event.target.name] = event.target.value
+    this.setState(card);
+  },
+
 
   clearCart() {
     this.setState({ cartItems: []});
   },
 
   componentDidMount() {
+    Stripe.setPublishableKey('pk_test_jXQn5jcYPOHMsujRjJiU85BA');
     axios.get('/api-products')
       .then(res => {
         this.setState({ products: res.data, defaultProducts: res.data, sortArray: res.data });
@@ -302,6 +319,14 @@ const App = React.createClass({
       });
   },
 
+  onSubmitToGetToken: function (event) {
+    event.preventDefault();
+    Stripe.createToken(this.state.card, (status, response) => {
+      console.log( status, response );
+      this.setState({ stripeToken: response.id});
+    });
+  },
+
   onSubmitOrder(event) {
     console.log('order submitted');
 
@@ -311,14 +336,50 @@ const App = React.createClass({
     const city = this.state.city;
     const state = this.state.state;
     const zip = this.state.zip;
+    const stripeToken = this.state.stripeToken;
 
-    axios.post('/api-orders', { cartItems, address1, address2, city, state, zip })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // const updatedTotal = {(this.state.cartItems.reduce((amount, curr, index) => {
+    //   return amount + ((curr.price * curr.quantity) * this.state.taxRate) + (curr.price * curr.quantity)
+    //   +this.state.shippingCost;
+    // }, 0)).toFixed(2)};
+
+    // this.setState({ chargeTotal: updatedTotal });
+    this.setState({ chargeTotal: 200 });
+
+
+    // const chargeTotal = JSON.stringify(this.state.chargeTotal);
+    const chargeTotal = 300;
+    console.log('chargeTotal is ' + chargeTotal);
+    // Stripe.createToken(this.state.card, function (status, response) {
+    //   console.log( status, response );
+    // });
+
+    // Stripe.createToken(this.state.card, (status, response) => {
+    //   console.log( status, response );
+    // });
+
+        axios.post('/api-orders', { cartItems, address1, address2, city, state, zip, chargeTotal, stripeToken })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+
+
+
+      // Stripe.createToken(this.state.card, function (status, response) {
+      //   console.log( status, response );
+      // });
+      //
+      // axios.post('/api-orders', { cartItems, address1, address2, city, state, zip, chargeTotal })
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
   },
 
 
@@ -438,6 +499,7 @@ const App = React.createClass({
               cartItemCount={this.cartItemCount}
               handleRemoveFromCart={this.handleRemoveFromCart}
               handleClickAdd={this.handleClickAdd}
+
             />
           }/>
           <Match pattern="/customer-checkout" exactly render={
@@ -469,8 +531,9 @@ const App = React.createClass({
             () => <Payment
               { ...this.state }
               onSubmitOrder={this.onSubmitOrder}
+              onSubmitToGetToken={this.onSubmitToGetToken}
               clearCart={this.clearCart}
-
+              handleChange={this.handleChangeCard}
             />
           }/>
 

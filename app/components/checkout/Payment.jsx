@@ -7,22 +7,6 @@ import CheckoutCart from './CheckoutCart';
 const Payment = React.createClass({
 
 
-
-  getInitialState: function () {
-    return {
-      card: {
-        number: '',
-        cvc: '',
-        exp_month: '',
-        exp_year: ''
-      }
-    }
-  },
-
-  componentDidMount(){
-    Stripe.setPublishableKey('pk_test_jXQn5jcYPOHMsujRjJiU85BA');
-  },
-
   setTaxRate(event) {
     this.props.setTaxRate(event.target.value);
   },
@@ -32,18 +16,6 @@ const Payment = React.createClass({
     this.props.clearCart();
   },
 
-  handleSubmit(event) {
-    event.preventDefault();
-    Stripe.createToken(this.state.card, function (status, response) {
-      console.log( status, response );
-    });
-  },
-
-  handleChange(event) {
-    let card = this.state.card;
-    card[event.target.name] = event.target.value
-    this.setState(card);
-  },
 
   render() {
     return (
@@ -78,34 +50,36 @@ const Payment = React.createClass({
                     {/* Need to create credit card form which will use Stripe API */}
                     <div className="credit-card-details">
                       <div className="credit-card-number">
-                        <input type="number" name="number" onChange={this.handleChange}   pattern="^\d{3}-\d{2}-\d{4}$" placeholder="Credit card number" autoComplete="cc-number" required/>
+                        <input type="number" name="number" onChange={this.props.handleChange}   pattern="^\d{3}-\d{2}-\d{4}$" placeholder="Credit card number" autoComplete="cc-number" required/>
                       </div>
 
                       <div className="six columns credit-card-name">
                         <input type="text" name="card-name" placeholder="Name on card" required/>
                       </div>
                       <div className="three columns credit-card-date">
-                        <input type="number" name="exp_month" onChange={this.handleChange} placeholder="MM" required/>
+                        <input type="number" name="exp_month" onChange={this.props.handleChange} placeholder="MM" required/>
                       </div>
                       <div className="three columns credit-card-date">
-                        <input type="number" name="exp_year" onChange={this.handleChange} placeholder="YY" required/>
+                        <input type="number" name="exp_year" onChange={this.props.handleChange} placeholder="YY" required/>
                       </div>
                       <div className="three columns credit-card-cvc">
-                        <input type="number" name="cvc" onChange={this.handleChange} placeholder="CVC" required/>
+                        <input type="number" name="cvc" onChange={this.props.handleChange} placeholder="CVC" required/>
                       </div>
                     </div>
-                    <button type="submit">submit</button>
+                    <button id="complete-order-btn" onClick={this.props.onSubmitToGetToken} type="submit">Complete Order</button>
+                    {/* <Link to='/success'></Link> */}
+                    {/* <button type="submit">submit</button> */}
                   </form>
                 </div>
 
 
-                <div className="row shipping-method">
+                {/* <div className="row shipping-method">
                   <h5>Shipping method</h5>
-                  <form>
+                  <form> */}
                     {/* Need to add 3 radio buttons: standard shipping (free), premium ($9.99), FedEx 2 Day ($25.00).
                       After user selects the shipping cost will update in the aside, and so will the total.
                       This will need to update on this page and the payment page. */}
-                    <div className="row choose-address">
+                    {/* <div className="row choose-address">
                       <div className="one columns">
                         <input type="radio" name="address" value="standard" defaultChecked />
                       </div>
@@ -123,7 +97,7 @@ const Payment = React.createClass({
                     </div>
 
                   </form>
-                </div>
+                </div> */}
 
 
               <div id="customer-navigation" className="row">

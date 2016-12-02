@@ -4,6 +4,7 @@ const express = require('express');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
+const stripe = require('stripe')('sk_test_j3BQvcEqnflAiAGckPRd11gN');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
 // eslint-disable-next-line new-cap
@@ -73,9 +74,28 @@ router.get('/api-orders/:id', authorize, (req, res, next) => {
 });
 
 router.post('/api-orders', authorize, (req, res, next) => {
-  const { cartItems, address1, address2, city, state, zip } = req.body;
+  const { cartItems, address1, address2, city, state, zip, chargeTotal, stripeToken } = req.body;
   const { userId } = req.token;
-  console.log( cartItems );
+  const tokenStripe = req.body.stripeToken;
+  console.log('token got through to server and is ' + tokenStripe);
+  console.log('chargeTotal is ' + chargeTotal);
+  const cTotal = chargeTotal*100;
+
+  const charge = stripe.charges.create({
+    amount: cTotal, // Amount in cents
+    currency: "usd",
+    source: tokenStripe,
+    description: "Example charge"
+  }, function(err, charge) {
+    console.log('charged ' + cTotal)
+    if (err && err.type === 'StripeCardError') {
+      console.log('card error something went wrong');
+      // The card has been declined
+    }
+  });
+
+
+
   if (!address1 || !address1.trim()) {
     return next(boom.create(400, 'Address must not be blank'));
   }
