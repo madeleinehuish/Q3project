@@ -205,12 +205,12 @@ exports.seed = function(knex) {
         on_sale: true
       }, {
         id: 23,
-        name: 'Abraham\'s Beard Oil, Fragrance Free',
-        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Abraham-s-Beard-Oil-Fragrance-Free-1oz/abrahams-beard-oil-fragrance-free-full-oz.jpg',
+        name: 'Kent Comb Combo',
+        image: 'https://cdn.shopify.com/s/files/1/0221/6898/products/kent-and-saw_fb131db3-831e-430b-80fb-ea029754d060_1024x1024.jpg',
         rating: 4,
-        price: 24.99,
-        description: 'Don\'t have a beard oil yet? Well, what are you waiting for? If you haven\'t heard about all the benefits for using this grooming essential, then let us enlighten you. Let Abraham\'s Beard Oil, Fragrance-free illuminate your path to beard health. You don\'t want to miss this part of your routine.',
-        keywords: 'beard, oil',
+        price: 25,
+        description: 'Each product is specifically suited to take care of a beard or moustache. The moustache comb has fine teeth and is very maneuverable to make styling a moustache a joy. The wide-toothed beard comb helps your work through any small tangles in your beard easily and without pain.',
+        keywords: 'mustache, comb',
         on_sale: false
       }, {
         id: 24,
