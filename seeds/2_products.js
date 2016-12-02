@@ -224,7 +224,7 @@ exports.seed = function(knex) {
       }, {
         id: 25,
         name: 'Antica Barbieria Colla Beard Dry Oil, Bitter Orange',
-        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Antica-Barbieria-Colla-Beard-Dry-Oil-Bitter-Orange-150ml/antica-barbieria-colla-beard-dry-oil-bitter-orange.jpg',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/penhaligons-sartorial-beard-oil.jpg',
         rating: 4,
         price: 79,
         description: 'Visiting a prestigious, high-class, European shaving house might not be on your "to do" list if you are a bearded gentleman. But it should be! Just because you embrace the full-growth movement shouldn\'t mean that you don\'t groom! And Antica Barbieria Colla experience is the stuff of legends. Opened by Dino Colla in 1904, this barbershop rose to prominence through its show business and international clientele. The values of attention to detail and customer care are still evident today in owner Franco Bompieri. The products they release are natural, proprietary, and luxurious, like this Antica Barbieria Colla Beard Dry Oil, Bitter Orange.',
@@ -232,12 +232,12 @@ exports.seed = function(knex) {
         on_sale: false
       }, {
         id: 26,
-        name: 'Antica Barbieria Colla Beard Shampoo, Darkwood',
-        image: 'http://www.westcoastshaving.com/resize/Shared/Images/Product/Antica-Barbieria-Colla-Beard-Shampoo-Darkwood-150ml/antica-barbieria-colla-beard-shampoo-darkwood.jpg',
+        name: 'Penhaligon\'s Sartorial Beard Oil',
+        image: 'http://www.westcoastshaving.com/resize/shared/images/penhaligons-sartorial-beard-oil.jpg',
         rating: 4.5,
-        price: 32,
-        description: 'If you\'ve ever dreamed of leaning back in a barber\'s chair for the ultimate in men\'s pampering - hot towel treatment, haircut, facial hair trim, then you need to discover Antica Barbieria Colla. This prestigious, luxurious men\'s shave house resides on Via Gerolamo Morone in Milan, Italy. Turn your shaving den into a retreat with Antica Barbieria Colla Beard Shampoo, Darkwood.',
-        keywords: 'beard, shampoo',
+        price: 70,
+        description: 'IA fast-absorbing oil for the modern gentleman. With a lovely mix of sunflower and grape seeds, along with wheat germ, this oil nourishes the skin while softening the beard. It is lightly scented with Penhaligon\'s signature sartorial scent, a rugged blend of outdoorsy woods and ferns that will make even the most modern man want to pick up his ax and get to work at the chopping block.',
+        keywords: 'beard, oil',
         on_sale: false
       }, {
         id: 27,

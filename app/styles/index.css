@@ -331,6 +331,7 @@ ul#filter-sort > li > a {
 #products-page.row {
   border-top: 1px solid #7a7a7a;
   width: 90%;
+  min-height: 200px;
   margin: auto;
   margin-top: 20px;
   padding-top: 45px;
@@ -1452,6 +1453,10 @@ input:-webkit-autofill {
   height: 510px;
 }
 
+a.close {
+  color: #000;
+}
+
 #login-title.twelve.columns, #login-account.twelve.columns,
 #login-account-btn.twelve.columns, #product-title.twelve.columns {
   text-align: center;
@@ -1628,16 +1633,53 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 
 /*--------------- NOT FOUND --------------*/
 #not-found {
-  background-color: #000;
+  /*background-color: #000;*/
+  letter-spacing: 2px;
 }
 
 #nf-header {
   text-align: center;
 }
 
-#nf-header > h3 {
-  padding-top: 80px;
+#nf-header > p {
   color: #a57967;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+#nf-header > h3 {
+  padding-top: 100px;
+  margin-bottom: 45px;
+  /*color: #a57967;*/
+  letter-spacing: 2px;
+}
+
+#nf-list > ul {
+  display: -webkit-inline-box;
+  margin-bottom: 70px;
+  text-transform: uppercase;
+}
+
+#nf-list > ul > li {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+#nf-list > ul > li > a, #nf-list > ul > li {
+  color: #a57967;
+}
+
+#nf-list > ul > li > a:hover {
+  color: #000;
+}
+
+#not-found > div {
+  text-align: center;
+}
+
+#beard-gifs {
+  margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 #not-found > div > img {
@@ -1645,6 +1687,16 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   border: 4px solid #a57967;
   border-radius: 2px;
 }
+
+#she-beard {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#beard-hang, #beard-food {
+  margin-bottom: 25px;
+}
+
 
 /*--------------- FOOTER --------------*/
 footer, .push {
