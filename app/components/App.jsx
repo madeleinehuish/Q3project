@@ -338,19 +338,18 @@ const App = React.createClass({
     const zip = this.state.zip;
     const stripeToken = this.state.stripeToken;
 
-    // const updatedTotal = {(this.state.cartItems.reduce((amount, curr, index) => {
-    //   return amount + ((curr.price * curr.quantity) * this.state.taxRate) + (curr.price * curr.quantity)
-    //   + this.state.shippingCost;
-    // }, 0)).toFixed(2)};
-    // console.log('updated total is ' + updatedTotal);
-
-    // this.setState({ chargeTotal: updatedTotal });
-    // this.setState({ chargeTotal: 300 });
+    const ci = this.state.cartItems;
+     let chargeTotal = (ci.reduce((amount, curr, index) => {
+       return amount + ((curr.price * curr.quantity) * this.state.taxRate) + (curr.price * curr.quantity)
+       + this.state.shippingCost;
+     }, 0));
+     chargeTotal = Math.round(chargeTotal * 100) / 100;
+     console.log('updated total is ' + chargeTotal);
 
 
     // const chargeTotal = JSON.stringify(this.state.chargeTotal);
-    const chargeTotal = 400;
-    console.log('chargeTotal is ' + chargeTotal);
+    // const chargeTotal = 400;
+    // console.log('chargeTotal is ' + chargeTotal);
     // Stripe.createToken(this.state.card, function (status, response) {
     //   console.log( status, response );
     // });

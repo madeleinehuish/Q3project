@@ -79,7 +79,7 @@ router.post('/api-orders', authorize, (req, res, next) => {
   const tokenStripe = req.body.stripeToken;
   console.log('token got through to server and is ' + tokenStripe);
   console.log('chargeTotal is ' + chargeTotal);
-  const cTotal = chargeTotal*100;
+  const cTotal = Math.round(chargeTotal * 100);
 
   const charge = stripe.charges.create({
     amount: cTotal, // Amount in cents

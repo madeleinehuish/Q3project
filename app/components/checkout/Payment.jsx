@@ -56,13 +56,13 @@ const Payment = React.createClass({
                         <input id="cc-name" type="text" name="card-name" placeholder="Name on card" required/>
                       </div>
                       <div className="three columns credit-card-mth">
-                        <input id="cc-exp-mth" type="number" name="exp_month" onChange={this.props.handleChange} placeholder="MM" required/>
+                        <input id="cc-exp-mth" type="number" name="exp_month" onChange={this.props.handleChange} placeholder="MM" min="0" required/>
                       </div>
                       <div className="three columns credit-card-year">
-                        <input id="cc-year" type="number" name="exp_year" onChange={this.props.handleChange} placeholder="YY" required/>
+                        <input id="cc-year" type="number" name="exp_year" onChange={this.props.handleChange} placeholder="YY" min="0" required/>
                       </div>
                       <div className="three columns credit-card-cvc">
-                        <input id="cc-cvc" type="number" name="cvc" onChange={this.props.handleChange} placeholder="CVC" required/>
+                        <input id="cc-cvc" type="number" name="cvc" onChange={this.props.handleChange} placeholder="CVC" min="0" required/>
                       </div>
                     </div>
 

@@ -9,7 +9,7 @@ const Success = React.createClass({
         <div className="row">
           <h5>THANK YOU FOR YOUR MANLY ORDER</h5>
           <p id="confirmation">You will receive an email shortly at <span id="email-confirmation">{this.props.email}</span></p>
-          <p id="ripped-off">* Your payment has just been re-routed to the Bahamas</p>
+          {/* <p id="ripped-off">* Your payment has just been re-routed to the Bahamas</p> */}
           <p id="sit-back">Now sit back, and let that beard grow</p>
           <div className="row">
             <img id="beard" src="images/beard.png" />
