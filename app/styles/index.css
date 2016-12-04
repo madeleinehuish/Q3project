@@ -1163,7 +1163,6 @@ div#payment-method > p {
 .credit-card-name {
   margin-left: 0;
   width: 52%;
-  /*width*/
 }
 
 div.three.columns.credit-card-mth, div.three.columns.credit-card-year,
@@ -1325,14 +1324,6 @@ iframe {
   letter-spacing: 2px;
   border: 2px solid #000;
 }
-/*input[type=text], input[type=password] {
-  width: 280px;
-  height: 50px;
-  border-radius: 0;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border: 2px solid #000;
-}*/
 
 input:focus {
   border: 3px solid #a57967;
@@ -1355,14 +1346,6 @@ input:-webkit-autofill {
   letter-spacing: 2px;
   border: 2px solid #000;
 }
-/*input[type=text], input[type=password] {
-  width: 280px;
-  height: 50px;
-  border-radius: 0;
-  font-size: 14px;
-  letter-spacing: 2px;
-  border: 2px solid #000;
-}*/
 
 input:focus {
   border: 3px solid #a57967;
@@ -1376,10 +1359,6 @@ input:-webkit-autofill {
 }
 
 /*---------- SIGNUP ---------*/
-/*#create-account {
-  margin-top: 90px;
-}*/
-
 #create-title.twelve.columns {
   height: 75px;
 }
@@ -1577,11 +1556,9 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 
 /*--------------- USER --------------*/
 #user-header.row {
-  /*background-color: #000;*/
   width: 80%;
   margin: auto;
   border-bottom: 1px solid #d6d6d6;
-  /*width: 100%;*/
   text-align: center;
   padding-bottom: 50px;
   padding-top: 50px;
@@ -1594,7 +1571,6 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   margin-bottom: 10px;
   text-transform: uppercase;
   margin-top: 30px;
-  /*color: #a57967;*/
 }
 
 #user-orders {
@@ -1615,7 +1591,6 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 }
 
 #user-header.row > h5 {
-  /*color: #a57967;*/
   font-size: 16px;
 }
 
@@ -1660,7 +1635,6 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 #user-orders > h5 {
   margin-bottom: 35px;
   padding-bottom: 20px;
-  /*border-bottom: 1px solid #d6d6d6;*/
 }
 
 #information {
@@ -1678,7 +1652,6 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 
 /*--------------- NOT FOUND --------------*/
 #not-found {
-  /*background-color: #000;*/
   letter-spacing: 2px;
 }
 
@@ -1692,11 +1665,11 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
   margin-bottom: 40px;
 }
 
-#nf-header > h3 {
-  padding-top: 100px;
-  margin-bottom: 45px;
-  /*color: #a57967;*/
+#nf-header > h3#four-o-four {
+  padding-top: 50px;
+  /*margin-bottom: 45px;*/
   letter-spacing: 2px;
+  color: #a57967;
 }
 
 #nf-list > ul {
@@ -1741,7 +1714,6 @@ img#__lpform_firstName_icon, img#__lpform_lastName_icon {
 #beard-hang, #beard-food {
   margin-bottom: 25px;
 }
-
 
 /*--------------- FOOTER --------------*/
 footer, .push {

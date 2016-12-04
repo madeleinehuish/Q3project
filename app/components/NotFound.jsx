@@ -6,14 +6,15 @@ const NotFound = React.createClass({
     return (
       <main id="not-found">
         <div id="nf-header">
+          <h3 id="four-o-four">404</h3>
           <h3>YOU WON'T FIND BEARD OR STACHE PRODUCTS HERE</h3>
         </div>
 
         <div id="nf-list">
           <ul>
             <li>Try these pages instead: </li>
-            <li><Link to='/login'>Login</Link></li>
-            <li><Link to='/products'>Products</Link></li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/productslist'>Products</Link></li>
             <li><Link to='/guides'>Guides</Link></li>
             <li><Link to='/cart'>Cart</Link></li>
             <li><Link to='/history'>History</Link></li>
