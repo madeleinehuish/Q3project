@@ -13,10 +13,10 @@ ul {
   list-style-type: none;
 }
 
-#product-list, .twelve.columns, section#home {
+/*#product-list, .twelve.columns, section#home {
   width: 1262px;
   margin: auto;
-}
+}*/
 
 /*-------------- NAVIGATION -------------*/
 header {
@@ -1732,4 +1732,128 @@ footer > div.twelve.columns {
   text-align: center;
   margin-top: 40px;
   font-size: 18px;
+}
+
+/*--------------- MEDIA QUERIES --------------*/
+@media (max-width: 1100px) {
+  #logo.six.columns > a > img {
+    width: 13%;
+    margin-top: 15px;
+  }
+
+  nav.six.columns > ul > li > a > img,
+  nav.six.columns > ul > li#login-icon > a > img {
+    width: 50%;
+  }
+
+  li#login-icon {
+    padding-left: 0;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  nav.six.columns > ul > li > a > img,
+  nav.six.columns > ul > li#login-icon > a > img {
+    width: 100%;
+  }
+
+  li#login-icon {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  #logo.six.columns > a > img {
+    width: 16%;
+    margin-top: 15px;
+  }
+
+  nav.six.columns {
+    margin-left: 0;
+  }
+
+  nav.six.columns > ul > li > a > img,
+  nav.six.columns > ul > li#login-icon > a > img {
+    width: 20px;
+  }
+
+  li#login-icon {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 892px) {
+  #logo.six.columns {
+    width: 16%;
+  }
+
+  #logo.six.columns > a > img {
+    width: 50%;
+    margin-top: 15px;
+  }
+
+  .six.columns > ul > li#login-icon {
+    padding-left: 110px;
+  }
+}
+
+@media (max-width: 792px) {
+  .six.columns > ul > li#login-icon {
+    padding-left: 80px;
+  }
+}
+
+@media (max-width: 692px) {
+  #logo.six.columns > a > img {
+    width: 60%;
+  }
+
+  .six.columns > ul > li#login-icon {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 592px) {
+  nav.six.columns {
+    width: 70%;
+  }
+
+  .six.columns > ul > li#login-icon {
+    padding-left: 0;
+  }
+
+  #hero > h1 {
+    font-size: 7em;
+  }
+}
+
+@media (max-width: 500px) {
+  nav.six.columns {
+    width: 70%;
+  }
+
+  nav.six.columns > ul > li > a > img, nav.six.columns > ul > li#login-icon > a > img {
+    width: 16px;
+  }
+
+  nav.six.columns > ul > li {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  nav.six.columns {
+    width: 60%;
+  }
+
+  #hero > h1 {
+    font-size: 6em;
+  }
+
+  .twelve.columns > button {
+    width: 160px;
+    height: 40px;
+    font-size: 18px;
+  }
 }
