@@ -1755,6 +1755,10 @@ footer > div.twelve.columns {
   #img-panel.row {
     width: 1225px;
   }
+
+  #map.twelve.columns > img {
+    height: 400px;
+  }
 }
 
 @media (max-width: 1220px) {
@@ -1801,6 +1805,10 @@ footer > div.twelve.columns {
 
   #guides-text.overlay, #prodcuts-text.overlay, #history-text.overlay {
     width: 383px;
+  }
+
+  #homepage-shipping.six.columns {
+    margin-right: 80px;
   }
 }
 
@@ -1853,6 +1861,10 @@ footer > div.twelve.columns {
   #prodcuts-text.overlay, #history-text.overlay {
     width: 363px;
   }
+
+  #homepage-shipping.six.columns {
+    margin-left: 230px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -1882,11 +1894,19 @@ footer > div.twelve.columns {
     font-size: 22px;
     margin-left: 120px;
   }
+
+  #homepage-shipping.six.columns {
+    margin-left: 190px;
+  }
 }
 
 @media (max-width: 892px) {
   #logo.six.columns {
     width: 16%;
+  }
+
+  nav.six.columns {
+    width: 80%;
   }
 
   #logo.six.columns > a > img {
@@ -1896,6 +1916,20 @@ footer > div.twelve.columns {
 
   .six.columns > ul > li#login-icon {
     padding-left: 110px;
+  }
+
+  #homepage-shipping.six.columns {
+    margin-left: 160px;
+    margin-right: 50px;
+    padding-top: 90px;
+  }
+
+  #find-us.six.columns {
+    padding-top: 90px;
+  }
+
+  #find-us.six.columns > h4.address {
+    font-size: 16px;
   }
 }
 
@@ -1910,7 +1944,32 @@ footer > div.twelve.columns {
 
   #blurb.row > div.six.columns > h3 {
     font-size: 20px;
-    margin-left: 100px;
+    margin-left: 80px;
+  }
+
+  #shipping-find-us.row {
+    height: 370px;
+  }
+
+  #homepage-shipping.six.columns {
+    margin-left: 140px;
+  }
+
+  #homepage-shipping.six.columns, #find-us.six.columns {
+    padding-top: 80px;
+  }
+
+  #location-map.row {
+    height: 0;
+  }
+
+  #map.twelve.columns > img {
+    display: none;
+  }
+
+  footer {
+    background-color: #fff;
+    color: #000;
   }
 }
 
@@ -1931,6 +1990,40 @@ footer > div.twelve.columns {
     font-size: 18px;
     margin-left: 80px;
     margin-top: 35px;
+  }
+
+  #shipping-find-us.row {
+    height: 320px;
+  }
+
+  #homepage-shipping.six.columns {
+    margin-left: 120px;
+  }
+
+  #homepage-shipping.six.columns > h4, #find-us.six.columns > h4.address {
+    font-size: 14px;
+  }
+
+  #homepage-shipping.six.columns > h4 {
+    line-height: 2.2;
+  }
+
+  #homepage-shipping.six.columns {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 650px) {
+  #homepage-shipping.six.columns {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 648px) {
+  #homepage-shipping.six.columns {
+    padding-top: 80px;
+    margin-left: 120px;
+    margin-right: 0;
   }
 }
 
@@ -1961,6 +2054,20 @@ footer > div.twelve.columns {
   }
 }
 
+@media (max-width: 565px) {
+  #homepage-shipping.six.columns {
+    margin-left: 105px;
+  }
+
+  #homepage-shipping.six.columns {
+    padding-top: 60px;
+  }
+
+  #find-us.six.columns {
+    padding-top: 70px;
+  }
+}
+
 @media (max-width: 550px) {
   #blurb.row > div.six.columns {
     width: 50%;
@@ -1968,6 +2075,24 @@ footer > div.twelve.columns {
 
   #blurb.row > div.six.columns > h3 {
     margin-left: 50px;
+  }
+}
+
+@media (max-width: 540px) {
+  #homepage-shipping.six.columns {
+    margin-left: 90px;
+  }
+}
+
+@media (max-width: 515px) {
+  #homepage-shipping.six.columns {
+    margin-left: 85px;
+  }
+}
+
+@media (max-width: 506px) {
+  #homepage-shipping.six.columns {
+    margin-left: 80px;
   }
 }
 
@@ -1993,6 +2118,32 @@ footer > div.twelve.columns {
   }
 }
 
+@media (max-width: 498px) {
+  #homepage-shipping.six.columns {
+    margin-left: 75px;
+  }
+}
+
+@media (max-width: 498px) {
+  #homepage-shipping.six.columns, #find-us.six.columns {
+    width: 50%;
+    margin-left: 115px;
+    padding-top: 35px;
+  }
+
+  #homepage-shipping.six.columns > h4 {
+    margin-bottom: 0;
+  }
+
+  #homepage-shipping.six.columns > img {
+    width: 15%;
+  }
+
+  #find-us.six.columns > img {
+    margin-bottom: 0;
+  }
+}
+
 @media (max-width: 450px) {
   nav.six.columns {
     width: 60%;
@@ -2006,6 +2157,21 @@ footer > div.twelve.columns {
     width: 160px;
     height: 40px;
     font-size: 18px;
+  }
+
+  #homepage-shipping.six.columns, #find-us.six.columns {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 428px) {
+  #homepage-shipping.six.columns, #find-us.six.columns {
+    margin-left: 94px;
+    padding-top: 25px;
+  }
+
+  #homepage-shipping.six.columns > img {
+    width: 12%;
   }
 }
 
