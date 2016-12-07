@@ -7,21 +7,7 @@ const MustacheGuides = React.createClass({
         <div id="stache-options">
           <div id="stache-header" className="row">
             <h1>STACHE GUIDES</h1>
-          </div>
-
-          <div className="row">
-            <div id="beard-guides" className="three columns">
-
-            </div>
-            <div id="stache-guides" className="three columns">
-
-            </div>
-            <div id="beard-guides" className="three columns">
-
-            </div>
-            <div id="stache-guides" className="three columns">
-
-            </div>
+            <h1>Coming Soon</h1>
           </div>
         </div>
       </section>
