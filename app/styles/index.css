@@ -2077,7 +2077,7 @@ footer > div.twelve.columns {
   }
 
   #products-to-buy.four.columns {
-    margin-left: 4%;
+    margin-left: 8%;
   }
 
   .eight.columns > ul#filter-sort {
@@ -2090,6 +2090,15 @@ footer > div.twelve.columns {
 
   #customer-navigation > div.one.columns.return {
     margin-left: 4%;
+  }
+
+  .name-price {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #products-to-buy.four.columns > a > button {
+    width: 100%;
   }
 
   .customer-flow > p {
