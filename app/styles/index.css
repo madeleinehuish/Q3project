@@ -2912,6 +2912,15 @@ footer > div.twelve.columns {
   #cart-header.row > div.three.columns > h5 {
     margin-top: 6%;
   }
+
+  #cart-items.cart > div.six.columns > p {
+    font-size: 10px;
+  }
+
+  #continue-shopping {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 450px) {
