@@ -2042,6 +2042,10 @@ footer > div.twelve.columns {
   div.four.columns.return {
     width: 35%;
   }
+
+  #beard-guides > a > img, #stache-guides > a > img {
+    width: 30%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -2527,8 +2531,12 @@ footer > div.twelve.columns {
     font-size: 13px;
   }
 
+  #beard-guides.six.columns, #stache-guides.six.columns {
+    margin-left: 25%;
+  }
+
   #stache-guides.six.columns {
-    margin-top: 40%;
+    margin-top: 20%;
   }
 
   #beard-guides.six.columns > a > img, #stache-guides > a > img {
@@ -2793,6 +2801,14 @@ footer > div.twelve.columns {
 
   p#total-currency {
     margin-left: 50%;
+  }
+
+  #beard-guides.six.columns {
+    margin-left: 0;
+  }
+
+  #beard-guides.six.columns > a > img, #stache-guides > a > img {
+    width: 40%;
   }
 }
 
