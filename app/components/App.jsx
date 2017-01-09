@@ -33,7 +33,7 @@ const App = React.createClass({
       shippingCost: 4.99,
       taxRate: 0,
       signupEmail: '',
-      signupPassword: '',
+      signupPassword: '', 
       cartItems: [],
       cartItemQty: false,
       products: [],

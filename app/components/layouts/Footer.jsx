@@ -5,7 +5,7 @@ const Footer = React.createClass({
     return (
       <footer>
         <div className="twelve columns">
-          <p>Refined &copy; 2016 All Rights Rerved </p>
+          <p>Refined &copy; 2016 All Rights Reserved </p>
         </div>
       </footer>
     )

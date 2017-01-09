@@ -7,6 +7,7 @@ const ProductsLists = React.createClass({
   handleClick () {
     this.props.displaySearch()
   },
+
   handleSortType(event) {
     console.log(event.target.name);
     const sortValue = event.target.name;
