@@ -6,6 +6,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys } = require('humps');
+
 // const postmark = require('postmark');
 
 // eslint-disable-next-line new-cap
@@ -14,6 +15,7 @@ const router = express.Router();
 router.get('/api-token', (req, res) => {
   const token = req.cookies.token;
 
+// eslint-disable-next-line no-unused-vars
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       return res.send(false);
@@ -35,6 +37,7 @@ router.post('/api-token', (req, res, next) => {
   }
 
   let user;
+
   // const client = new postmark.Client('b2a5c213-b95c-417f-bf81-11e9525f603f');
 
   // eslint-disable-next-line max-len

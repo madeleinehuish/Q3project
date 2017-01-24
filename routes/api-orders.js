@@ -29,6 +29,7 @@ router.get('/api-orders', authorize, (_req, res, next) => {
     .orderBy('id')
     .then((rows) => {
       const orders = camelizeKeys(rows);
+
       res.send(orders);
     })
     .catch((err) => {
@@ -61,40 +62,41 @@ router.get('/api-orders/:id', authorize, (req, res, next) => {
     })
     .then((rows) => {
       const orderItemsData = camelizeKeys(rows);
-      const sortedOrderItemsprep =_.groupBy(orderItemsData, 'orderId');
+      const sortedOrderItemsprep = _.groupBy(orderItemsData, 'orderId');
       const sortedOrderItems = _.map(sortedOrderItemsprep, (value, key) => {
         return [key, value];
       });
+
       res.send({ orders, sortedOrderItems });
     })
     .catch((err) => {
       next(err);
     });
-
 });
 
+/* eslint-disable */
 router.post('/api-orders', authorize, (req, res, next) => {
+
   const { cartItems, address1, address2, city, state, zip, chargeTotal, stripeToken } = req.body;
   const { userId } = req.token;
   const tokenStripe = req.body.stripeToken;
-  console.log('token got through to server and is ' + tokenStripe);
-  console.log('chargeTotal is ' + chargeTotal);
   const cTotal = Math.round(chargeTotal * 100);
+
 
   const charge = stripe.charges.create({
     amount: cTotal, // Amount in cents
-    currency: "usd",
+    currency: 'usd',
     source: tokenStripe,
-    description: "Example charge"
-  }, function(err, charge) {
-    console.log('charged ' + cTotal)
+    description: 'Example charge'
+  }, (err, charge) => {
     if (err && err.type === 'StripeCardError') {
+
       console.log('card error something went wrong');
+
       // The card has been declined
     }
   });
-
-
+/* eslint-disable */
 
   if (!address1 || !address1.trim()) {
     return next(boom.create(400, 'Address must not be blank'));
@@ -136,6 +138,5 @@ router.post('/api-orders', authorize, (req, res, next) => {
       next(err);
     });
 });
-
 
 module.exports = router;

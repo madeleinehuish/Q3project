@@ -53,8 +53,9 @@
     "uglify-js-brunch": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^3.4.0",
+    "eslint": "^3.11.1",
     "eslint-config-ryansobol": "^9.1.1",
+    "eslint-plugin-react": "^6.8.0",
     "foreman": "^2.0.0",
     "surge": "^0.18.0"
   },

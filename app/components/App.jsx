@@ -1,22 +1,23 @@
+import axios from 'axios';
 import React from 'react';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
-import axios from 'axios';
+
 
 import BeardGuides from './guides/BeardGuides';
 import Cart from './Cart';
 import Customer from './checkout/Customer';
-import Shipping from './checkout/Shipping';
-import Payment from './checkout/Payment';
 import Footer from './layouts/Footer';
-import Header from './layouts/Header';
 import Guides from './guides/Guides';
+import Header from './layouts/Header';
 import History from './History';
 import Home from './Home';
 import MustacheGuides from './guides/MustacheGuides';
 import NotFound from './NotFound';
+import Payment from './checkout/Payment';
 import ProductsList from './ProductsList';
 import SearchBox from './SearchBox';
+import Shipping from './checkout/Shipping';
 import Success from './checkout/Success';
 import User from './user/User';
 
@@ -63,7 +64,6 @@ const App = React.createClass({
         exp_month: '',
         exp_year: ''
       }
-
     };
   },
 
@@ -72,7 +72,6 @@ const App = React.createClass({
     card[event.target.name] = event.target.value
     this.setState(card);
   },
-
 
   clearCart() {
     this.setState({ cartItems: []});
@@ -91,21 +90,10 @@ const App = React.createClass({
 
   displaySearch() {
     this.setState({ searchVisible: !this.state.searchVisible });
-  //   render() {
-  //     return (
-  //       <SearchBox
-  //         { ...this.state }
-  //         handleSearch={this.handleSearch}
-  //         value={this.state.value}
-  //         // value={this.state.value}
-  //     />
-  //   )
-  // }
   },
 
   handleAddToCart(product) {
     let productNotInCart = true;
-
     const updatedCart = this.state.cartItems.map((productInCart) => {
       if (product.id !== productInCart.id) {
         return productInCart;
@@ -119,12 +107,10 @@ const App = React.createClass({
 
       return newProduct;
     });
-
     if (productNotInCart) {
       const newProduct = Object.assign({}, product, { quantity: 1 });
       updatedCart.push(newProduct);
     }
-
     this.setState({ cartItems: updatedCart });
   },
 
@@ -133,8 +119,6 @@ const App = React.createClass({
       if (id !== productInCart.id) {
         return productInCart;
       }
-
-
 
     const newProduct = Object.assign({}, productInCart, { quantity: newQuantity });
 
@@ -148,14 +132,11 @@ const App = React.createClass({
       return element.id !== product.id;
     });
 
-
     this.setState({ cartItems: removeFromCart });
   },
 
   handleSearch(event) {
     this.setState({ value: event.target.value });
-    console.log("this state value " + this.state.value);
-    console.log("etv " + event.target.value);
 
       let searchRender = this.state.products.filter((element) => {
 
@@ -167,14 +148,12 @@ const App = React.createClass({
 
       if (!event.target.value) {
         this.setState({ products: this.state.defaultProducts })
-        console.log('etv === ');
       } else {
           this.setState({ products : searchRender });
         }
   },
 
   handleSort(sortValue) {
-    console.log(sortValue);
     let filteredProducts;
     let sortThis = this.state.defaultProducts;
     if (sortValue !== "all") {
@@ -186,7 +165,6 @@ const App = React.createClass({
     } else {
       this.setState({ products: this.state.defaultProducts });
     }
-
   },
 
   logIn(user) {
@@ -204,14 +182,11 @@ const App = React.createClass({
       .then((res) => {
         sessionStorage.setItem('userId', res.data.id);
         this.setState({ loggedIn : true, currentUser: res.data });
-        console.log('logged in = ' + this.state.loggedIn)
       })
       .then(() => {
         axios.get(`/api-orders/${this.state.currentUser.id}`)
           .then((res) => {
-
             const sortedOrders = res.data.sortedOrderItems;
-
 
             this.setState({ previousOrders: sortedOrders });
           })
@@ -222,27 +197,6 @@ const App = React.createClass({
       .then(() => {
         axios.get('api-orders/')
           .then(res => {
-            console.log(res.data);
-
-            // const allUsersData = res.data;
-            // const userInfoUnique = allUsersData.filter((element) => {
-            //
-            //   return element.userId === this.state.currentUser.id;
-            // });
-            // // console.log(userInfoUnique);
-            // this.setState({ userInformation: userInfoUnique});
-            //
-            // this.setState({
-            //   firstName: this.state.currentUser.firstName,
-            //   lastName: this.state.currentUser.lastName,
-            //   email: this.state.currentUser.email,
-            //   address1: this.state.userInformation[0].address1,
-            //   city: this.state.userInformation[0].city,
-            //   state: this.state.userInformation[0].state,
-            //   zip: this.state.userInformation[0].zip
-            // });
-
-
           })
           .catch((error) => {
             console.log(error);
@@ -262,21 +216,17 @@ const App = React.createClass({
     });
   },
 
-  // onFormChange(event) {
-  //   this.setState({ [event.target.name] : event.target.value })
-  // },
-
   onFormChange(event) {
     this.setState({ [event.target.name] : event.target.value })
     if (this.state.loggedIn) {
       this.setState( { email: this.state.currentUser.email })
-      console.log( this.state.email );
+
     };
 
     const incompleteForm = (this.state.firstName === '' || this.state.lastName === '' ||
       this.state.address1 === '' || this.state.city === '' || this.state.zip === '' || this.state.email === '')
         ;
-    // if (loggedIn) { Object.assign({}, currentUser, { email: newQuantity });}
+
     this.setState({ formComplete: !incompleteForm });
 
   },
@@ -328,8 +278,6 @@ const App = React.createClass({
   },
 
   onSubmitOrder(event) {
-    console.log('order submitted');
-
     const cartItems = this.state.cartItems;
     const address1 = this.state.address1;
     const address2 = this.state.address2;
@@ -344,19 +292,6 @@ const App = React.createClass({
        + this.state.shippingCost;
      }, 0));
      chargeTotal = Math.round(chargeTotal * 100) / 100;
-     console.log('updated total is ' + chargeTotal);
-
-
-    // const chargeTotal = JSON.stringify(this.state.chargeTotal);
-    // const chargeTotal = 400;
-    // console.log('chargeTotal is ' + chargeTotal);
-    // Stripe.createToken(this.state.card, function (status, response) {
-    //   console.log( status, response );
-    // });
-
-    // Stripe.createToken(this.state.card, (status, response) => {
-    //   console.log( status, response );
-    // });
 
         axios.post('/api-orders', { cartItems, address1, address2, city, state, zip, chargeTotal, stripeToken })
           .then((response) => {
@@ -365,36 +300,7 @@ const App = React.createClass({
           .catch(function (error) {
             console.log(error);
           });
-
-
-
-
-      // Stripe.createToken(this.state.card, function (status, response) {
-      //   console.log( status, response );
-      // });
-      //
-      // axios.post('/api-orders', { cartItems, address1, address2, city, state, zip, chargeTotal })
-      //   .then((response) => {
-      //     console.log(response);
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
   },
-
-
-
-
-
-  // cartItemCount() {
-  //   let itemQuantity = 0;
-  //
-  //   for (let i = 0; i < this.items.length; i++) {
-  //     itemQuantity += parseInt(this.items[i].quantity);
-  //   }
-  //
-  //   return itemQuantity;
-  // },
 
   selectShipping(shipping) {
     let shippingCost;
@@ -408,23 +314,8 @@ const App = React.createClass({
     if (shipping === 'fedex') {
       shippingCost = 24.99;
     }
-
     this.setState({ shippingCost })
   },
-
-
-  //
-  // searchFilter() {
-  //   const inputValue = this.state.inputValue;
-  //   const products = this.state.products;
-  //   const filteredProducts = this.state.products.filter((element) => {
-  //     return element.name.toLowerCase().includes(inputValue);
-  //   });
-  //
-  //   return filteredProducts;
-  // },
-
-
 
   setTaxRate(event) {
     const zipcode = event.target.value;
@@ -453,46 +344,18 @@ const App = React.createClass({
               { ...this.state }
               logIn={this.logIn}
               logOut={this.logOut}
-              // onSubmitLogin={this.onSubmitLogin}
               onSubmit={this.onSubmit}
-              // inputValue={this.state.value}
-              // handleChange={this.handleChange}
               onFormChange={this.onFormChange}
-              // onFormChangeFirstName={this.onFormChangeFirstName}
-              // onFormChangeLastName={this.onFormChangeLastName}
-              // onFormChangeEmail={this.onFormChangeEmail}
-              // onFormChangePassword={this.onFormChangePassword}
               signUpFirstName={this.state.signUpFirstName}
               signUpLastName={this.state.signUpLastName}
               signUpEmail={this.state.signUpEmail}
               signUpPassword={this.state.signUpPassword}
             />
-          {/* <Miss pattern="/SearchBox" render={
-            () =>  */}
-            {/* <SearchBox
-              { ...this.state }
-              handleSearch={this.handleSearch}
-              value={this.state.value}
-              // value={this.state.value}
-          /> */}
-          {/* }/> */}
-          <Match pattern="/" exactly render={
-          () => <Home
-              { ...this.state }
-          />
-          }/>
-          <Match pattern="/productslist" exactly render={
-            () => <ProductsList
-              { ...this.state }
-              handleAddToCart={this.handleAddToCart}
-              displaySearch={this.displaySearch}
-              handleSearch={this.handleSearch}
-              handleSort={this.handleSort}
-              searchFilter={this.searchFilter}
-              value={this.state.value}
-              inputValue={this.state.inputValue}
+          <Match pattern="/beard-guides" exactly render={
+            () => <BeardGuides
+            { ...this.state }
             />
-            }/>
+          }/>
           <Match pattern="/cart" exactly render={
             () => <Cart
               { ...this.state }
@@ -507,24 +370,31 @@ const App = React.createClass({
               { ...this.state }
               handleAddToCart={this.handleAddToCart}
               logOut={this.logOut}
-              // firstName={ this.firstName }
-              // email={ this.email }
-              // lastName={ this.lastName }
-              // address1={ this.address1 }
-              // city={ this.city }
-              // state={ this.state }
-              // zip={ this.zip }
               onFormChange={ this.onFormChange }
               setTaxRate={this.setTaxRate}
               infoFormSubmission={this.infoFormSubmission}
               currentUser={this.state.currentUser}
             />
           }/>
-          <Match pattern="/shipping" exactly render={
-            () => <Shipping
+          <Match pattern="/guides" exactly render={
+            () => <Guides
               { ...this.state }
-              currentUser={this.state.currentUser}
-              selectShipping={this.selectShipping}
+
+            />
+          }/>
+          <Match pattern="/history" exactly render={
+            () => <History
+              { ...this.state }
+            />
+          }/>
+          <Match pattern="/" exactly render={
+            () => <Home
+                { ...this.state }
+            />
+          }/>
+          <Match pattern="/stache-guides" exactly render={
+            () => <MustacheGuides
+            { ...this.state }
             />
           }/>
           <Match pattern="/payment" exactly render={
@@ -536,17 +406,28 @@ const App = React.createClass({
               handleChange={this.handleChangeCard}
             />
           }/>
-
+          <Match pattern="/productslist" exactly render={
+            () => <ProductsList
+              { ...this.state }
+              handleAddToCart={this.handleAddToCart}
+              displaySearch={this.displaySearch}
+              handleSearch={this.handleSearch}
+              handleSort={this.handleSort}
+              searchFilter={this.searchFilter}
+              value={this.state.value}
+              inputValue={this.state.inputValue}
+            />
+          }/>
+          <Match pattern="/shipping" exactly render={
+            () => <Shipping
+              { ...this.state }
+              currentUser={this.state.currentUser}
+              selectShipping={this.selectShipping}
+            />
+          }/>
           <Match pattern="/success" exactly render={
             () => <Success
               { ...this.state }
-
-            />
-          }/>
-          <Match pattern="/history" exactly render={
-            () => <History
-              { ...this.state }
-
             />
           }/>
           <Match pattern="/user" exactly render={
@@ -557,22 +438,6 @@ const App = React.createClass({
               userOrders={this.userOrders}
               previousOrders={this.state.previousOrders}
               userInformation={this.state.userInformation}
-            />
-          }/>
-          <Match pattern="/guides" exactly render={
-            () => <Guides
-              { ...this.state }
-
-            />
-          }/>
-          <Match pattern="/beard-guides" exactly render={
-            () => <BeardGuides
-            { ...this.state }
-            />
-          }/>
-          <Match pattern="/stache-guides" exactly render={
-            () => <MustacheGuides
-            { ...this.state }
             />
           }/>
           <Miss component={ NotFound } />

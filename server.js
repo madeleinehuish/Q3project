@@ -16,7 +16,8 @@ app.disable('x-powered-by');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-const _ = require('lodash');
+
+// const _ = require('lodash');
 
 switch (app.get('env')) {
   case 'development':
@@ -88,7 +89,7 @@ app.use((err, _req, res, _next) => {
   res.sendStatus(500);
 });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 7000;
 
 app.listen(port, () => {
   if (app.get('env') !== 'test') {

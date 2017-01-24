@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = React.createClass({
   render() {
@@ -8,7 +8,7 @@ const Footer = React.createClass({
           <p>Refined &copy; 2016 All Rights Reserved </p>
         </div>
       </footer>
-    )
+    );
   }
 });
 

@@ -15,7 +15,7 @@ const Success = React.createClass({
           </div>
         </div>
       </section>
-    )
+    );
   }
 });
 

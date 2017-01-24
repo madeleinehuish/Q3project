@@ -35,8 +35,8 @@ router.get('/api-users', authorize, (req, res, next) => {
       next(err);
     });
 });
-router.post('/api-users', (req, res, next) => {
 
+router.post('/api-users', (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !email.trim()) {
@@ -54,7 +54,6 @@ router.post('/api-users', (req, res, next) => {
     .where('email', email)
     .first()
     .then((exists) => {
-
       if (exists) {
         throw boom.create(400, 'Email already exists');
       }
@@ -62,7 +61,6 @@ router.post('/api-users', (req, res, next) => {
       return bcrypt.hash(password, 12);
     })
     .then((hashedPassword) => {
-
       const { firstName, lastName } = req.body;
       const insertUser = { firstName, lastName, email, hashedPassword };
 
@@ -70,7 +68,6 @@ router.post('/api-users', (req, res, next) => {
         .insert(decamelizeKeys(insertUser), '*');
     })
     .then((rows) => {
-
       const user = camelizeKeys(rows[0]);
 
       delete user.hashedPassword;

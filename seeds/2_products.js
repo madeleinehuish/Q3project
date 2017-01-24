@@ -161,7 +161,7 @@ exports.seed = function(knex) {
       }, {
         id: 18,
         name: 'The MoGuard- Mustache Guard',
-        image:'https://images-na.ssl-images-amazon.com/images/I/51EH1uNBdRL._SX522_.jpg',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/51EH1uNBdRL._SX522_.jpg',
         rating: 5,
         price: 13.60,
         description: 'Do you enjoy beer, but you end up wearing most of it on your mustache and beard? Don\'t ruin your mustache wax, reach for a MoGuard. Attaches to all sized drinking glasses. The MoGuard\'s design and the fact that it is made of a very flexible silicone material enables it to fit onto all drinking cups.',

@@ -1,7 +1,5 @@
 import { Link } from 'react-router';
 import React from 'react';
-// import BeardGuides from './BeardGuides';
-// import MustacheGuides from './MustacheGuides';
 
 const Guides = React.createClass({
   render() {
@@ -11,7 +9,6 @@ const Guides = React.createClass({
           <div id="guides-header" className="row">
             <h1>STYLE GUIDES</h1>
           </div>
-
           <div className="row">
             <div id="beard-guides" className="six columns">
               <Link to="/beard-guides"><h5>BEARDS</h5></Link>
@@ -24,7 +21,7 @@ const Guides = React.createClass({
           </div>
         </div>
       </section>
-    )
+    );
   }
 });
 

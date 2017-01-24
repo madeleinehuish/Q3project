@@ -7,106 +7,85 @@ const Header = React.createClass({
   },
 
   onClickSubmit(event) {
-    this.props.onSubmit()
+    this.props.onSubmit();
   },
 
   render() {
     return (
     <header>
       <div className="twelve columns">
-        <div id="logo" className="six columns">
-          <Link to='/'><img src="images/logo_white.png"/></Link>
+        <div className="six columns" id="logo">
+          <Link to="/"><img src="images/logo_white.png" /></Link>
         </div>
         <nav className="six columns">
           <ul>
              {this.props.loggedIn ? <li key={this.props.currentUser.id}><Link to={'/user'}>{this.props.currentUser.firstName}</Link></li>
-              : <li id="login-icon"><a href='#openModal'><img src="images/login.png"/></a></li>}
-            <li id="products"><Link to='/productslist'>Products</Link></li>
-            <li><Link to='/guides'>Guides</Link></li>
-            <li><Link to='/cart'><img src="images/cart.png"/></Link></li>
+              : <li id="login-icon"><a href="#openModal"><img src="images/login.png" /></a></li>}
+            <li id="products"><Link to="/productslist">Products</Link></li>
+            <li><Link to="/guides">Guides</Link></li>
+            <li><Link to="/cart"><img src="images/cart.png" /></Link></li>
           </ul>
         </nav>
       </div>
-
       <div id="openModal" className="modalDialog">
         <div>
-
           <a href="#close" title="Close" className="close">X</a>
           <div id="login-account">
             <div id="login-title" className="twelve columns">
               <h1>RETURNING CUSTOMERS</h1>
             </div>
-
             <form id="login-form">
               <div id="email-password" className="row">
                 <div id="email" className="six columns">
-                  <input placeholder="Email" id="email" name="signupEmail" type="text" onChange={this.props.onFormChange} value={this.props.signupEmail} className="validate"/>
+                  <input className="validate" id="email" name="signupEmail" onChange={this.props.onFormChange} placeholder="Email" type="text" value={this.props.signupEmail} />
                 </div>
                 <div id="password" className="six columns">
-                  <input placeholder="Password" id="password" name="signupPassword" type="password" onChange={this.props.onFormChange} value={this.props.signupPassword} className="validate"/>
+                  <input className="validate" id="password" name="signupPassword" onChange={this.props.onFormChange} placeholder="Password" type="password" value={this.props.signupPassword} />
                 </div>
               </div>
             </form>
-
-            <div id="login-account-btn" className="twelve columns">
-              {/* <a href="#close" title="Close" className="close"><button id="login-btn" type="submit" name="action" onClick={this.onClickSubmitLogin}> */}
-              {/* Need to set this up so user is redirected to page they came form */}
-              {/* LOGIN</button></a> */}
-              <a href='#close' title="Close" className="close"><button id="login-btn" type="submit" name="action" onClick={() => this.props.logIn(this.props.currentUser)}>
-              {/* Need to set this up so user is redirected to page they came form */}
+            <div className="twelve columns" id="login-account-btn">
+              <a className="close" href="#close" title="Close"><button id="login-btn" name="action" onClick={() => this.props.logIn(this.props.currentUser)} type="submit">
               LOGIN</button></a>
             </div>
-              {/* Do you want to user to be directed to the homepage or products page? */}
-              {/* Forgot your password won't do anything unless we magically get all this other
-              craziness done and something work out how that process works. */}
               <p>Forgot your password?</p>
             </div>
-
             <div id="return-to-signup">
               <p>NEW CUSTOMER?</p>
               <a href="#openModal-signup"><button>CREATE AN ACCOUNT</button></a>
             </div>
-
           </div>
         </div>
-
         <div id="openModal-signup" className="modalDialog">
           <div>
-
-            <a href="#close" title="Close" className="close">X</a>
+            <a className="close" href="#close" title="Close">X</a>
             <div id="create-account">
-              <div id="create-title" className="twelve columns">
+              <div className="twelve columns" id="create-title" >
                 <h1>CREATE ACCOUNT</h1>
               </div>
-
               <form id="sign-up-form" onSubmit={this.onClickSubmit}>
                 <div id="user-name" className="row">
                   <div id="first-name" className="six columns">
-                    <input placeholder="First Name" id="firstName" name="signupFirstName" type="text" onChange={this.props.onFormChange} value={this.props.signupFirstName} className="validate"/>
+                    <input className="validate" id="firstName" name="signupFirstName" onChange={this.props.onFormChange} placeholder="First Name" type="text" value={this.props.signupFirstName} />
                   </div>
                   <div id="last-name" className="six columns">
-                    <input placeholder="Last Name" id="lastName" name="signupLastName" type="text" onChange={this.props.onFormChange} value={this.props.signupLastName} className="validate"/>
+                    <input className="validate" id="lastName" name="signupLastName" onChange={this.props.onFormChange} placeholder="Last Name" type="text" value={this.props.signupLastName} />
                   </div>
                 </div>
                 <div id="email-password" className="row">
                   <div id="email" className="six columns">
-                    <input placeholder="Email" id="email" name="signupEmail" type="text" onChange={this.props.onFormChange} value={this.props.signupEmail} className="validate"/>
+                    <input className="validate" id="email" name="signupEmail" onChange={this.props.onFormChange} placeholder="Email" type="text" value={this.props.signupEmail} />
                   </div>
                   <div id="password" className="six columns">
-                    <input placeholder="Password" id="password" name="signupPassword" type="password" onChange={this.props.onFormChange} value={this.props.signupPassword} className="validate"/>
+                    <input className="validate" id="password" name="signupPassword" onChange={this.props.onFormChange} placeholder="Password" type="password" value={this.props.signupPassword} />
                   </div>
                 </div>
               </form>
-
               <div id="create-account-btn" className="twelve columns">
-                <a href='#close' title="Close" className="close"><button id="create" type="submit" name="action" onClick={this.onClickSubmit}>
-
-                {/* Need to set this up so user is redirected to page they came form */}
+                <a className="close" href="#close" title="Close"><button id="create" name="action" onClick={this.onClickSubmit} type="submit" >
                 CREATE ACCOUNT</button></a>
               </div>
-
             </div>
-
             <div id="return-to-login" >
               <div className="row">
                 <p>RETURNING CUSTOMER?</p>
@@ -114,14 +93,11 @@ const Header = React.createClass({
               <div className="row">
                 <a href="#openModal"><button id="return-to-login-btn">LOGIN</button></a>
               </div>
-              {/* <button id="return-to-login-btn"><Link to='/login'>LOGIN</Link></button> */}
             </div>
-
           </div>
         </div>
-
     </header>
-    )
+    );
   }
 });
 

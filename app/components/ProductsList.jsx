@@ -1,57 +1,55 @@
-import React from 'react';
 import Products from './Products';
-import ProductsList from './ProductsList';
+import React from 'react';
 import SearchBox from './SearchBox';
 
 const ProductsLists = React.createClass({
-  handleClick () {
-    this.props.displaySearch()
+  handleClick() {
+    this.props.displaySearch();
   },
 
   handleSortType(event) {
-    console.log(event.target.name);
     const sortValue = event.target.name;
+
     this.props.handleSort(sortValue);
   },
 
   render() {
     const products = this.props.products.map((product, index) => {
       return <Products
-        product={product}
-        key={index}
-        handleAddToCart={this.props.handleAddToCart}
         displaySearch={this.displaySearch}
-        searchFilter={this.searchFilter}
+        handleAddToCart={this.props.handleAddToCart}
         handleSearch={this.props.handleSearch}
         inputValue={this.props.inputValue}
+        key={index}
+        product={product}
+        searchFilter={this.searchFilter}
         value={this.props.value}
       />
     });
 
     return (
       <div id="product-list">
-        <div id="products-header" className="row">
+        <div className="row" id="products-header">
           <h1>PRODUCTS</h1>
         </div>
-
         <div className="row">
           <div className="eight columns">
             <ul id="filter-sort">
               <li id="filter-options">FILTER BY LINE:</li>
-              <li><a name="all" href="#" onClick={this.handleSortType}>ALL</a></li>
-              <li><a name="beard" href="#" onClick={this.handleSortType}>BEARD</a></li>
-              <li><a name="moustache" href="#" onClick={this.handleSortType}>MUSTACHE</a></li>
+              <li><a href="#" name="all" onClick={this.handleSortType}>ALL</a></li>
+              <li><a href="#" name="beard" onClick={this.handleSortType}>BEARD</a></li>
+              <li><a href="#" name="moustache" onClick={this.handleSortType}>MUSTACHE</a></li>
             </ul>
           </div>
-          <div id="search-img" className="four columns">
-            <img onClick={this.handleClick} src="images/search-icon.png"/>
+          <div className="four columns" id="search-img">
+            <img onClick={this.handleClick} src="images/search-icon.png" />
           </div>
             {this.props.searchVisible ? <SearchBox
               handleSearch={this.props.handleSearch}
-              value={this.props.value}/> : null}
+              value={this.props.value} /> : null
+            }
         </div>
-
-        <div id="products-page" className="row">
+        <div className="row" id="products-page" >
           { products }
         </div>
       </div>

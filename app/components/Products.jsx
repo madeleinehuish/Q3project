@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import axios from 'axios';
 import React from 'react';
 
 const Products = React.createClass({
@@ -10,32 +9,29 @@ const Products = React.createClass({
   render() {
     return (
       <section id="products">
-        <div id="products-to-buy" className="four columns">
+        <div className="four columns" id="products-to-buy">
           <div className="product-image">
-            <a href="#openModal-product"><img src={this.props.product.image}/></a>
+            <a href="#openModal-product"><img src={this.props.product.image} /></a>
           </div>
           <div className="name-price">
             <p id="product-name">{(this.props.product.name).toUpperCase()}</p>
             <p className="bling">{Number(this.props.product.price).toFixed(2)}</p>
           </div>
-          <Link to='/cart'><button onClick={this.handleClick}>ADD TO CART</button></Link>
+          <Link to="/cart"><button onClick={this.handleClick}>ADD TO CART</button></Link>
         </div>
-
-        <div id="openModal-product" className="modalDialog-product">
+        <div className="modalDialog-product" id="openModal-product">
           <div>
-            <a href="#close" title="Close" className="close">X</a>
-
+            <a className="close" href="#close" title="Close">X</a>
             <div id="product-modal">
-              <div id="product-title" className="twelve columns">
+              <div className="twelve columns" id="product-title">
                 <h1>{this.props.product.name}</h1>
               </div>
-
-              <div id="product-content" className="row">
-                <div id="product-image" className="five columns">
+              <div className="row" id="product-content">
+                <div className="five columns" id="product-image">
                   <img id="modal-product-image" src={this.props.product.image} />
                 </div>
-                <div id="product-details" className="seven columns">
-                  <div id="rating-row" className="row">
+                <div className="seven columns" id="product-details">
+                  <div className="row" id="rating-row">
                     <p id="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></p>
                     <p id="number-of-reviews">117 reviews</p>
                   </div>
@@ -43,20 +39,22 @@ const Products = React.createClass({
                     <p id="price">{this.props.product.price}</p>
                     <p id="description">{this.props.product.description}</p>
                   <div className="row">
-                      <a href='#close' title="Close" className="close"><button onClick={this.handleClick}
-                        id="modal-product-btn">ADD TO CART</button></a>
+                      <a className="close" href="#close" title="Close">
+                        <button
+                          id="modal-product-btn"
+                          onClick={this.handleClick}
+                        >ADD TO CART
+                        </button></a>
                   </div>
                   </div>
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
       </section>
-    )
+    );
   }
-  });
+});
 
 export default Products;

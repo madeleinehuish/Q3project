@@ -6,7 +6,7 @@ module.exports = {
     connection: 'postgres://localhost/refined_dev'
   },
 
-  "production": {
+  production: {
     client: 'pg',
     connection: process.env.DATABASE_URL
   }

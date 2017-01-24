@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import axios from 'axios';
 import React from 'react';
 
 const Product = React.createClass({
@@ -21,8 +20,8 @@ const Product = React.createClass({
             <Link to='/cart'><button onClick={this.handleClick}>ADD TO CART</button></Link>
           </div> */}
       </section>
-    )
+    );
   }
-  });
+});
 
 export default Product;
