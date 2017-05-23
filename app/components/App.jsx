@@ -2,8 +2,6 @@ import axios from 'axios';
 import React from 'react';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import expect, { createSpy, spyOn, isSpy } from 'expect'
-
-
 import BeardGuides from './guides/BeardGuides';
 import Cart from './Cart';
 import Customer from './checkout/Customer';
